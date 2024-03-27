@@ -80,6 +80,16 @@
       <DependentUpon>AkenSisestus.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FoodDatabaseDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FoodDatabaseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FoodDatabaseDataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FoodDatabaseDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -108,6 +118,28 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="FoodDatabaseDataSet.xsc">
+      <DependentUpon>FoodDatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FoodDatabaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FoodDatabaseDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FoodDatabaseDataSet.xss">
+      <DependentUpon>FoodDatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FoodDatabaseDataSet1.xsc">
+      <DependentUpon>FoodDatabaseDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="FoodDatabaseDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FoodDatabaseDataSet1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FoodDatabaseDataSet1.xss">
+      <DependentUpon>FoodDatabaseDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
