@@ -80,6 +80,7 @@
       <DependentUpon>AkenSisestus.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CExportToCSV.vb" />
     <Compile Include="FoodDatabaseDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -90,6 +91,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FoodDatabaseDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="IExportToCSV.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
