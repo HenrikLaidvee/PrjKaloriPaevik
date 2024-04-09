@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Data.OleDb
 
 Public Class CCalories
     Implements ICalories
@@ -8,7 +9,7 @@ Public Class CCalories
 
     Public Sub New()
         ' Load saved data when the FitnessTracker instance is created
-        LoadData()
+
     End Sub
 
     Public Sub SetCalorieLimit(ByRef limit As Integer) Implements ICalories.SetCalorieLimit
@@ -32,59 +33,50 @@ Public Class CCalories
     Public Function GetCalorieLimit() As Integer Implements ICalories.GetCalorieLimit
         Return calorieLimit
     End Function
+    Private Function GetCurrentDateComponents() As String()
+        Dim currentDate As Date = Date.Now
+        Dim dayString As String = currentDate.Day.ToString()
+        Dim monthString As String = currentDate.Month.ToString()
+        Dim yearString As String = currentDate.Year.ToString()
 
-    Private Sub LoadData()
-        'Load calorie limit and consumed calories from a text file
+        ' Ensure day and month are formatted as two digits if necessary (e.g., '05' instead of '5')
+        If dayString.Length = 1 Then
+            dayString = "0" & dayString
+        End If
+        If monthString.Length = 1 Then
+            monthString = "0" & monthString
+        End If
+
+        Return {dayString, monthString, yearString}
+    End Function
+
+    Private connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Throthar\source\repos\PrjKaloriPaevik\FoodDatabase.accdb;"
+
+    Private Sub WriteData(value1 As String, value2 As String)
+        Dim dateArrey As String() = GetCurrentDateComponents()
         Try
-            Using reader As New StreamReader("FitnessData.txt")
-                Dim savedDate As Date = Date.ParseExact(reader.ReadLine(), "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture)
+            Using connection As New OleDbConnection(connectionString)
+                connection.Open()
 
-                If savedDate.Date = Date.Today Then
-                    'If saved date is today, load the saved consumed calories
-                    calorieLimit = Integer.Parse(reader.ReadLine())
-                    consumedCalories = Integer.Parse(reader.ReadLine())
-                Else
-                    'If saved date is not today, reset consumed calories to 0
-                    calorieLimit = Integer.Parse(reader.ReadLine())
-                    consumedCalories = 0
-                End If
+                Dim commandText As String = "INSERT INTO ajalugu (Kalorid, Limit, Päev, Kuu, Aasta) VALUES (@consumedCalories, @calorieLimit, @Päev, @Kuu, @Aasta)"
+                Dim command As New OleDbCommand(commandText, connection)
+
+                ' Add parameters to the command
+                command.Parameters.AddWithValue("@consumedCalories", consumedCalories)
+                command.Parameters.AddWithValue("@calorieLimit", calorieLimit)
+                command.Parameters.AddWithValue("@Päev", dateArrey(0))
+                command.Parameters.AddWithValue("@Kuu", dateArrey(1))
+                command.Parameters.AddWithValue("@Aasta", dateArrey(2))
+
+                command.ExecuteNonQuery()
             End Using
         Catch ex As Exception
-            ' If the file doesn't exist or there's an error, set default values
-            calorieLimit = 2000
-            consumedCalories = 0
+            ' Handle exceptions appropriately
+            Throw New Exception("Error writing data to the database: " & ex.Message)
         End Try
     End Sub
 
-    Private Sub SaveData()
-        Dim existingData As New List(Of String)()
-        Try
-            Using reader As New StreamReader("FitnessData.txt")
-                Dim line As String
-                While (InlineAssignHelper(line, reader.ReadLine())) IsNot Nothing
-                    existingData.Add(line)
-                End While
-            End Using
-        Catch ex As Exception
-            ' Handle any errors in reading existing data
-        End Try
 
-        ' Prepend new data to the existing data
-        existingData.Insert(0, Date.Today.ToString("yyyy-MM-dd")) ' Prepend today's date in "yyyy-MM-dd" format
-        existingData.Insert(1, calorieLimit.ToString())
-        existingData.Insert(2, consumedCalories.ToString())
-
-        ' Write the modified content back to the file
-        Try
-            Using writer As New StreamWriter("FitnessData.txt")
-                For Each line As String In existingData
-                    writer.WriteLine(line)
-                Next
-            End Using
-        Catch ex As Exception
-            ' Handle any errors in saving data
-        End Try
-    End Sub
     Private Shared Function InlineAssignHelper(Of T)(ByRef target As T, ByVal value As T) As T
         target = value
         Return value
