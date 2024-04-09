@@ -47,6 +47,8 @@ Partial Class Form1
         Me.ToitTableAdapter = New PrjKaloriPaevik.FoodDatabaseDataSet1TableAdapters.ToitTableAdapter()
         Me.TableAdapterManager1 = New PrjKaloriPaevik.FoodDatabaseDataSet1TableAdapters.TableAdapterManager()
         Me.FoodDataBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.btnCreateAccount = New System.Windows.Forms.Button()
+        Me.btnProfile = New System.Windows.Forms.Button()
         Me.gbDatabase.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ToitBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -240,11 +242,33 @@ Partial Class Form1
         Me.FoodDataBindingSource1.DataMember = "FoodData"
         Me.FoodDataBindingSource1.DataSource = Me.FoodDatabaseDataSet
         '
+        'btnCreateAccount
+        '
+        Me.btnCreateAccount.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.btnCreateAccount.Location = New System.Drawing.Point(12, 459)
+        Me.btnCreateAccount.Name = "btnCreateAccount"
+        Me.btnCreateAccount.Size = New System.Drawing.Size(163, 34)
+        Me.btnCreateAccount.TabIndex = 9
+        Me.btnCreateAccount.Text = "Loo kasutaja"
+        Me.btnCreateAccount.UseVisualStyleBackColor = True
+        '
+        'btnProfile
+        '
+        Me.btnProfile.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.btnProfile.Location = New System.Drawing.Point(181, 459)
+        Me.btnProfile.Name = "btnProfile"
+        Me.btnProfile.Size = New System.Drawing.Size(163, 34)
+        Me.btnProfile.TabIndex = 10
+        Me.btnProfile.Text = "Profiil"
+        Me.btnProfile.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(898, 450)
+        Me.ClientSize = New System.Drawing.Size(898, 505)
+        Me.Controls.Add(Me.btnProfile)
+        Me.Controls.Add(Me.btnCreateAccount)
         Me.Controls.Add(Me.txtSisestus)
         Me.Controls.Add(Me.gbInfo)
         Me.Controls.Add(Me.btnBack)
@@ -293,4 +317,6 @@ Partial Class Form1
     Friend WithEvents KategooriaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents KaloridDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents FoodDataBindingSource1 As BindingSource
+    Friend WithEvents btnCreateAccount As Button
+    Friend WithEvents btnProfile As Button
 End Class

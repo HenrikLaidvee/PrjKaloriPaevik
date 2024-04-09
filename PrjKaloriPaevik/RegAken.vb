@@ -2,7 +2,7 @@
 
 Public Class RegAken
 
-    Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\FoodDatabase.accdb;"
+    Dim connectionString As String = "Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=D:\Users\B\Documents\Tarkvaratehnika\FoodDatabase.accdb;"
 
     Private Sub RegAken_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -38,7 +38,8 @@ Public Class RegAken
 
         If cmbDay.SelectedIndex = -1 OrElse cmbMonth.SelectedIndex = -1 OrElse cmbYear.SelectedIndex = -1 _
             OrElse String.IsNullOrEmpty(txtWeight.Text) OrElse String.IsNullOrEmpty(txtPassword.Text) _
-            OrElse String.IsNullOrEmpty(txtUsername.Text) Then
+            OrElse String.IsNullOrEmpty(txtUsername.Text) OrElse String.IsNullOrEmpty(txtLastName.Text) _
+            OrElse String.IsNullOrEmpty(txtHeight.Text) Then
 
             MessageBox.Show("Palun täitke kõik väljad!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
@@ -47,31 +48,37 @@ Public Class RegAken
         Try
             Dim weight As Double = Double.Parse(txtWeight.Text)
 
+            Dim height As Double = Double.Parse(txtHeight.Text)
+
             Using connection As New OleDbConnection(connectionString)
                 connection.Open()
 
-                Dim query As String = "INSERT INTO YourTableName (Day, Month, Year, Weight, Username, Password) VALUES (@Day, @Month, @Year, @Weight, @Password, @Username)"
+                Dim query As String = "INSERT INTO Kasutaja (Eesnimi, Perenimi, Pikkus, Päev, Kuu, Aasta, Parool, Kaal) 
+                                        VALUES (@Eesnimi, @Perenimi, @Pikkus, @Päev, @Kuu, @Aasta, @Parool, @Kaal)"
                 Using command As New OleDbCommand(query, connection)
-                    command.Parameters.AddWithValue("@Username", txtUsername.Text)
-                    command.Parameters.AddWithValue("@Password", txtPassword.Text)
 
-                    'command.Parameters.AddWithValue("@Weight", age)
-                    command.Parameters.AddWithValue("@Day", cmbDay.SelectedItem)
-                    command.Parameters.AddWithValue("@Month", cmbMonth.SelectedItem)
-                    command.Parameters.AddWithValue("@Year", cmbYear.SelectedItem)
-                    command.Parameters.AddWithValue("@Weight", weight)
+                    command.Parameters.AddWithValue("@Eesnimi", txtUsername.Text)
+                    command.Parameters.AddWithValue("@Perenimi", txtLastName.Text)
+                    command.Parameters.AddWithValue("@Pikkus", height)
+                    command.Parameters.AddWithValue("@Päev", cmbDay.SelectedItem)
+                    command.Parameters.AddWithValue("@Kuu", cmbMonth.SelectedItem)
+                    command.Parameters.AddWithValue("@Aasta", cmbYear.SelectedItem)
+                    command.Parameters.AddWithValue("@Parool", txtPassword.Text)
+                    command.Parameters.AddWithValue("@Kaal", weight)
 
-
+                    'command.Parameters.AddWithValue("@Age", age)
 
                     command.ExecuteNonQuery()
                 End Using
             End Using
 
             MessageBox.Show("Andmed salvestatud edukalt!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Clear() ' Puhastab väljad pärast salvestamist
+            Clear()
+            Me.Hide()
+
         Catch ex As FormatException
             ' Kui sisestatud tekst ei ole number, siis error
-            MessageBox.Show("Palun sisestage ainult numbrid kaalu väljale!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Palun sisestage ainult numbrid kaalu ja pikkuse väljale!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Catch ex As Exception
             MessageBox.Show("Andmete salvestamisel tekkis viga: " & ex.Message, "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -99,6 +106,26 @@ Public Class RegAken
 
     End Sub
 
+    Private Sub txtLastName_TextChanged(sender As Object, e As EventArgs) Handles txtLastName.TextChanged
+        Dim maxChars As Integer = 30
+
+        Dim remainingChars As Integer = maxChars - txtLastName.Text.Length
+
+
+        lblLastNameMaxWords.Text = $"{remainingChars}"
+
+        If remainingChars <= 0 Then
+
+            Dim newText As String = txtLastName.Text.Substring(0, maxChars)
+            txtLastName.Text = newText
+            txtLastName.SelectionStart = maxChars
+
+            lblLimitReached.Visible = True
+        Else
+            lblLimitReached.Visible = False
+        End If
+    End Sub
+
     Private Function Clear()
         cmbDay.SelectedIndex = -1
         cmbMonth.SelectedIndex = -1
@@ -109,6 +136,11 @@ Public Class RegAken
     End Function
 
     Private Sub btnCalculateAge_Click(sender As Object, e As EventArgs) Handles btncalculateAge.Click
+
+        If cmbDay.SelectedItem Is Nothing OrElse cmbMonth.SelectedItem Is Nothing OrElse cmbYear.SelectedItem Is Nothing Then
+            MessageBox.Show("Palun valige kõik kuupäevaväljad!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
 
         Try
             Dim selectedDay As Integer = CInt(cmbDay.SelectedItem)
@@ -142,4 +174,8 @@ Public Class RegAken
     Private Function MonthToInt(ByVal monthName As String) As Integer
         Return Date.ParseExact(monthName, "MMMM", System.Globalization.CultureInfo.CurrentCulture).Month
     End Function
+
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+        Me.Close()
+    End Sub
 End Class

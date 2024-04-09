@@ -83,8 +83,15 @@ Public Class Form1
 
     End Sub
 
-    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+    Private Sub btnCreateAccount_Click(sender As Object, e As EventArgs) Handles btnCreateAccount.Click
         RegAken.Show()
-        ' Me.Hide()
+    End Sub
+
+    Private Sub btnProfile_Click(sender As Object, e As EventArgs) Handles btnProfile.Click
+        Profiil.Show()
+    End Sub
+
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+        Me.Close()
     End Sub
 End Class

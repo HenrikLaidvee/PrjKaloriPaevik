@@ -23,6 +23,12 @@ Partial Class RegAken
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtHeight = New System.Windows.Forms.TextBox()
+        Me.lblHeight = New System.Windows.Forms.Label()
+        Me.lblLastNameMaxWords = New System.Windows.Forms.Label()
+        Me.lblLastName = New System.Windows.Forms.Label()
+        Me.txtLastName = New System.Windows.Forms.TextBox()
+        Me.btncalculateAge = New System.Windows.Forms.Button()
         Me.cmbYear = New System.Windows.Forms.ComboBox()
         Me.cmbMonth = New System.Windows.Forms.ComboBox()
         Me.cmbDay = New System.Windows.Forms.ComboBox()
@@ -38,19 +44,19 @@ Partial Class RegAken
         Me.lblFirstName = New System.Windows.Forms.Label()
         Me.btnCreateAccount = New System.Windows.Forms.Button()
         Me.txtUsername = New System.Windows.Forms.TextBox()
-        Me.btncalculateAge = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.lblLastName = New System.Windows.Forms.Label()
-        Me.lblLastNameMaxWords = New System.Windows.Forms.Label()
+        Me.btnBack = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.btnBack)
+        Me.GroupBox1.Controls.Add(Me.txtHeight)
+        Me.GroupBox1.Controls.Add(Me.btncalculateAge)
+        Me.GroupBox1.Controls.Add(Me.lblHeight)
         Me.GroupBox1.Controls.Add(Me.lblLastNameMaxWords)
         Me.GroupBox1.Controls.Add(Me.lblLastName)
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
-        Me.GroupBox1.Controls.Add(Me.btncalculateAge)
+        Me.GroupBox1.Controls.Add(Me.txtLastName)
         Me.GroupBox1.Controls.Add(Me.cmbYear)
         Me.GroupBox1.Controls.Add(Me.cmbMonth)
         Me.GroupBox1.Controls.Add(Me.cmbDay)
@@ -69,10 +75,63 @@ Partial Class RegAken
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(634, 326)
+        Me.GroupBox1.Size = New System.Drawing.Size(634, 367)
         Me.GroupBox1.TabIndex = 4
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Kasutaja andmed"
+        '
+        'txtHeight
+        '
+        Me.txtHeight.Location = New System.Drawing.Point(156, 230)
+        Me.txtHeight.Name = "txtHeight"
+        Me.txtHeight.Size = New System.Drawing.Size(102, 30)
+        Me.txtHeight.TabIndex = 22
+        '
+        'lblHeight
+        '
+        Me.lblHeight.AutoSize = True
+        Me.lblHeight.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.lblHeight.Location = New System.Drawing.Point(25, 235)
+        Me.lblHeight.Name = "lblHeight"
+        Me.lblHeight.Size = New System.Drawing.Size(121, 25)
+        Me.lblHeight.TabIndex = 21
+        Me.lblHeight.Text = "Pikkus (cm):"
+        '
+        'lblLastNameMaxWords
+        '
+        Me.lblLastNameMaxWords.AutoSize = True
+        Me.lblLastNameMaxWords.Location = New System.Drawing.Point(482, 87)
+        Me.lblLastNameMaxWords.Name = "lblLastNameMaxWords"
+        Me.lblLastNameMaxWords.Size = New System.Drawing.Size(34, 25)
+        Me.lblLastNameMaxWords.TabIndex = 20
+        Me.lblLastNameMaxWords.Text = "30"
+        '
+        'lblLastName
+        '
+        Me.lblLastName.AutoSize = True
+        Me.lblLastName.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.lblLastName.Location = New System.Drawing.Point(52, 82)
+        Me.lblLastName.Name = "lblLastName"
+        Me.lblLastName.Size = New System.Drawing.Size(94, 25)
+        Me.lblLastName.TabIndex = 19
+        Me.lblLastName.Text = "Perenimi:"
+        '
+        'txtLastName
+        '
+        Me.txtLastName.Location = New System.Drawing.Point(156, 82)
+        Me.txtLastName.Name = "txtLastName"
+        Me.txtLastName.Size = New System.Drawing.Size(320, 30)
+        Me.txtLastName.TabIndex = 18
+        '
+        'btncalculateAge
+        '
+        Me.btncalculateAge.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.btncalculateAge.Location = New System.Drawing.Point(156, 277)
+        Me.btncalculateAge.Name = "btncalculateAge"
+        Me.btncalculateAge.Size = New System.Drawing.Size(322, 34)
+        Me.btncalculateAge.TabIndex = 17
+        Me.btncalculateAge.Text = "arvuta vanus"
+        Me.btncalculateAge.UseVisualStyleBackColor = True
         '
         'cmbYear
         '
@@ -105,7 +164,7 @@ Partial Class RegAken
         '
         Me.lblWeight.AutoSize = True
         Me.lblWeight.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.lblWeight.Location = New System.Drawing.Point(52, 213)
+        Me.lblWeight.Location = New System.Drawing.Point(48, 197)
         Me.lblWeight.Name = "lblWeight"
         Me.lblWeight.Size = New System.Drawing.Size(98, 25)
         Me.lblWeight.TabIndex = 13
@@ -115,7 +174,7 @@ Partial Class RegAken
         '
         Me.lblAge.AutoSize = True
         Me.lblAge.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.lblAge.Location = New System.Drawing.Point(6, 157)
+        Me.lblAge.Location = New System.Drawing.Point(2, 157)
         Me.lblAge.Name = "lblAge"
         Me.lblAge.Size = New System.Drawing.Size(144, 25)
         Me.lblAge.TabIndex = 12
@@ -123,7 +182,7 @@ Partial Class RegAken
         '
         'txtWeight
         '
-        Me.txtWeight.Location = New System.Drawing.Point(156, 208)
+        Me.txtWeight.Location = New System.Drawing.Point(156, 194)
         Me.txtWeight.Name = "txtWeight"
         Me.txtWeight.Size = New System.Drawing.Size(102, 30)
         Me.txtWeight.TabIndex = 11
@@ -166,7 +225,7 @@ Partial Class RegAken
         '
         Me.lblPassword.AutoSize = True
         Me.lblPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.lblPassword.Location = New System.Drawing.Point(76, 118)
+        Me.lblPassword.Location = New System.Drawing.Point(72, 121)
         Me.lblPassword.Name = "lblPassword"
         Me.lblPassword.Size = New System.Drawing.Size(74, 25)
         Me.lblPassword.TabIndex = 4
@@ -185,7 +244,7 @@ Partial Class RegAken
         '
         Me.lblFirstName.AutoSize = True
         Me.lblFirstName.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.lblFirstName.Location = New System.Drawing.Point(52, 49)
+        Me.lblFirstName.Location = New System.Drawing.Point(59, 51)
         Me.lblFirstName.Name = "lblFirstName"
         Me.lblFirstName.Size = New System.Drawing.Size(87, 25)
         Me.lblFirstName.TabIndex = 2
@@ -193,9 +252,9 @@ Partial Class RegAken
         '
         'btnCreateAccount
         '
-        Me.btnCreateAccount.Location = New System.Drawing.Point(264, 208)
+        Me.btnCreateAccount.Location = New System.Drawing.Point(266, 194)
         Me.btnCreateAccount.Name = "btnCreateAccount"
-        Me.btnCreateAccount.Size = New System.Drawing.Size(212, 30)
+        Me.btnCreateAccount.Size = New System.Drawing.Size(212, 66)
         Me.btnCreateAccount.TabIndex = 0
         Me.btnCreateAccount.Text = "Loo kasutaja"
         Me.btnCreateAccount.UseVisualStyleBackColor = True
@@ -207,47 +266,21 @@ Partial Class RegAken
         Me.txtUsername.Size = New System.Drawing.Size(320, 30)
         Me.txtUsername.TabIndex = 1
         '
-        'btncalculateAge
+        'btnBack
         '
-        Me.btncalculateAge.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.btncalculateAge.Location = New System.Drawing.Point(498, 180)
-        Me.btncalculateAge.Name = "btncalculateAge"
-        Me.btncalculateAge.Size = New System.Drawing.Size(100, 58)
-        Me.btncalculateAge.TabIndex = 17
-        Me.btncalculateAge.Text = "arvuta vanus"
-        Me.btncalculateAge.UseVisualStyleBackColor = True
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(156, 82)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(320, 30)
-        Me.TextBox1.TabIndex = 18
-        '
-        'lblLastName
-        '
-        Me.lblLastName.AutoSize = True
-        Me.lblLastName.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.lblLastName.Location = New System.Drawing.Point(52, 82)
-        Me.lblLastName.Name = "lblLastName"
-        Me.lblLastName.Size = New System.Drawing.Size(94, 25)
-        Me.lblLastName.TabIndex = 19
-        Me.lblLastName.Text = "Perenimi:"
-        '
-        'lblLastNameMaxWords
-        '
-        Me.lblLastNameMaxWords.AutoSize = True
-        Me.lblLastNameMaxWords.Location = New System.Drawing.Point(482, 87)
-        Me.lblLastNameMaxWords.Name = "lblLastNameMaxWords"
-        Me.lblLastNameMaxWords.Size = New System.Drawing.Size(34, 25)
-        Me.lblLastNameMaxWords.TabIndex = 20
-        Me.lblLastNameMaxWords.Text = "30"
+        Me.btnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.btnBack.Location = New System.Drawing.Point(156, 317)
+        Me.btnBack.Name = "btnBack"
+        Me.btnBack.Size = New System.Drawing.Size(322, 33)
+        Me.btnBack.TabIndex = 23
+        Me.btnBack.Text = "Tagasi"
+        Me.btnBack.UseVisualStyleBackColor = True
         '
         'RegAken
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(658, 359)
+        Me.ClientSize = New System.Drawing.Size(658, 388)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "RegAken"
         Me.Text = "RegAken"
@@ -274,7 +307,10 @@ Partial Class RegAken
     Friend WithEvents cmbMonth As ComboBox
     Friend WithEvents cmbDay As ComboBox
     Friend WithEvents btncalculateAge As Button
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtLastName As TextBox
     Friend WithEvents lblLastNameMaxWords As Label
     Friend WithEvents lblLastName As Label
+    Friend WithEvents txtHeight As TextBox
+    Friend WithEvents lblHeight As Label
+    Friend WithEvents btnBack As Button
 End Class
