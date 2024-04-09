@@ -105,6 +105,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Profiil.Designer.vb">
+      <DependentUpon>Profiil.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Profiil.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegAken.Designer.vb">
+      <DependentUpon>RegAken.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RegAken.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AkenSisestus.resx">
@@ -115,6 +127,12 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Profiil.resx">
+      <DependentUpon>Profiil.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegAken.resx">
+      <DependentUpon>RegAken.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -83,4 +83,8 @@ Public Class Form1
 
     End Sub
 
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+        RegAken.Show()
+        ' Me.Hide()
+    End Sub
 End Class

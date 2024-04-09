@@ -25,6 +25,13 @@ Partial Class Form1
         Me.components = New System.ComponentModel.Container()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.gbDatabase = New System.Windows.Forms.GroupBox()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NimiDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.KategooriaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.KaloridDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ToitBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.FoodDatabaseDataSet1 = New PrjKaloriPaevik.FoodDatabaseDataSet1()
         Me.FoodDataBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.FoodDatabaseDataSet = New PrjKaloriPaevik.FoodDatabaseDataSet()
         Me.btnSearch = New System.Windows.Forms.Button()
@@ -37,24 +44,17 @@ Partial Class Form1
         Me.txtSisestus = New System.Windows.Forms.TextBox()
         Me.FoodDataTableAdapter = New PrjKaloriPaevik.FoodDatabaseDataSetTableAdapters.FoodDataTableAdapter()
         Me.TableAdapterManager = New PrjKaloriPaevik.FoodDatabaseDataSetTableAdapters.TableAdapterManager()
-        Me.FoodDatabaseDataSet1 = New PrjKaloriPaevik.FoodDatabaseDataSet1()
-        Me.ToitBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ToitTableAdapter = New PrjKaloriPaevik.FoodDatabaseDataSet1TableAdapters.ToitTableAdapter()
         Me.TableAdapterManager1 = New PrjKaloriPaevik.FoodDatabaseDataSet1TableAdapters.TableAdapterManager()
         Me.FoodDataBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NimiDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.KategooriaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.KaloridDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.gbDatabase.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ToitBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FoodDatabaseDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FoodDataBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FoodDatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbInfo.SuspendLayout()
-        CType(Me.FoodDatabaseDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ToitBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FoodDataBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -77,6 +77,53 @@ Partial Class Form1
         Me.gbDatabase.TabIndex = 1
         Me.gbDatabase.TabStop = False
         Me.gbDatabase.Text = "Valige sobiv toode"
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AutoGenerateColumns = False
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.NimiDataGridViewTextBoxColumn, Me.KategooriaDataGridViewTextBoxColumn, Me.KaloridDataGridViewTextBoxColumn})
+        Me.DataGridView1.DataSource = Me.ToitBindingSource
+        Me.DataGridView1.Location = New System.Drawing.Point(15, 29)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(589, 309)
+        Me.DataGridView1.TabIndex = 0
+        '
+        'IDDataGridViewTextBoxColumn
+        '
+        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
+        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
+        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
+        '
+        'NimiDataGridViewTextBoxColumn
+        '
+        Me.NimiDataGridViewTextBoxColumn.DataPropertyName = "Nimi"
+        Me.NimiDataGridViewTextBoxColumn.HeaderText = "Nimi"
+        Me.NimiDataGridViewTextBoxColumn.Name = "NimiDataGridViewTextBoxColumn"
+        Me.NimiDataGridViewTextBoxColumn.Width = 200
+        '
+        'KategooriaDataGridViewTextBoxColumn
+        '
+        Me.KategooriaDataGridViewTextBoxColumn.DataPropertyName = "Kategooria"
+        Me.KategooriaDataGridViewTextBoxColumn.HeaderText = "Kategooria"
+        Me.KategooriaDataGridViewTextBoxColumn.Name = "KategooriaDataGridViewTextBoxColumn"
+        Me.KategooriaDataGridViewTextBoxColumn.Width = 150
+        '
+        'KaloridDataGridViewTextBoxColumn
+        '
+        Me.KaloridDataGridViewTextBoxColumn.DataPropertyName = "Kalorid"
+        Me.KaloridDataGridViewTextBoxColumn.HeaderText = "Kalorid"
+        Me.KaloridDataGridViewTextBoxColumn.Name = "KaloridDataGridViewTextBoxColumn"
+        '
+        'ToitBindingSource
+        '
+        Me.ToitBindingSource.DataMember = "Toit"
+        Me.ToitBindingSource.DataSource = Me.FoodDatabaseDataSet1
+        '
+        'FoodDatabaseDataSet1
+        '
+        Me.FoodDatabaseDataSet1.DataSetName = "FoodDatabaseDataSet1"
+        Me.FoodDatabaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'FoodDataBindingSource
         '
@@ -176,16 +223,6 @@ Partial Class Form1
         Me.TableAdapterManager.NutrientsTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = PrjKaloriPaevik.FoodDatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'FoodDatabaseDataSet1
-        '
-        Me.FoodDatabaseDataSet1.DataSetName = "FoodDatabaseDataSet1"
-        Me.FoodDatabaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'ToitBindingSource
-        '
-        Me.ToitBindingSource.DataMember = "Toit"
-        Me.ToitBindingSource.DataSource = Me.FoodDatabaseDataSet1
-        '
         'ToitTableAdapter
         '
         Me.ToitTableAdapter.ClearBeforeFill = True
@@ -202,43 +239,6 @@ Partial Class Form1
         '
         Me.FoodDataBindingSource1.DataMember = "FoodData"
         Me.FoodDataBindingSource1.DataSource = Me.FoodDatabaseDataSet
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.NimiDataGridViewTextBoxColumn, Me.KategooriaDataGridViewTextBoxColumn, Me.KaloridDataGridViewTextBoxColumn})
-        Me.DataGridView1.DataSource = Me.ToitBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(15, 29)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(589, 309)
-        Me.DataGridView1.TabIndex = 0
-        '
-        'IDDataGridViewTextBoxColumn
-        '
-        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
-        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
-        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
-        '
-        'NimiDataGridViewTextBoxColumn
-        '
-        Me.NimiDataGridViewTextBoxColumn.DataPropertyName = "Nimi"
-        Me.NimiDataGridViewTextBoxColumn.HeaderText = "Nimi"
-        Me.NimiDataGridViewTextBoxColumn.Name = "NimiDataGridViewTextBoxColumn"
-        Me.NimiDataGridViewTextBoxColumn.Width = 200
-        '
-        'KategooriaDataGridViewTextBoxColumn
-        '
-        Me.KategooriaDataGridViewTextBoxColumn.DataPropertyName = "Kategooria"
-        Me.KategooriaDataGridViewTextBoxColumn.HeaderText = "Kategooria"
-        Me.KategooriaDataGridViewTextBoxColumn.Name = "KategooriaDataGridViewTextBoxColumn"
-        Me.KategooriaDataGridViewTextBoxColumn.Width = 150
-        '
-        'KaloridDataGridViewTextBoxColumn
-        '
-        Me.KaloridDataGridViewTextBoxColumn.DataPropertyName = "Kalorid"
-        Me.KaloridDataGridViewTextBoxColumn.HeaderText = "Kalorid"
-        Me.KaloridDataGridViewTextBoxColumn.Name = "KaloridDataGridViewTextBoxColumn"
         '
         'Form1
         '
@@ -257,13 +257,13 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.Text = "Database aken"
         Me.gbDatabase.ResumeLayout(False)
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ToitBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FoodDatabaseDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FoodDataBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FoodDatabaseDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbInfo.ResumeLayout(False)
-        CType(Me.FoodDatabaseDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ToitBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FoodDataBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
