@@ -20,6 +20,7 @@ Public Class CExportToCSV
                 completePath = filepath + "\" + filename
             Else
                 MessageBox.Show("Ebasobiv faili asukoht")
+
             End If
 
 
@@ -41,6 +42,7 @@ Public Class CExportToCSV
     Public Function ContainsSymbols(input As String) As Boolean Implements IExportToCSV.ContainsSymbols
         Try
             Dim pattern As String = "[^\w\s]"
+            'Regex otsib antud patternit 
             Dim regex As New Regex(pattern)
             Return regex.IsMatch(input)
         Catch
