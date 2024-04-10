@@ -7,12 +7,30 @@ Public Class CExportToCSV
 
     Public Sub IExportToCSV_WriteToFile(filepath As String, filename As String, field1 As String, field2 As String, field3 As String, field4 As String, field5 As String, delimiter As String) Implements IExportToCSV.WriteToFile
         Try
-            Dim fileWriter As New System.IO.StreamWriter(filepath + "\" + filename, True)
+            Dim completePath As String
+            If Not String.IsNullOrEmpty(filename) Then
+                completePath = filepath + "\" + filename
+            Else
+                MessageBox.Show("Ebasobiv failinimi")
+            End If
+
+            If Not String.IsNullOrEmpty(filepath) Then
+                completePath = filepath + "\" + filename
+            Else
+                MessageBox.Show("Ebasobiv faili asukoht")
+            End If
+
+
+            Dim fileWriter As New System.IO.StreamWriter(completePath, True)
             'MessageBox.Show(filepath + "\" + filename)
             Dim record As String = field1 + delimiter + field2 + delimiter + field3 + delimiter + field4 + delimiter + field5
             fileWriter.WriteLine(record)
             fileWriter.Close()
-            MessageBox.Show("Salvestatud")
+            If File.ReadAllText(completePath).Length > 0 Then
+                MessageBox.Show("Salvestatud")
+            Else
+                MessageBox.Show("Ebaõnnestus")
+            End If
         Catch ex As IOException
             MessageBox.Show("An IO error occurred: " & ex.Message)
         End Try
