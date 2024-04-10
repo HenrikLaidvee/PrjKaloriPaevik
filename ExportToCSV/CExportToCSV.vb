@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Text.RegularExpressions
 Imports System.Windows.Forms
 Public Class CExportToCSV
     Implements IExportToCSV
@@ -8,13 +9,14 @@ Public Class CExportToCSV
     Public Sub IExportToCSV_WriteToFile(filepath As String, filename As String, field1 As String, field2 As String, field3 As String, field4 As String, field5 As String, delimiter As String) Implements IExportToCSV.WriteToFile
         Try
             Dim completePath As String
-            If Not String.IsNullOrEmpty(filename) Then
+            If Not String.IsNullOrEmpty(filename) Or Not ContainsSymbols(filename) Then
                 completePath = filepath + "\" + filename
             Else
                 MessageBox.Show("Ebasobiv failinimi")
+
             End If
 
-            If Not String.IsNullOrEmpty(filepath) Then
+            If Not String.IsNullOrEmpty(filepath) Or Not ContainsSymbols(filepath) Then
                 completePath = filepath + "\" + filename
             Else
                 MessageBox.Show("Ebasobiv faili asukoht")
@@ -35,6 +37,16 @@ Public Class CExportToCSV
             MessageBox.Show("An IO error occurred: " & ex.Message)
         End Try
     End Sub
+
+    Public Function ContainsSymbols(input As String) As Boolean Implements IExportToCSV.ContainsSymbols
+        Try
+            Dim pattern As String = "[^\w\s]"
+            Dim regex As New Regex(pattern)
+            Return regex.IsMatch(input)
+        Catch
+            Return -1
+        End Try
+    End Function
 
     'Public Sub WriteToLog() Implements IExportToCSV.WriteToLog
     '    Dim currentTime As String
