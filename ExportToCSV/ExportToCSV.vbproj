@@ -112,5 +112,11 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PrjKaloriPaevikKalorid\PrjKaloriPaevikKalorid.vbproj">
+      <Project>{b1ece5dc-97ff-4910-b034-cce482bf6485}</Project>
+      <Name>PrjKaloriPaevikKalorid</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
