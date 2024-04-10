@@ -35,7 +35,7 @@ Public Class CExportToCSV
                 MessageBox.Show("Ebaõnnestus")
             End If
         Catch ex As IOException
-            MessageBox.Show("An IO error occurred: " & ex.Message)
+            'MessageBox.Show("An IO error occurred: " & ex.Message)
         End Try
     End Sub
 
