@@ -12,9 +12,9 @@ Public Class CExportToCSV
             Dim record As String = field1 + delimiter + field2 + delimiter + field3 + delimiter + field4 + delimiter + field5
             fileWriter.WriteLine(record)
             fileWriter.Close()
-            MessageBox.Show("Salvestatud")
+            'MessageBox.Show("Salvestatud")
         Catch ex As IOException
-            MessageBox.Show("An IO error occurred: " & ex.Message)
+            'MessageBox.Show("An IO error occurred: " & ex.Message)
         End Try
     End Sub
 

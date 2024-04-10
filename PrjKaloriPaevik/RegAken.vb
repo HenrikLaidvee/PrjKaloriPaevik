@@ -2,7 +2,7 @@
 
 Public Class RegAken
 
-    Dim connectionString As String = "Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=D:\Users\B\Documents\Tarkvaratehnika\FoodDatabase.accdb;"
+    Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\FoodDatabase.accdb;"
 
     Private Sub RegAken_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
