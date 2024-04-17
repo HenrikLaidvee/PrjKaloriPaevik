@@ -1,6 +1,7 @@
 ﻿
 Imports System.Data.OleDb
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Imports PrjKaloriPaevikKalorid
 
 Public Class Form1
 
@@ -114,5 +115,16 @@ Public Class Form1
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         ' Peaks salvestama koos kasutaja idga enda logi
+        Dim selectedRow As DataGridViewRow = DataGridView1.SelectedRows(0)
+
+        Dim value As Integer = selectedRow.Cells("ID").Value
+        Dim calories As PrjKaloriPaevikKalorid.ICalories
+        calories = New PrjKaloriPaevikKalorid.CCalories
+        calories.AddCalories(value)
+
+    End Sub
+
+    Private Sub DataGridView1_SelectionChanged(sender As Object, e As EventArgs) Handles DataGridView1.SelectionChanged
+
     End Sub
 End Class

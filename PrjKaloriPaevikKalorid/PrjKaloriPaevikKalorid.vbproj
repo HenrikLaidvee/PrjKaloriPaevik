@@ -120,11 +120,5 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\PrjKaloriPaevik\PrjKaloriPaevik.vbproj">
-      <Project>{e1ae51be-0270-438a-b6de-7720d0ef36c6}</Project>
-      <Name>PrjKaloriPaevik</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

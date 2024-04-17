@@ -23,7 +23,7 @@ Public Class CCalories
             Using connection As New OleDbConnection(connectionString)
                 connection.Open()
 
-                Dim commandText As String = "SELECT Toit FROM Kalorid WHERE YourPrimaryKeyColumn = ID"
+                Dim commandText As String = "SELECT Kalorid FROM Toit WHERE YourPrimaryKeyColumn = ID"
                 Dim command As New OleDbCommand(commandText, connection)
                 ' Specify the value of the primary key to retrieve
                 command.Parameters.AddWithValue("ID", ID)
@@ -50,15 +50,15 @@ Public Class CCalories
             Using connection As New OleDbConnection(connectionString)
                 connection.Open()
 
-                Dim commandText As String = "INSERT INTO ajalugu (Kalorid, Limit, Päev, Kuu, Aasta) VALUES (@consumedCalories, @calorieLimit, @Päev, @Kuu, @Aasta)"
+                Dim commandText As String = "INSERT INTO ajalugu (Päev, Kuu, Aasta, Kalorid, Limiit) VALUES (@Päev, @Kuu, @Aasta, @consumedCalories, @calorieLimit)"
                 Dim command As New OleDbCommand(commandText, connection)
 
                 ' Add parameters to the command
-                command.Parameters.AddWithValue("@consumedCalories", consumedCalories)
-                command.Parameters.AddWithValue("@calorieLimit", calorieLimit)
                 command.Parameters.AddWithValue("@Päev", dateArrey(0))
                 command.Parameters.AddWithValue("@Kuu", dateArrey(1))
                 command.Parameters.AddWithValue("@Aasta", dateArrey(2))
+                command.Parameters.AddWithValue("@consumedCalories", consumedCalories)
+                command.Parameters.AddWithValue("@calorieLimit", calorieLimit)
 
                 command.ExecuteNonQuery()
             End Using
@@ -67,10 +67,4 @@ Public Class CCalories
             Throw New Exception("Error writing data to the database: " & ex.Message)
         End Try
     End Sub
-
-
-    Private Shared Function InlineAssignHelper(Of T)(ByRef target As T, ByVal value As T) As T
-        target = value
-        Return value
-    End Function
 End Class
