@@ -118,6 +118,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FoodDatabaseDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FoodDatabaseDataSet2.vb">
+      <DependentUpon>FoodDatabaseDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="KasutajaMoodul.vb" />
     <Compile Include="LogInAken.Designer.vb">
       <DependentUpon>LogInAken.vb</DependentUpon>
