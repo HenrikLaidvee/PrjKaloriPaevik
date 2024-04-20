@@ -6,17 +6,19 @@ Public Class CCalories
 
     Private calorieLimit As Integer
     Private consumedCalories As Integer
+    Private kaal As Integer
     Dim oldDate As Date
     Private connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Throthar\source\repos\PrjKaloriPaevik\FoodDatabase.accdb;"
     Sub New()
         Using connection As New OleDbConnection(connectionString)
             Try
                 connection.Open()
-                Dim commandText As String = "SELECT top 1 Limiit, Kalorid, DateSerial(Päev, Kuu, Aasta) AS combined_date FROM ajalugu ORDER BY ID DESC"
+                Dim commandText As String = "SELECT top 1 Kaal, Limiit, Kalorid, DateSerial(Päev, Kuu, Aasta) AS combined_date FROM ajalugu ORDER BY ID DESC"
                 Dim command As New OleDbCommand(commandText, connection)
                 Dim reader As OleDbDataReader = command.ExecuteReader()
                 If reader.Read() Then
                     ' Access individual columns by column name or index
+                    kaal = Convert.ToInt32(reader("Kaal"))
                     calorieLimit = Convert.ToInt32(reader("Limiit"))
                     consumedCalories = Convert.ToInt32(reader("Kalorid"))
                     oldDate = Convert.ToDateTime(reader("combined_date"))
@@ -73,13 +75,14 @@ Public Class CCalories
             Using connection As New OleDbConnection(connectionString)
                 connection.Open()
 
-                Dim commandText As String = "INSERT INTO ajalugu (Päev, Kuu, Aasta, Kalorid, Limiit) VALUES (@Päev, @Kuu, @Aasta, @consumedCalories, @calorieLimit)"
+                Dim commandText As String = "INSERT INTO ajalugu (Päev, Kuu, Aasta, Kaal, Kalorid, Limiit) VALUES (@Päev, @Kuu, @Aasta, @kaal, @consumedCalories, @calorieLimit)"
                 Dim command As New OleDbCommand(commandText, connection)
 
                 ' Add parameters to the command
                 command.Parameters.AddWithValue("@Päev", dateArrey(0))
                 command.Parameters.AddWithValue("@Kuu", dateArrey(1))
                 command.Parameters.AddWithValue("@Aasta", dateArrey(2))
+                command.Parameters.AddWithValue("@Kaal", kaal)
                 command.Parameters.AddWithValue("@consumedCalories", consumedCalories)
                 command.Parameters.AddWithValue("@calorieLimit", calorieLimit)
 
