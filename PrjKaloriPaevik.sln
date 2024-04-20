@@ -11,6 +11,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PrjKaloriPaevikKalorid", "P
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ExportToCSV", "ExportToCSV\ExportToCSV.vbproj", "{7A951BD9-FABF-4CF6-A3DA-51C23F931BA1}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PrjKaloriPaevikSuhkur", "PrjKaloriPaevikSuhkur\PrjKaloriPaevikSuhkur.vbproj", "{F69BEF5B-8263-4EF8-8EC3-CDC879D0275A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,14 @@ Global
 		{7A951BD9-FABF-4CF6-A3DA-51C23F931BA1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7A951BD9-FABF-4CF6-A3DA-51C23F931BA1}.Release|x64.ActiveCfg = Release|x64
 		{7A951BD9-FABF-4CF6-A3DA-51C23F931BA1}.Release|x64.Build.0 = Release|x64
+		{F69BEF5B-8263-4EF8-8EC3-CDC879D0275A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F69BEF5B-8263-4EF8-8EC3-CDC879D0275A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F69BEF5B-8263-4EF8-8EC3-CDC879D0275A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F69BEF5B-8263-4EF8-8EC3-CDC879D0275A}.Debug|x64.Build.0 = Debug|Any CPU
+		{F69BEF5B-8263-4EF8-8EC3-CDC879D0275A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F69BEF5B-8263-4EF8-8EC3-CDC879D0275A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F69BEF5B-8263-4EF8-8EC3-CDC879D0275A}.Release|x64.ActiveCfg = Release|Any CPU
+		{F69BEF5B-8263-4EF8-8EC3-CDC879D0275A}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
