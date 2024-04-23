@@ -27,8 +27,11 @@ Public Class CExportToCSV
             Dim fileWriter As New System.IO.StreamWriter(completePath, True)
             'MessageBox.Show(filepath + "\" + filename)
             Dim record As String = field1 + delimiter + field2 + delimiter + field3 + delimiter + field4 + delimiter + field5
+            'Seda tuleks teha võibolla tsükliliselt oleneb kuidas data antakse
             fileWriter.WriteLine(record)
+
             fileWriter.Close()
+
             If File.ReadAllText(completePath).Length > 0 Then
                 MessageBox.Show("Salvestatud")
             Else
@@ -50,10 +53,5 @@ Public Class CExportToCSV
         End Try
     End Function
 
-    'Public Sub WriteToLog() Implements IExportToCSV.WriteToLog
-    '    Dim currentTime As String
-    '    currentTime = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
 
-
-    'End Sub
 End Class
