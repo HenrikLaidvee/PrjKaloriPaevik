@@ -13,14 +13,14 @@ Public Class CExportToCSV
                 completePath = filepath + "\" + filename
             Else
                 MessageBox.Show("Ebasobiv failinimi")
-
+                Exit Sub
             End If
 
             If Not String.IsNullOrEmpty(filepath) Or Not ContainsSymbols(filepath) Then
                 completePath = filepath + "\" + filename
             Else
                 MessageBox.Show("Ebasobiv faili asukoht")
-
+                Exit Sub
             End If
 
 
