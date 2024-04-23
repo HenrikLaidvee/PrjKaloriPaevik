@@ -1,22 +1,28 @@
 ﻿Public Class CFoodWarning
     Implements IFoodWarning
 
-    Private ReadOnly _calorieThreshold As Integer
+    Const fatPerCalorie As Double = 0.35
 
-    Public Sub New(calorieThreshold As Integer)
-        _calorieThreshold = calorieThreshold
-    End Sub
+    Private calorieThresholdPerServing As Integer = 500
 
-    Public Function IsFoodUnhealthy(foodName As String, calorieContent As Integer) As Boolean Implements IFoodWarning.IsFoodUnhealthy
-        If calorieContent > _calorieThreshold Then
-            Return True
+
+
+
+    Public Function IsFoodUnhealthy(foodName As String, calorieContent As Integer, fatContent As Double) As Integer Implements IFoodWarning.IsFoodUnhealthy
+        If calorieContent > calorieThresholdPerServing Then
+            Return 1
+        ElseIf calorieContent / fatPerCalorie > fatContent Then
+
+            Return 2
         Else
-            Return False
+            Return 0
         End If
     End Function
-    Public Sub DisplayWarning(foodName As String, calorieContent As Integer) Implements IFoodWarning.DisplayWarning
-        If IsFoodUnhealthy(foodName, calorieContent) Then
-            Console.WriteLine($"Warning: {foodName} is high in calories ({calorieContent} calories per serving) and may not be suitable for consumption.")
+    Public Sub DisplayWarning(foodName As String, calorieContent As Integer, fatContent As Double) Implements IFoodWarning.DisplayWarning
+        If IsFoodUnhealthy(foodName, calorieContent, fatContent) > 0 Then
+            Console.WriteLine($"Warning: {foodName} is high in calories ({calorieContent} calories per serving) or contains too much fat and may not be suitable for consumption.")
         End If
     End Sub
+
+
 End Class

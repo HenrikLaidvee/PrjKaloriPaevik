@@ -5,7 +5,8 @@ Public Class Profiil
         If KasutajaMoodul.isLoggedIn Then
 
 
-            Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\FoodDatabase.accdb;"
+            'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\FoodDatabase.accdb;"
+            Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\FoodDatabase.accdb;"
             Dim query As String = "SELECT Eesnimi, Perenimi, Parool, Päev, Kuu, Aasta, Pikkus, Kaal 
                                    FROM Kasutaja WHERE Eesnimi = @Eesnimi"
 
