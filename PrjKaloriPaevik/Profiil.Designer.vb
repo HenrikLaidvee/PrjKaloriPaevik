@@ -23,6 +23,8 @@ Partial Class Profiil
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.gbProfile = New System.Windows.Forms.GroupBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.lblHeight = New System.Windows.Forms.Label()
         Me.LinkLabel5 = New System.Windows.Forms.LinkLabel()
         Me.lbl5 = New System.Windows.Forms.Label()
@@ -35,11 +37,17 @@ Partial Class Profiil
         Me.lbl2 = New System.Windows.Forms.Label()
         Me.lbl1 = New System.Windows.Forms.Label()
         Me.btnBack = New System.Windows.Forms.Button()
+        Me.lblGoal = New System.Windows.Forms.Label()
+        Me.lblCalorieGoal = New System.Windows.Forms.Label()
         Me.gbProfile.SuspendLayout()
         Me.SuspendLayout()
         '
         'gbProfile
         '
+        Me.gbProfile.Controls.Add(Me.lblCalorieGoal)
+        Me.gbProfile.Controls.Add(Me.lblGoal)
+        Me.gbProfile.Controls.Add(Me.Label2)
+        Me.gbProfile.Controls.Add(Me.Label1)
         Me.gbProfile.Controls.Add(Me.lblHeight)
         Me.gbProfile.Controls.Add(Me.LinkLabel5)
         Me.gbProfile.Controls.Add(Me.lbl5)
@@ -54,10 +62,28 @@ Partial Class Profiil
         Me.gbProfile.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
         Me.gbProfile.Location = New System.Drawing.Point(12, 12)
         Me.gbProfile.Name = "gbProfile"
-        Me.gbProfile.Size = New System.Drawing.Size(441, 237)
+        Me.gbProfile.Size = New System.Drawing.Size(441, 338)
         Me.gbProfile.TabIndex = 0
         Me.gbProfile.TabStop = False
         Me.gbProfile.Text = "Profiili andmed"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(21, 266)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(133, 25)
+        Me.Label2.TabIndex = 16
+        Me.Label2.Text = "Kalorieemärk:"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(10, 231)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(144, 25)
+        Me.Label1.TabIndex = 15
+        Me.Label1.Text = "Kaalueesmärk:"
         '
         'lblHeight
         '
@@ -163,18 +189,36 @@ Partial Class Profiil
         'btnBack
         '
         Me.btnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.btnBack.Location = New System.Drawing.Point(169, 267)
+        Me.btnBack.Location = New System.Drawing.Point(169, 356)
         Me.btnBack.Name = "btnBack"
         Me.btnBack.Size = New System.Drawing.Size(120, 51)
         Me.btnBack.TabIndex = 1
         Me.btnBack.Text = "Tagasi"
         Me.btnBack.UseVisualStyleBackColor = True
         '
+        'lblGoal
+        '
+        Me.lblGoal.AutoSize = True
+        Me.lblGoal.Location = New System.Drawing.Point(152, 231)
+        Me.lblGoal.Name = "lblGoal"
+        Me.lblGoal.Size = New System.Drawing.Size(89, 25)
+        Me.lblGoal.TabIndex = 17
+        Me.lblGoal.Text = "Eesmärk"
+        '
+        'lblCalorieGoal
+        '
+        Me.lblCalorieGoal.AutoSize = True
+        Me.lblCalorieGoal.Location = New System.Drawing.Point(154, 266)
+        Me.lblCalorieGoal.Name = "lblCalorieGoal"
+        Me.lblCalorieGoal.Size = New System.Drawing.Size(137, 25)
+        Me.lblCalorieGoal.TabIndex = 18
+        Me.lblCalorieGoal.Text = "Kalorieesmärk"
+        '
         'Profiil
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(465, 326)
+        Me.ClientSize = New System.Drawing.Size(465, 419)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.gbProfile)
         Me.Name = "Profiil"
@@ -198,4 +242,8 @@ Partial Class Profiil
     Friend WithEvents lbl5 As Label
     Friend WithEvents lblHeight As Label
     Friend WithEvents btnBack As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents lblCalorieGoal As Label
+    Friend WithEvents lblGoal As Label
 End Class

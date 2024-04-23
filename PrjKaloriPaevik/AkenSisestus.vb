@@ -20,16 +20,6 @@ Public Class Form1
 
         'cbValik.Items.AddRange(colors)
 
-        ' Tuleb leida parem asukoht või lahendus
-        If KasutajaMoodul.isLoggedIn Then
-            btnProfile.Show()
-            btnCreateAccount.Hide()
-            btnLogIn.Hide()
-        Else
-            btnCreateAccount.Show()
-            'btnProfile.Hide()
-            btnLogIn.Show()
-        End If
 
     End Sub
 
@@ -96,21 +86,13 @@ Public Class Form1
 
     End Sub
 
-    Private Sub btnCreateAccount_Click(sender As Object, e As EventArgs) Handles btnCreateAccount.Click
-        RegAken.Show()
-    End Sub
 
-    Private Sub btnProfile_Click(sender As Object, e As EventArgs) Handles btnProfile.Click
-        Profiil.Show()
-    End Sub
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         Me.Close()
     End Sub
 
-    Private Sub btnLogIn_Click(sender As Object, e As EventArgs) Handles btnLogIn.Click
-        LogInAken.Show()
-    End Sub
+
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         ' Peaks salvestama koos kasutaja idga enda logi

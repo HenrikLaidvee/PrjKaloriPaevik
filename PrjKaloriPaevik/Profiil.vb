@@ -5,8 +5,8 @@ Public Class Profiil
         If KasutajaMoodul.isLoggedIn Then
 
 
-            Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\FoodDatabase.accdb;"
-            Dim query As String = "SELECT Eesnimi, Perenimi, Parool, Päev, Kuu, Aasta, Pikkus, Kaal 
+            Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\marku\Downloads\FoodDatabase\FoodDatabase.accdb;"
+            Dim query As String = "SELECT Eesnimi, Perenimi, Parool, Paev, Kuu, Aasta, Pikkus, Kaal, Eesmark, Kalorid 
                                    FROM Kasutaja WHERE Eesnimi = @Eesnimi"
 
             Try
@@ -25,6 +25,8 @@ Public Class Profiil
                                  & "." & reader("Aasta").ToString()
                                 lblWeight.Text = reader("Kaal").ToString()
                                 lblHeight.Text = reader("Pikkus").ToString()
+                                lblCalorieGoal.Text = reader("Kalorid").ToString()
+                                lblGoal.Text = reader("Eesmark").ToString()
 
                             End If
                         End Using

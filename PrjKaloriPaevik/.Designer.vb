@@ -26,6 +26,13 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.gbDatabase = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CategoryDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NutrientidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AmountDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DescriptionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FoodDataBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.FoodDatabaseDataSet2 = New PrjKaloriPaevik.FoodDatabaseDataSet2()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
@@ -34,25 +41,15 @@ Partial Class Form1
         Me.gbInfo = New System.Windows.Forms.GroupBox()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.txtSisestus = New System.Windows.Forms.TextBox()
-        Me.btnCreateAccount = New System.Windows.Forms.Button()
-        Me.btnProfile = New System.Windows.Forms.Button()
-        Me.FoodDatabaseDataSet2 = New PrjKaloriPaevik.FoodDatabaseDataSet2()
-        Me.FoodDataBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
         Me.TableAdapterManager2 = New PrjKaloriPaevik.FoodDatabaseDataSet2TableAdapters.TableAdapterManager()
-        Me.btnLogIn = New System.Windows.Forms.Button()
-        Me.ToitTableAdapter1 = New PrjKaloriPaevik.FoodDatabaseDataSet2TableAdapters.ToitTableAdapter()
-        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CategoryDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NutrientidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AmountDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DescriptionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FoodDataTableAdapter1 = New PrjKaloriPaevik.FoodDatabaseDataSet2TableAdapters.FoodDataTableAdapter()
+        Me.ToitTableAdapter1 = New PrjKaloriPaevik.FoodDatabaseDataSet2TableAdapters.ToitTableAdapter()
         Me.FoodDataTableAdapter = New PrjKaloriPaevik.FoodDatabaseDataSetTableAdapters.FoodDataTableAdapter()
         Me.gbDatabase.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.gbInfo.SuspendLayout()
-        CType(Me.FoodDatabaseDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FoodDataBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FoodDatabaseDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbInfo.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -89,6 +86,56 @@ Partial Class Form1
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.Size = New System.Drawing.Size(589, 309)
         Me.DataGridView1.TabIndex = 0
+        '
+        'IDDataGridViewTextBoxColumn
+        '
+        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
+        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
+        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
+        Me.IDDataGridViewTextBoxColumn.ReadOnly = True
+        Me.IDDataGridViewTextBoxColumn.Visible = False
+        '
+        'CategoryDataGridViewTextBoxColumn
+        '
+        Me.CategoryDataGridViewTextBoxColumn.DataPropertyName = "category"
+        Me.CategoryDataGridViewTextBoxColumn.HeaderText = "category"
+        Me.CategoryDataGridViewTextBoxColumn.Name = "CategoryDataGridViewTextBoxColumn"
+        Me.CategoryDataGridViewTextBoxColumn.ReadOnly = True
+        Me.CategoryDataGridViewTextBoxColumn.Width = 200
+        '
+        'NutrientidDataGridViewTextBoxColumn
+        '
+        Me.NutrientidDataGridViewTextBoxColumn.DataPropertyName = "nutrient_id"
+        Me.NutrientidDataGridViewTextBoxColumn.HeaderText = "nutrient_id"
+        Me.NutrientidDataGridViewTextBoxColumn.Name = "NutrientidDataGridViewTextBoxColumn"
+        Me.NutrientidDataGridViewTextBoxColumn.ReadOnly = True
+        Me.NutrientidDataGridViewTextBoxColumn.Visible = False
+        '
+        'AmountDataGridViewTextBoxColumn
+        '
+        Me.AmountDataGridViewTextBoxColumn.DataPropertyName = "amount"
+        Me.AmountDataGridViewTextBoxColumn.HeaderText = "amount"
+        Me.AmountDataGridViewTextBoxColumn.Name = "AmountDataGridViewTextBoxColumn"
+        Me.AmountDataGridViewTextBoxColumn.ReadOnly = True
+        Me.AmountDataGridViewTextBoxColumn.Width = 150
+        '
+        'DescriptionDataGridViewTextBoxColumn
+        '
+        Me.DescriptionDataGridViewTextBoxColumn.DataPropertyName = "description"
+        Me.DescriptionDataGridViewTextBoxColumn.HeaderText = "description"
+        Me.DescriptionDataGridViewTextBoxColumn.Name = "DescriptionDataGridViewTextBoxColumn"
+        Me.DescriptionDataGridViewTextBoxColumn.ReadOnly = True
+        Me.DescriptionDataGridViewTextBoxColumn.Width = 200
+        '
+        'FoodDataBindingSource2
+        '
+        Me.FoodDataBindingSource2.DataMember = "FoodData"
+        Me.FoodDataBindingSource2.DataSource = Me.FoodDatabaseDataSet2
+        '
+        'FoodDatabaseDataSet2
+        '
+        Me.FoodDatabaseDataSet2.DataSetName = "FoodDatabaseDataSet2"
+        Me.FoodDatabaseDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'btnSearch
         '
@@ -167,36 +214,6 @@ Partial Class Form1
         Me.txtSisestus.Size = New System.Drawing.Size(459, 30)
         Me.txtSisestus.TabIndex = 8
         '
-        'btnCreateAccount
-        '
-        Me.btnCreateAccount.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.btnCreateAccount.Location = New System.Drawing.Point(12, 459)
-        Me.btnCreateAccount.Name = "btnCreateAccount"
-        Me.btnCreateAccount.Size = New System.Drawing.Size(163, 34)
-        Me.btnCreateAccount.TabIndex = 9
-        Me.btnCreateAccount.Text = "Loo kasutaja"
-        Me.btnCreateAccount.UseVisualStyleBackColor = True
-        '
-        'btnProfile
-        '
-        Me.btnProfile.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.btnProfile.Location = New System.Drawing.Point(181, 459)
-        Me.btnProfile.Name = "btnProfile"
-        Me.btnProfile.Size = New System.Drawing.Size(163, 34)
-        Me.btnProfile.TabIndex = 10
-        Me.btnProfile.Text = "Profiil"
-        Me.btnProfile.UseVisualStyleBackColor = True
-        '
-        'FoodDatabaseDataSet2
-        '
-        Me.FoodDatabaseDataSet2.DataSetName = "FoodDatabaseDataSet2"
-        Me.FoodDatabaseDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'FoodDataBindingSource2
-        '
-        Me.FoodDataBindingSource2.DataMember = "FoodData"
-        Me.FoodDataBindingSource2.DataSource = Me.FoodDatabaseDataSet2
-        '
         'TableAdapterManager2
         '
         Me.TableAdapterManager2.AjaluguTableAdapter = Nothing
@@ -208,58 +225,13 @@ Partial Class Form1
         Me.TableAdapterManager2.ToitTableAdapter = Me.ToitTableAdapter1
         Me.TableAdapterManager2.UpdateOrder = PrjKaloriPaevik.FoodDatabaseDataSet2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'btnLogIn
+        'FoodDataTableAdapter1
         '
-        Me.btnLogIn.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.btnLogIn.Location = New System.Drawing.Point(350, 459)
-        Me.btnLogIn.Name = "btnLogIn"
-        Me.btnLogIn.Size = New System.Drawing.Size(205, 34)
-        Me.btnLogIn.TabIndex = 11
-        Me.btnLogIn.Text = "Logige kasutajasse"
-        Me.btnLogIn.UseVisualStyleBackColor = True
+        Me.FoodDataTableAdapter1.ClearBeforeFill = True
         '
         'ToitTableAdapter1
         '
         Me.ToitTableAdapter1.ClearBeforeFill = True
-        '
-        'IDDataGridViewTextBoxColumn
-        '
-        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
-        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
-        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
-        Me.IDDataGridViewTextBoxColumn.Visible = False
-        '
-        'CategoryDataGridViewTextBoxColumn
-        '
-        Me.CategoryDataGridViewTextBoxColumn.DataPropertyName = "category"
-        Me.CategoryDataGridViewTextBoxColumn.HeaderText = "category"
-        Me.CategoryDataGridViewTextBoxColumn.Name = "CategoryDataGridViewTextBoxColumn"
-        Me.CategoryDataGridViewTextBoxColumn.Width = 200
-        '
-        'NutrientidDataGridViewTextBoxColumn
-        '
-        Me.NutrientidDataGridViewTextBoxColumn.DataPropertyName = "nutrient_id"
-        Me.NutrientidDataGridViewTextBoxColumn.HeaderText = "nutrient_id"
-        Me.NutrientidDataGridViewTextBoxColumn.Name = "NutrientidDataGridViewTextBoxColumn"
-        Me.NutrientidDataGridViewTextBoxColumn.Visible = False
-        '
-        'AmountDataGridViewTextBoxColumn
-        '
-        Me.AmountDataGridViewTextBoxColumn.DataPropertyName = "amount"
-        Me.AmountDataGridViewTextBoxColumn.HeaderText = "amount"
-        Me.AmountDataGridViewTextBoxColumn.Name = "AmountDataGridViewTextBoxColumn"
-        Me.AmountDataGridViewTextBoxColumn.Width = 150
-        '
-        'DescriptionDataGridViewTextBoxColumn
-        '
-        Me.DescriptionDataGridViewTextBoxColumn.DataPropertyName = "description"
-        Me.DescriptionDataGridViewTextBoxColumn.HeaderText = "description"
-        Me.DescriptionDataGridViewTextBoxColumn.Name = "DescriptionDataGridViewTextBoxColumn"
-        Me.DescriptionDataGridViewTextBoxColumn.Width = 200
-        '
-        'FoodDataTableAdapter1
-        '
-        Me.FoodDataTableAdapter1.ClearBeforeFill = True
         '
         'FoodDataTableAdapter
         '
@@ -270,9 +242,6 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(898, 505)
-        Me.Controls.Add(Me.btnLogIn)
-        Me.Controls.Add(Me.btnProfile)
-        Me.Controls.Add(Me.btnCreateAccount)
         Me.Controls.Add(Me.txtSisestus)
         Me.Controls.Add(Me.gbInfo)
         Me.Controls.Add(Me.btnBack)
@@ -286,9 +255,9 @@ Partial Class Form1
         Me.Text = "Database aken"
         Me.gbDatabase.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.gbInfo.ResumeLayout(False)
-        CType(Me.FoodDatabaseDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FoodDataBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FoodDatabaseDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbInfo.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -305,12 +274,9 @@ Partial Class Form1
     Friend WithEvents RichTextBox1 As RichTextBox
     Friend WithEvents txtSisestus As TextBox
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents btnCreateAccount As Button
-    Friend WithEvents btnProfile As Button
     Friend WithEvents FoodDatabaseDataSet2 As FoodDatabaseDataSet2
     Friend WithEvents FoodDataBindingSource2 As BindingSource
     Friend WithEvents TableAdapterManager2 As FoodDatabaseDataSet2TableAdapters.TableAdapterManager
-    Friend WithEvents btnLogIn As Button
     Friend WithEvents ToitTableAdapter1 As FoodDatabaseDataSet2TableAdapters.ToitTableAdapter
     Friend WithEvents IDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents CategoryDataGridViewTextBoxColumn As DataGridViewTextBoxColumn

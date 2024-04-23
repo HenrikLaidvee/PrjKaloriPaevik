@@ -2,12 +2,17 @@
     Public isLoggedIn As Boolean = False
     Public loggedInFirstName As String = ""
     Public loggedInLastName As String = ""
+    Public loggedInHeight As Double
+    Public loggedInDay As Double
+    Public loggedInMonth As String = ""
+    Public loggedInYear As Double
+    Public loggedInWeight As Double
+    Public loggedInGoal As Double
+    Public loggedInCalories As Double
 
     ' Funktsioon, mis määrab kasutaja sisselogimise oleku
-    Public Sub SetLoginStatus(ByVal status As Boolean, ByVal firstname As String, ByVal lastname As String)
+    Public Sub SetLoginStatus(ByVal status As Boolean)
         isLoggedIn = status
-        loggedInFirstName = firstname
-        loggedInLastName = lastname
     End Sub
 
 End Module

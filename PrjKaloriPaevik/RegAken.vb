@@ -2,7 +2,7 @@
 
 Public Class RegAken
 
-    Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\FoodDatabase.accdb;"
+    Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\marku\Downloads\FoodDatabase\FoodDatabase.accdb;"
 
     Private Sub RegAken_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -39,7 +39,8 @@ Public Class RegAken
         If cmbDay.SelectedIndex = -1 OrElse cmbMonth.SelectedIndex = -1 OrElse cmbYear.SelectedIndex = -1 _
             OrElse String.IsNullOrEmpty(txtWeight.Text) OrElse String.IsNullOrEmpty(txtPassword.Text) _
             OrElse String.IsNullOrEmpty(txtUsername.Text) OrElse String.IsNullOrEmpty(txtLastName.Text) _
-            OrElse String.IsNullOrEmpty(txtHeight.Text) Then
+            OrElse String.IsNullOrEmpty(txtHeight.Text) OrElse String.IsNullOrEmpty(txtGoalWeight.Text) _
+            OrElse String.IsNullOrEmpty(txtDailyCalories.Text) Then
 
             MessageBox.Show("Palun täitke kõik väljad!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
@@ -48,23 +49,37 @@ Public Class RegAken
         Try
             Dim weight As Double = Double.Parse(txtWeight.Text)
 
+            'MainForm.txtCurrentWeight.Text = weight.ToString()
+
             Dim height As Double = Double.Parse(txtHeight.Text)
+
+            Dim goalWeight As Double = Double.Parse(txtGoalWeight.Text)
+
+            'MainForm.txtGoalWeight.Text = goalWeight.ToString()
+
+            Dim dailyCalories As Double = Double.Parse(txtDailyCalories.Text)
+
+            'MainForm.txtCalorieLimit.Text = dailyCalories.ToString()
+
+            'MainForm.txtNeedToLose.Text = (weight - goalWeight).ToString()
 
             Using connection As New OleDbConnection(connectionString)
                 connection.Open()
 
-                Dim query As String = "INSERT INTO Kasutaja (Eesnimi, Perenimi, Pikkus, Päev, Kuu, Aasta, Parool, Kaal) 
-                                        VALUES (@Eesnimi, @Perenimi, @Pikkus, @Päev, @Kuu, @Aasta, @Parool, @Kaal)"
+                Dim query As String = "INSERT INTO Kasutaja (Eesnimi, Perenimi, Pikkus, Paev, Kuu, Aasta, Parool, Kaal, Eesmark, Kalorid) 
+                                        VALUES (@Eesnimi, @Perenimi, @Pikkus, @Paev, @Kuu, @Aasta, @Parool, @Kaal, @Eesmark, @Kalorid)"
                 Using command As New OleDbCommand(query, connection)
 
                     command.Parameters.AddWithValue("@Eesnimi", txtUsername.Text)
                     command.Parameters.AddWithValue("@Perenimi", txtLastName.Text)
                     command.Parameters.AddWithValue("@Pikkus", height)
-                    command.Parameters.AddWithValue("@Päev", cmbDay.SelectedItem)
+                    command.Parameters.AddWithValue("@Paev", cmbDay.SelectedItem)
                     command.Parameters.AddWithValue("@Kuu", cmbMonth.SelectedItem)
                     command.Parameters.AddWithValue("@Aasta", cmbYear.SelectedItem)
                     command.Parameters.AddWithValue("@Parool", txtPassword.Text)
                     command.Parameters.AddWithValue("@Kaal", weight)
+                    command.Parameters.AddWithValue("@Eesmark", goalWeight)
+                    command.Parameters.AddWithValue("@Kalorid", dailyCalories)
 
                     'command.Parameters.AddWithValue("@Age", age)
 
@@ -78,7 +93,7 @@ Public Class RegAken
 
         Catch ex As FormatException
             ' Kui sisestatud tekst ei ole number, siis error
-            MessageBox.Show("Palun sisestage ainult numbrid kaalu ja pikkuse väljale!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Palun sisestage ainult numbrid kaalu, pikkuse, eemärgi ja kalorite väljale!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Catch ex As Exception
             MessageBox.Show("Andmete salvestamisel tekkis viga: " & ex.Message, "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -131,6 +146,9 @@ Public Class RegAken
         cmbMonth.SelectedIndex = -1
         cmbYear.SelectedIndex = -1
         txtWeight.Text = ""
+        txtHeight.Text = ""
+        txtGoalWeight.Text = ""
+        txtDailyCalories.Text = ""
         txtPassword.Text = ""
         txtUsername.Text = ""
     End Function
