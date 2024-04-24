@@ -125,6 +125,12 @@
     <Compile Include="LogInAken.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MainForm.Designer.vb">
+      <DependentUpon>MainForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -153,6 +159,11 @@
     <Compile Include="RegAken.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ToiduAndmebaasDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ToiduAndmebaasDataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AkenSisestus.resx">
@@ -160,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LogInAken.resx">
       <DependentUpon>LogInAken.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -218,6 +232,17 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="ToiduAndmebaasDataSet.xsc">
+      <DependentUpon>ToiduAndmebaasDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ToiduAndmebaasDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ToiduAndmebaasDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ToiduAndmebaasDataSet.xss">
+      <DependentUpon>ToiduAndmebaasDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="FoodDatabase.accdb">

@@ -13,7 +13,7 @@ Public Class LogInAken
         End If
 
         Try
-            Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\FoodDatabase.accdb;"
+            Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
             Dim query As String = "SELECT * FROM Kasutaja WHERE Eesnimi = @Eesnimi AND Perenimi = @Perenimi AND  Parool = @Parool"
 
             Using connection As New OleDbConnection(connectionString)
@@ -27,11 +27,35 @@ Public Class LogInAken
                     Using reader As OleDbDataReader = command.ExecuteReader()
                         If reader.HasRows Then
                             MessageBox.Show("Sisselogimine õnnestus!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            While reader.Read()
+                                loggedInID = reader("ID")
+                                loggedInFirstName = reader("Eesnimi").ToString()
+                                loggedInLastName = reader("Perenimi").ToString()
+                                loggedInHeight = reader("Pikkus")
+                                loggedInDay = reader("Paev")
+                                loggedInMonth = reader("Kuu").ToString()
+                                loggedInYear = reader("Aasta")
+                                loggedInPassword = reader("Parool").ToString()
+                                loggedInWeight = reader("Kaal")
+                                loggedInGoal = reader("Eesmark")
+                                loggedInCalories = reader("Kalorid")
+                            End While
 
-                            SetLoginStatus(True, txtUsername.Text, txtLastName.Text)
+                            SetLoginStatus(True)
+                            MainForm.btnLogIn.Enabled = False
+                            MainForm.btnCreateUser.Enabled = False
+                            MainForm.btnProfile.Enabled = True
+                            MainForm.btnLogFood.Enabled = True
+                            MainForm.txtCurrentWeight.Text = loggedInWeight.ToString()
+                            MainForm.txtGoalWeight.Text = loggedInGoal.ToString()
+                            MainForm.txtNeedToLose.Text = (loggedInWeight - loggedInGoal).ToString()
+                            MainForm.txtCalorieLimit.Text = loggedInCalories.ToString()
+
+                            'KasutajaMoodul.latestUserID = GetLatestUserID()
+
                             Me.Close()
 
-                            'Form1.Refresh()
+                            MainForm.Refresh()
 
                         Else
                             MessageBox.Show("Vale kasutajanimi või parool!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
