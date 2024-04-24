@@ -49,19 +49,11 @@ Public Class RegAken
         Try
             Dim weight As Double = Double.Parse(txtWeight.Text)
 
-            'MainForm.txtCurrentWeight.Text = weight.ToString()
-
             Dim height As Double = Double.Parse(txtHeight.Text)
 
             Dim goalWeight As Double = Double.Parse(txtGoalWeight.Text)
 
-            'MainForm.txtGoalWeight.Text = goalWeight.ToString()
-
             Dim dailyCalories As Double = Double.Parse(txtDailyCalories.Text)
-
-            'MainForm.txtCalorieLimit.Text = dailyCalories.ToString()
-
-            'MainForm.txtNeedToLose.Text = (weight - goalWeight).ToString()
 
             Using connection As New OleDbConnection(connectionString)
                 connection.Open()

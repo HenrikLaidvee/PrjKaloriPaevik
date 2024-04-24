@@ -22,228 +22,326 @@ Partial Class Profiil
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.gbProfile = New System.Windows.Forms.GroupBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtDailyCalories = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txtGoalWeight = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.lblHeight = New System.Windows.Forms.Label()
-        Me.LinkLabel5 = New System.Windows.Forms.LinkLabel()
-        Me.lbl5 = New System.Windows.Forms.Label()
-        Me.lblWeight = New System.Windows.Forms.Label()
-        Me.lbl4 = New System.Windows.Forms.Label()
-        Me.lblDate = New System.Windows.Forms.Label()
-        Me.lblPassword = New System.Windows.Forms.Label()
-        Me.lblUsername = New System.Windows.Forms.Label()
-        Me.lbl3 = New System.Windows.Forms.Label()
-        Me.lbl2 = New System.Windows.Forms.Label()
-        Me.lbl1 = New System.Windows.Forms.Label()
         Me.btnBack = New System.Windows.Forms.Button()
-        Me.lblGoal = New System.Windows.Forms.Label()
-        Me.lblCalorieGoal = New System.Windows.Forms.Label()
-        Me.gbProfile.SuspendLayout()
+        Me.txtHeight = New System.Windows.Forms.TextBox()
+        Me.lblHeight = New System.Windows.Forms.Label()
+        Me.lblLastNameMaxWords = New System.Windows.Forms.Label()
+        Me.lblLastName = New System.Windows.Forms.Label()
+        Me.txtLastName = New System.Windows.Forms.TextBox()
+        Me.cmbYear = New System.Windows.Forms.ComboBox()
+        Me.cmbMonth = New System.Windows.Forms.ComboBox()
+        Me.cmbDay = New System.Windows.Forms.ComboBox()
+        Me.lblWeight = New System.Windows.Forms.Label()
+        Me.lblAge = New System.Windows.Forms.Label()
+        Me.txtWeight = New System.Windows.Forms.TextBox()
+        Me.lblLimitReached = New System.Windows.Forms.Label()
+        Me.btnSeePassword = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtPassword = New System.Windows.Forms.TextBox()
+        Me.lblPassword = New System.Windows.Forms.Label()
+        Me.lblUsernameMaxWords = New System.Windows.Forms.Label()
+        Me.lblFirstName = New System.Windows.Forms.Label()
+        Me.btnCreateAccount = New System.Windows.Forms.Button()
+        Me.txtUsername = New System.Windows.Forms.TextBox()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'gbProfile
+        'GroupBox1
         '
-        Me.gbProfile.Controls.Add(Me.lblCalorieGoal)
-        Me.gbProfile.Controls.Add(Me.lblGoal)
-        Me.gbProfile.Controls.Add(Me.Label2)
-        Me.gbProfile.Controls.Add(Me.Label1)
-        Me.gbProfile.Controls.Add(Me.lblHeight)
-        Me.gbProfile.Controls.Add(Me.LinkLabel5)
-        Me.gbProfile.Controls.Add(Me.lbl5)
-        Me.gbProfile.Controls.Add(Me.lblWeight)
-        Me.gbProfile.Controls.Add(Me.lbl4)
-        Me.gbProfile.Controls.Add(Me.lblDate)
-        Me.gbProfile.Controls.Add(Me.lblPassword)
-        Me.gbProfile.Controls.Add(Me.lblUsername)
-        Me.gbProfile.Controls.Add(Me.lbl3)
-        Me.gbProfile.Controls.Add(Me.lbl2)
-        Me.gbProfile.Controls.Add(Me.lbl1)
-        Me.gbProfile.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.gbProfile.Location = New System.Drawing.Point(12, 12)
-        Me.gbProfile.Name = "gbProfile"
-        Me.gbProfile.Size = New System.Drawing.Size(441, 338)
-        Me.gbProfile.TabIndex = 0
-        Me.gbProfile.TabStop = False
-        Me.gbProfile.Text = "Profiili andmed"
+        Me.GroupBox1.Controls.Add(Me.txtDailyCalories)
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.txtGoalWeight)
+        Me.GroupBox1.Controls.Add(Me.Label2)
+        Me.GroupBox1.Controls.Add(Me.btnBack)
+        Me.GroupBox1.Controls.Add(Me.txtHeight)
+        Me.GroupBox1.Controls.Add(Me.lblHeight)
+        Me.GroupBox1.Controls.Add(Me.lblLastNameMaxWords)
+        Me.GroupBox1.Controls.Add(Me.lblLastName)
+        Me.GroupBox1.Controls.Add(Me.txtLastName)
+        Me.GroupBox1.Controls.Add(Me.cmbYear)
+        Me.GroupBox1.Controls.Add(Me.cmbMonth)
+        Me.GroupBox1.Controls.Add(Me.cmbDay)
+        Me.GroupBox1.Controls.Add(Me.lblWeight)
+        Me.GroupBox1.Controls.Add(Me.lblAge)
+        Me.GroupBox1.Controls.Add(Me.txtWeight)
+        Me.GroupBox1.Controls.Add(Me.lblLimitReached)
+        Me.GroupBox1.Controls.Add(Me.btnSeePassword)
+        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.txtPassword)
+        Me.GroupBox1.Controls.Add(Me.lblPassword)
+        Me.GroupBox1.Controls.Add(Me.lblUsernameMaxWords)
+        Me.GroupBox1.Controls.Add(Me.lblFirstName)
+        Me.GroupBox1.Controls.Add(Me.btnCreateAccount)
+        Me.GroupBox1.Controls.Add(Me.txtUsername)
+        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.GroupBox1.Location = New System.Drawing.Point(23, 11)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(723, 455)
+        Me.GroupBox1.TabIndex = 5
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Kasutaja andmed"
+        '
+        'txtDailyCalories
+        '
+        Me.txtDailyCalories.Location = New System.Drawing.Point(198, 302)
+        Me.txtDailyCalories.Name = "txtDailyCalories"
+        Me.txtDailyCalories.Size = New System.Drawing.Size(102, 30)
+        Me.txtDailyCalories.TabIndex = 27
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(17, 302)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(175, 25)
+        Me.Label3.TabIndex = 26
+        Me.Label3.Text = "Päevane kaloraaž:"
+        '
+        'txtGoalWeight
+        '
+        Me.txtGoalWeight.Location = New System.Drawing.Point(198, 266)
+        Me.txtGoalWeight.Name = "txtGoalWeight"
+        Me.txtGoalWeight.Size = New System.Drawing.Size(102, 30)
+        Me.txtGoalWeight.TabIndex = 25
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(21, 266)
+        Me.Label2.Location = New System.Drawing.Point(56, 266)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(133, 25)
-        Me.Label2.TabIndex = 16
-        Me.Label2.Text = "Kalorieemärk:"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(10, 231)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(144, 25)
-        Me.Label1.TabIndex = 15
-        Me.Label1.Text = "Kaalueesmärk:"
-        '
-        'lblHeight
-        '
-        Me.lblHeight.AutoSize = True
-        Me.lblHeight.Location = New System.Drawing.Point(152, 195)
-        Me.lblHeight.Name = "lblHeight"
-        Me.lblHeight.Size = New System.Drawing.Size(70, 25)
-        Me.lblHeight.TabIndex = 14
-        Me.lblHeight.Text = "Pikkus"
-        '
-        'LinkLabel5
-        '
-        Me.LinkLabel5.AutoSize = True
-        Me.LinkLabel5.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.LinkLabel5.Location = New System.Drawing.Point(308, 26)
-        Me.LinkLabel5.Name = "LinkLabel5"
-        Me.LinkLabel5.Size = New System.Drawing.Size(109, 17)
-        Me.LinkLabel5.TabIndex = 13
-        Me.LinkLabel5.TabStop = True
-        Me.LinkLabel5.Text = "Muuda andmeid"
-        '
-        'lbl5
-        '
-        Me.lbl5.AutoSize = True
-        Me.lbl5.Location = New System.Drawing.Point(78, 195)
-        Me.lbl5.Name = "lbl5"
-        Me.lbl5.Size = New System.Drawing.Size(76, 25)
-        Me.lbl5.TabIndex = 12
-        Me.lbl5.Text = "Pikkus:"
-        '
-        'lblWeight
-        '
-        Me.lblWeight.AutoSize = True
-        Me.lblWeight.Location = New System.Drawing.Point(154, 161)
-        Me.lblWeight.Name = "lblWeight"
-        Me.lblWeight.Size = New System.Drawing.Size(52, 25)
-        Me.lblWeight.TabIndex = 11
-        Me.lblWeight.Text = "Kaal"
-        '
-        'lbl4
-        '
-        Me.lbl4.AutoSize = True
-        Me.lbl4.Location = New System.Drawing.Point(96, 161)
-        Me.lbl4.Name = "lbl4"
-        Me.lbl4.Size = New System.Drawing.Size(58, 25)
-        Me.lbl4.TabIndex = 9
-        Me.lbl4.Text = "Kaal:"
-        '
-        'lblDate
-        '
-        Me.lblDate.AutoSize = True
-        Me.lblDate.Location = New System.Drawing.Point(154, 127)
-        Me.lblDate.Name = "lblDate"
-        Me.lblDate.Size = New System.Drawing.Size(91, 25)
-        Me.lblDate.TabIndex = 8
-        Me.lblDate.Text = "Kuupäev"
-        '
-        'lblPassword
-        '
-        Me.lblPassword.AutoSize = True
-        Me.lblPassword.Location = New System.Drawing.Point(154, 92)
-        Me.lblPassword.Name = "lblPassword"
-        Me.lblPassword.Size = New System.Drawing.Size(68, 25)
-        Me.lblPassword.TabIndex = 7
-        Me.lblPassword.Text = "Parool"
-        '
-        'lblUsername
-        '
-        Me.lblUsername.AutoSize = True
-        Me.lblUsername.Location = New System.Drawing.Point(154, 50)
-        Me.lblUsername.Name = "lblUsername"
-        Me.lblUsername.Size = New System.Drawing.Size(50, 25)
-        Me.lblUsername.TabIndex = 6
-        Me.lblUsername.Text = "Nimi"
-        '
-        'lbl3
-        '
-        Me.lbl3.AutoSize = True
-        Me.lbl3.Location = New System.Drawing.Point(10, 127)
-        Me.lbl3.Name = "lbl3"
-        Me.lbl3.Size = New System.Drawing.Size(144, 25)
-        Me.lbl3.TabIndex = 3
-        Me.lbl3.Text = "Sünnikuupäev:"
-        '
-        'lbl2
-        '
-        Me.lbl2.AutoSize = True
-        Me.lbl2.Location = New System.Drawing.Point(80, 92)
-        Me.lbl2.Name = "lbl2"
-        Me.lbl2.Size = New System.Drawing.Size(74, 25)
-        Me.lbl2.TabIndex = 2
-        Me.lbl2.Text = "Parool:"
-        '
-        'lbl1
-        '
-        Me.lbl1.AutoSize = True
-        Me.lbl1.Location = New System.Drawing.Point(24, 50)
-        Me.lbl1.Name = "lbl1"
-        Me.lbl1.Size = New System.Drawing.Size(130, 25)
-        Me.lbl1.TabIndex = 1
-        Me.lbl1.Text = "Kasutajanimi:"
+        Me.Label2.Size = New System.Drawing.Size(136, 25)
+        Me.Label2.TabIndex = 24
+        Me.Label2.Text = "Soovitud kaal:"
         '
         'btnBack
         '
         Me.btnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.btnBack.Location = New System.Drawing.Point(169, 356)
+        Me.btnBack.Location = New System.Drawing.Point(198, 416)
         Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(120, 51)
-        Me.btnBack.TabIndex = 1
+        Me.btnBack.Size = New System.Drawing.Size(324, 33)
+        Me.btnBack.TabIndex = 23
         Me.btnBack.Text = "Tagasi"
         Me.btnBack.UseVisualStyleBackColor = True
         '
-        'lblGoal
+        'txtHeight
         '
-        Me.lblGoal.AutoSize = True
-        Me.lblGoal.Location = New System.Drawing.Point(152, 231)
-        Me.lblGoal.Name = "lblGoal"
-        Me.lblGoal.Size = New System.Drawing.Size(89, 25)
-        Me.lblGoal.TabIndex = 17
-        Me.lblGoal.Text = "Eesmärk"
+        Me.txtHeight.Location = New System.Drawing.Point(198, 230)
+        Me.txtHeight.Name = "txtHeight"
+        Me.txtHeight.Size = New System.Drawing.Size(102, 30)
+        Me.txtHeight.TabIndex = 22
         '
-        'lblCalorieGoal
+        'lblHeight
         '
-        Me.lblCalorieGoal.AutoSize = True
-        Me.lblCalorieGoal.Location = New System.Drawing.Point(154, 266)
-        Me.lblCalorieGoal.Name = "lblCalorieGoal"
-        Me.lblCalorieGoal.Size = New System.Drawing.Size(137, 25)
-        Me.lblCalorieGoal.TabIndex = 18
-        Me.lblCalorieGoal.Text = "Kalorieesmärk"
+        Me.lblHeight.AutoSize = True
+        Me.lblHeight.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.lblHeight.Location = New System.Drawing.Point(71, 233)
+        Me.lblHeight.Name = "lblHeight"
+        Me.lblHeight.Size = New System.Drawing.Size(121, 25)
+        Me.lblHeight.TabIndex = 21
+        Me.lblHeight.Text = "Pikkus (cm):"
+        '
+        'lblLastNameMaxWords
+        '
+        Me.lblLastNameMaxWords.AutoSize = True
+        Me.lblLastNameMaxWords.Location = New System.Drawing.Point(524, 85)
+        Me.lblLastNameMaxWords.Name = "lblLastNameMaxWords"
+        Me.lblLastNameMaxWords.Size = New System.Drawing.Size(34, 25)
+        Me.lblLastNameMaxWords.TabIndex = 20
+        Me.lblLastNameMaxWords.Text = "30"
+        '
+        'lblLastName
+        '
+        Me.lblLastName.AutoSize = True
+        Me.lblLastName.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.lblLastName.Location = New System.Drawing.Point(98, 82)
+        Me.lblLastName.Name = "lblLastName"
+        Me.lblLastName.Size = New System.Drawing.Size(94, 25)
+        Me.lblLastName.TabIndex = 19
+        Me.lblLastName.Text = "Perenimi:"
+        '
+        'txtLastName
+        '
+        Me.txtLastName.Location = New System.Drawing.Point(198, 82)
+        Me.txtLastName.Name = "txtLastName"
+        Me.txtLastName.Size = New System.Drawing.Size(320, 30)
+        Me.txtLastName.TabIndex = 18
+        '
+        'cmbYear
+        '
+        Me.cmbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbYear.FormattingEnabled = True
+        Me.cmbYear.Location = New System.Drawing.Point(416, 152)
+        Me.cmbYear.Name = "cmbYear"
+        Me.cmbYear.Size = New System.Drawing.Size(102, 33)
+        Me.cmbYear.TabIndex = 16
+        '
+        'cmbMonth
+        '
+        Me.cmbMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbMonth.FormattingEnabled = True
+        Me.cmbMonth.Location = New System.Drawing.Point(308, 152)
+        Me.cmbMonth.Name = "cmbMonth"
+        Me.cmbMonth.Size = New System.Drawing.Size(102, 33)
+        Me.cmbMonth.TabIndex = 15
+        '
+        'cmbDay
+        '
+        Me.cmbDay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbDay.FormattingEnabled = True
+        Me.cmbDay.Location = New System.Drawing.Point(198, 152)
+        Me.cmbDay.Name = "cmbDay"
+        Me.cmbDay.Size = New System.Drawing.Size(102, 33)
+        Me.cmbDay.TabIndex = 14
+        '
+        'lblWeight
+        '
+        Me.lblWeight.AutoSize = True
+        Me.lblWeight.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.lblWeight.Location = New System.Drawing.Point(94, 197)
+        Me.lblWeight.Name = "lblWeight"
+        Me.lblWeight.Size = New System.Drawing.Size(98, 25)
+        Me.lblWeight.TabIndex = 13
+        Me.lblWeight.Text = "Kaal (kg):"
+        '
+        'lblAge
+        '
+        Me.lblAge.AutoSize = True
+        Me.lblAge.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.lblAge.Location = New System.Drawing.Point(48, 152)
+        Me.lblAge.Name = "lblAge"
+        Me.lblAge.Size = New System.Drawing.Size(144, 25)
+        Me.lblAge.TabIndex = 12
+        Me.lblAge.Text = "Sünnikuupäev:"
+        '
+        'txtWeight
+        '
+        Me.txtWeight.Location = New System.Drawing.Point(198, 194)
+        Me.txtWeight.Name = "txtWeight"
+        Me.txtWeight.Size = New System.Drawing.Size(102, 30)
+        Me.txtWeight.TabIndex = 11
+        '
+        'lblLimitReached
+        '
+        Me.lblLimitReached.AutoSize = True
+        Me.lblLimitReached.Location = New System.Drawing.Point(275, 18)
+        Me.lblLimitReached.Name = "lblLimitReached"
+        Me.lblLimitReached.Size = New System.Drawing.Size(241, 25)
+        Me.lblLimitReached.TabIndex = 9
+        Me.lblLimitReached.Text = "Kasutajanime limiit on täis!"
+        '
+        'btnSeePassword
+        '
+        Me.btnSeePassword.Location = New System.Drawing.Point(529, 116)
+        Me.btnSeePassword.Name = "btnSeePassword"
+        Me.btnSeePassword.Size = New System.Drawing.Size(137, 30)
+        Me.btnSeePassword.TabIndex = 8
+        Me.btnSeePassword.Text = "Vaata parooli"
+        Me.btnSeePassword.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(454, 123)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(0, 25)
+        Me.Label1.TabIndex = 7
+        '
+        'txtPassword
+        '
+        Me.txtPassword.Location = New System.Drawing.Point(198, 116)
+        Me.txtPassword.Name = "txtPassword"
+        Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.txtPassword.Size = New System.Drawing.Size(320, 30)
+        Me.txtPassword.TabIndex = 6
+        '
+        'lblPassword
+        '
+        Me.lblPassword.AutoSize = True
+        Me.lblPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.lblPassword.Location = New System.Drawing.Point(118, 116)
+        Me.lblPassword.Name = "lblPassword"
+        Me.lblPassword.Size = New System.Drawing.Size(74, 25)
+        Me.lblPassword.TabIndex = 4
+        Me.lblPassword.Text = "Parool:"
+        '
+        'lblUsernameMaxWords
+        '
+        Me.lblUsernameMaxWords.AutoSize = True
+        Me.lblUsernameMaxWords.Location = New System.Drawing.Point(524, 51)
+        Me.lblUsernameMaxWords.Name = "lblUsernameMaxWords"
+        Me.lblUsernameMaxWords.Size = New System.Drawing.Size(34, 25)
+        Me.lblUsernameMaxWords.TabIndex = 3
+        Me.lblUsernameMaxWords.Text = "30"
+        '
+        'lblFirstName
+        '
+        Me.lblFirstName.AutoSize = True
+        Me.lblFirstName.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.lblFirstName.Location = New System.Drawing.Point(105, 49)
+        Me.lblFirstName.Name = "lblFirstName"
+        Me.lblFirstName.Size = New System.Drawing.Size(87, 25)
+        Me.lblFirstName.TabIndex = 2
+        Me.lblFirstName.Text = "Eesnimi:"
+        '
+        'btnCreateAccount
+        '
+        Me.btnCreateAccount.Location = New System.Drawing.Point(198, 376)
+        Me.btnCreateAccount.Name = "btnCreateAccount"
+        Me.btnCreateAccount.Size = New System.Drawing.Size(324, 34)
+        Me.btnCreateAccount.TabIndex = 0
+        Me.btnCreateAccount.Text = "Muuda andmeid"
+        Me.btnCreateAccount.UseVisualStyleBackColor = True
+        '
+        'txtUsername
+        '
+        Me.txtUsername.Location = New System.Drawing.Point(198, 46)
+        Me.txtUsername.Name = "txtUsername"
+        Me.txtUsername.Size = New System.Drawing.Size(320, 30)
+        Me.txtUsername.TabIndex = 1
         '
         'Profiil
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(465, 419)
-        Me.Controls.Add(Me.btnBack)
-        Me.Controls.Add(Me.gbProfile)
+        Me.ClientSize = New System.Drawing.Size(769, 477)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Name = "Profiil"
         Me.Text = "Profiil"
-        Me.gbProfile.ResumeLayout(False)
-        Me.gbProfile.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents gbProfile As GroupBox
-    Friend WithEvents lbl3 As Label
-    Friend WithEvents lbl2 As Label
-    Friend WithEvents lbl1 As Label
-    Friend WithEvents lblUsername As Label
-    Friend WithEvents lblPassword As Label
-    Friend WithEvents lblDate As Label
-    Friend WithEvents lbl4 As Label
-    Friend WithEvents lblWeight As Label
-    Friend WithEvents LinkLabel5 As LinkLabel
-    Friend WithEvents lbl5 As Label
-    Friend WithEvents lblHeight As Label
-    Friend WithEvents btnBack As Button
-    Friend WithEvents Label1 As Label
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents txtDailyCalories As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents txtGoalWeight As TextBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents lblCalorieGoal As Label
-    Friend WithEvents lblGoal As Label
+    Friend WithEvents btnBack As Button
+    Friend WithEvents txtHeight As TextBox
+    Friend WithEvents lblHeight As Label
+    Friend WithEvents lblLastNameMaxWords As Label
+    Friend WithEvents lblLastName As Label
+    Friend WithEvents txtLastName As TextBox
+    Friend WithEvents cmbYear As ComboBox
+    Friend WithEvents cmbMonth As ComboBox
+    Friend WithEvents cmbDay As ComboBox
+    Friend WithEvents lblWeight As Label
+    Friend WithEvents lblAge As Label
+    Friend WithEvents txtWeight As TextBox
+    Friend WithEvents lblLimitReached As Label
+    Friend WithEvents btnSeePassword As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents txtPassword As TextBox
+    Friend WithEvents lblPassword As Label
+    Friend WithEvents lblUsernameMaxWords As Label
+    Friend WithEvents lblFirstName As Label
+    Friend WithEvents btnCreateAccount As Button
+    Friend WithEvents txtUsername As TextBox
 End Class

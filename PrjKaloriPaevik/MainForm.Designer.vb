@@ -37,11 +37,18 @@ Partial Class MainForm
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtCalorieLimit = New System.Windows.Forms.TextBox()
         Me.txtCaloriesLeft = New System.Windows.Forms.TextBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnProfile
         '
-        Me.btnProfile.Location = New System.Drawing.Point(42, 48)
+        Me.btnProfile.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.btnProfile.Location = New System.Drawing.Point(18, 34)
         Me.btnProfile.Name = "btnProfile"
         Me.btnProfile.Size = New System.Drawing.Size(137, 51)
         Me.btnProfile.TabIndex = 0
@@ -50,7 +57,8 @@ Partial Class MainForm
         '
         'btnCreateUser
         '
-        Me.btnCreateUser.Location = New System.Drawing.Point(42, 120)
+        Me.btnCreateUser.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.btnCreateUser.Location = New System.Drawing.Point(18, 106)
         Me.btnCreateUser.Name = "btnCreateUser"
         Me.btnCreateUser.Size = New System.Drawing.Size(137, 51)
         Me.btnCreateUser.TabIndex = 1
@@ -59,7 +67,8 @@ Partial Class MainForm
         '
         'btnLogFood
         '
-        Me.btnLogFood.Location = New System.Drawing.Point(42, 192)
+        Me.btnLogFood.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.btnLogFood.Location = New System.Drawing.Point(18, 178)
         Me.btnLogFood.Name = "btnLogFood"
         Me.btnLogFood.Size = New System.Drawing.Size(137, 51)
         Me.btnLogFood.TabIndex = 2
@@ -68,7 +77,8 @@ Partial Class MainForm
         '
         'btnLogIn
         '
-        Me.btnLogIn.Location = New System.Drawing.Point(42, 264)
+        Me.btnLogIn.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.btnLogIn.Location = New System.Drawing.Point(18, 250)
         Me.btnLogIn.Name = "btnLogIn"
         Me.btnLogIn.Size = New System.Drawing.Size(137, 51)
         Me.btnLogIn.TabIndex = 3
@@ -78,120 +88,167 @@ Partial Class MainForm
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(325, 48)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.Label1.Location = New System.Drawing.Point(72, 33)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(79, 13)
+        Me.Label1.Size = New System.Drawing.Size(144, 25)
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "Praegune kaal:"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(325, 93)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.Label2.Location = New System.Drawing.Point(72, 75)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(75, 13)
+        Me.Label2.Size = New System.Drawing.Size(136, 25)
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "Soovitud kaal:"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(325, 138)
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.Label3.Location = New System.Drawing.Point(34, 120)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(96, 13)
+        Me.Label3.Size = New System.Drawing.Size(174, 25)
         Me.Label3.TabIndex = 6
         Me.Label3.Text = "Veel vaja kaotada:"
         '
         'txtCurrentWeight
         '
         Me.txtCurrentWeight.Enabled = False
-        Me.txtCurrentWeight.Location = New System.Drawing.Point(462, 48)
+        Me.txtCurrentWeight.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.txtCurrentWeight.Location = New System.Drawing.Point(222, 30)
         Me.txtCurrentWeight.Name = "txtCurrentWeight"
-        Me.txtCurrentWeight.Size = New System.Drawing.Size(100, 20)
+        Me.txtCurrentWeight.Size = New System.Drawing.Size(100, 30)
         Me.txtCurrentWeight.TabIndex = 7
         '
         'txtGoalWeight
         '
         Me.txtGoalWeight.Enabled = False
-        Me.txtGoalWeight.Location = New System.Drawing.Point(462, 93)
+        Me.txtGoalWeight.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.txtGoalWeight.Location = New System.Drawing.Point(222, 75)
         Me.txtGoalWeight.Name = "txtGoalWeight"
-        Me.txtGoalWeight.Size = New System.Drawing.Size(100, 20)
+        Me.txtGoalWeight.Size = New System.Drawing.Size(100, 30)
         Me.txtGoalWeight.TabIndex = 8
         '
         'txtNeedToLose
         '
         Me.txtNeedToLose.Enabled = False
-        Me.txtNeedToLose.Location = New System.Drawing.Point(462, 138)
+        Me.txtNeedToLose.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.txtNeedToLose.Location = New System.Drawing.Point(222, 120)
         Me.txtNeedToLose.Name = "txtNeedToLose"
-        Me.txtNeedToLose.Size = New System.Drawing.Size(100, 20)
+        Me.txtNeedToLose.Size = New System.Drawing.Size(100, 30)
         Me.txtNeedToLose.TabIndex = 9
         '
         'txtMotivation
         '
         Me.txtMotivation.Enabled = False
-        Me.txtMotivation.Location = New System.Drawing.Point(237, 374)
+        Me.txtMotivation.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.txtMotivation.Location = New System.Drawing.Point(20, 19)
         Me.txtMotivation.Name = "txtMotivation"
-        Me.txtMotivation.Size = New System.Drawing.Size(447, 20)
+        Me.txtMotivation.Size = New System.Drawing.Size(447, 30)
         Me.txtMotivation.TabIndex = 10
+        Me.txtMotivation.Text = "Let's goo"
+        Me.txtMotivation.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(321, 211)
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.Label4.Location = New System.Drawing.Point(34, 196)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(100, 13)
+        Me.Label4.Size = New System.Drawing.Size(184, 25)
         Me.Label4.TabIndex = 11
         Me.Label4.Text = "Päevane kalorilimiit:"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(317, 253)
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.Label5.Location = New System.Drawing.Point(24, 240)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(104, 13)
+        Me.Label5.Size = New System.Drawing.Size(192, 25)
         Me.Label5.TabIndex = 12
         Me.Label5.Text = "Limiidini veel jäänud:"
         '
         'txtCalorieLimit
         '
         Me.txtCalorieLimit.Enabled = False
-        Me.txtCalorieLimit.Location = New System.Drawing.Point(462, 211)
+        Me.txtCalorieLimit.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.txtCalorieLimit.Location = New System.Drawing.Point(222, 193)
         Me.txtCalorieLimit.Name = "txtCalorieLimit"
-        Me.txtCalorieLimit.Size = New System.Drawing.Size(100, 20)
+        Me.txtCalorieLimit.Size = New System.Drawing.Size(100, 30)
         Me.txtCalorieLimit.TabIndex = 13
         '
         'txtCaloriesLeft
         '
         Me.txtCaloriesLeft.Enabled = False
-        Me.txtCaloriesLeft.Location = New System.Drawing.Point(462, 253)
+        Me.txtCaloriesLeft.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.txtCaloriesLeft.Location = New System.Drawing.Point(222, 235)
         Me.txtCaloriesLeft.Name = "txtCaloriesLeft"
-        Me.txtCaloriesLeft.Size = New System.Drawing.Size(100, 20)
+        Me.txtCaloriesLeft.Size = New System.Drawing.Size(100, 30)
         Me.txtCaloriesLeft.TabIndex = 14
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.btnLogIn)
+        Me.GroupBox1.Controls.Add(Me.btnLogFood)
+        Me.GroupBox1.Controls.Add(Me.btnCreateUser)
+        Me.GroupBox1.Controls.Add(Me.btnProfile)
+        Me.GroupBox1.Location = New System.Drawing.Point(24, 12)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(167, 315)
+        Me.GroupBox1.TabIndex = 16
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Menüü"
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.txtCaloriesLeft)
+        Me.GroupBox2.Controls.Add(Me.txtCalorieLimit)
+        Me.GroupBox2.Controls.Add(Me.Label5)
+        Me.GroupBox2.Controls.Add(Me.Label4)
+        Me.GroupBox2.Controls.Add(Me.txtNeedToLose)
+        Me.GroupBox2.Controls.Add(Me.txtGoalWeight)
+        Me.GroupBox2.Controls.Add(Me.txtCurrentWeight)
+        Me.GroupBox2.Controls.Add(Me.Label3)
+        Me.GroupBox2.Controls.Add(Me.Label2)
+        Me.GroupBox2.Controls.Add(Me.Label1)
+        Me.GroupBox2.Location = New System.Drawing.Point(240, 18)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(333, 277)
+        Me.GroupBox2.TabIndex = 17
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Tänane statistika"
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.txtMotivation)
+        Me.GroupBox3.Location = New System.Drawing.Point(240, 354)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(472, 59)
+        Me.GroupBox3.TabIndex = 18
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Motivatsioonilaks"
         '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.txtCaloriesLeft)
-        Me.Controls.Add(Me.txtCalorieLimit)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.txtMotivation)
-        Me.Controls.Add(Me.txtNeedToLose)
-        Me.Controls.Add(Me.txtGoalWeight)
-        Me.Controls.Add(Me.txtCurrentWeight)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.btnLogIn)
-        Me.Controls.Add(Me.btnLogFood)
-        Me.Controls.Add(Me.btnCreateUser)
-        Me.Controls.Add(Me.btnProfile)
+        Me.Controls.Add(Me.GroupBox3)
+        Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Name = "MainForm"
         Me.Text = "MainForm"
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -210,4 +267,7 @@ Partial Class MainForm
     Friend WithEvents Label5 As Label
     Friend WithEvents txtCalorieLimit As TextBox
     Friend WithEvents txtCaloriesLeft As TextBox
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents GroupBox3 As GroupBox
 End Class

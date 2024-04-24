@@ -28,12 +28,14 @@ Public Class LogInAken
                         If reader.HasRows Then
                             MessageBox.Show("Sisselogimine õnnestus!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
                             While reader.Read()
+                                loggedInID = reader("ID")
                                 loggedInFirstName = reader("Eesnimi").ToString()
                                 loggedInLastName = reader("Perenimi").ToString()
                                 loggedInHeight = reader("Pikkus")
                                 loggedInDay = reader("Paev")
                                 loggedInMonth = reader("Kuu").ToString()
                                 loggedInYear = reader("Aasta")
+                                loggedInPassword = reader("Parool").ToString()
                                 loggedInWeight = reader("Kaal")
                                 loggedInGoal = reader("Eesmark")
                                 loggedInCalories = reader("Kalorid")
@@ -47,6 +49,7 @@ Public Class LogInAken
                             MainForm.txtCurrentWeight.Text = loggedInWeight.ToString()
                             MainForm.txtGoalWeight.Text = loggedInGoal.ToString()
                             MainForm.txtNeedToLose.Text = (loggedInWeight - loggedInGoal).ToString()
+                            MainForm.txtCalorieLimit.Text = loggedInCalories.ToString()
 
                             Me.Close()
 
