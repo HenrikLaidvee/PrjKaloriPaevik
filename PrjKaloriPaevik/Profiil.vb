@@ -165,11 +165,12 @@ Public Class Profiil
                 MainForm.txtCalorieLimit.Text = loggedInCalories.ToString()
 
                 MainForm.Refresh()
+                LogInAken.Refresh()
             End Using
 
             MessageBox.Show("Andmed salvestatud edukalt!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Clear()
-            Me.Hide()
+            Me.Close()
 
         Catch ex As FormatException
             ' Kui sisestatud tekst ei ole number, siis error

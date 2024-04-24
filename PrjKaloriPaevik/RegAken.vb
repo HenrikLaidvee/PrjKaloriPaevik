@@ -81,7 +81,7 @@ Public Class RegAken
 
             MessageBox.Show("Andmed salvestatud edukalt!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Clear()
-            Me.Hide()
+            Me.Close()
 
         Catch ex As FormatException
             ' Kui sisestatud tekst ei ole number, siis error
