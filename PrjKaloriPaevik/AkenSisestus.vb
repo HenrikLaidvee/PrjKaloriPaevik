@@ -5,16 +5,18 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'FoodDatabaseDataSet2.Toit' table. You can move, or remove it, as needed.
-        Me.ToitTableAdapter1.Fill(Me.FoodDatabaseDataSet2.Toit)
-        'TODO: This line of code loads data into the 'FoodDatabaseDataSet2.FoodData' table. You can move, or remove it, as needed.
-        Me.FoodDataTableAdapter1.Fill(Me.FoodDatabaseDataSet2.FoodData)
+        'TODO: This line of code loads data into the 'ToiduAndmebaasDataSet.Toit' table. You can move, or remove it, as needed.
+        Me.ToitTableAdapter.Fill(Me.ToiduAndmebaasDataSet.Toit)
 
         With DataGridView1
             .ClearSelection()
             .ReadOnly = True
             .MultiSelect = False
         End With
+
+        For i As Integer = 1 To 10
+            cbAmount.Items.Add(i.ToString())
+        Next
 
         Dim colors() As String = [Enum].GetNames(GetType(KnownColor))
 
@@ -32,24 +34,26 @@ Public Class Form1
         Else
             Dim keyword As String = txtSisestus.Text
 
-            FoodDataBindingSource2.Filter = "(Convert(ID, 'System.String') LIKE '" & txtSisestus.Text & "')" &
-                " OR (description like '" & txtSisestus.Text & "')"
+            ' Construct the filter string to match description containing the keyword
+            Dim filterString As String = $"description LIKE '*{keyword}*'"
+            ' Apply the filter
+            ToitBindingSource.Filter = filterString
 
-            If FoodDataBindingSource2.Count <> 0 Then
+            If ToitBindingSource.Count <> 0 Then
                 With DataGridView1
-                    .DataSource = FoodDataBindingSource2
+                    .DataSource = ToitBindingSource
                 End With
 
             Else
-                MsgBox("The search item was not found.")
+                MessageBox.Show("Otsitud toodet ei leitud!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
-                FoodDataBindingSource2.Filter = Nothing
+                ToitBindingSource.Filter = Nothing
 
                 With DataGridView1
                     .ClearSelection()
                     .ReadOnly = True
                     .MultiSelect = False
-                    .DataSource = FoodDataBindingSource2
+                    .DataSource = ToitBindingSource
                 End With
 
 
@@ -71,7 +75,7 @@ Public Class Form1
 
         'txtSisestus.Text = ""
         txtSisestus.Select()
-        FoodDataBindingSource2.Filter = Nothing
+        ToitBindingSource.Filter = Nothing
 
         With DataGridView1
             .ClearSelection()
@@ -88,7 +92,7 @@ Public Class Form1
 
 
 
-    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+    Private Sub btnExit_Click(sender As Object, e As EventArgs)
         Me.Close()
     End Sub
 
@@ -96,5 +100,9 @@ Public Class Form1
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         ' Peaks salvestama koos kasutaja idga enda logi
+    End Sub
+
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+        Me.Close()
     End Sub
 End Class

@@ -73,6 +73,17 @@ Namespace My
                 Return CType(Me("FoodDatabaseConnectionString1"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnik"& _ 
+            "a\Andmebaas\ToiduAndmebaas.accdb")>  _
+        Public ReadOnly Property ToiduAndmebaasConnectionString() As String
+            Get
+                Return CType(Me("ToiduAndmebaasConnectionString"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

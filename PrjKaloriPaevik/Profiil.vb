@@ -2,7 +2,7 @@
 
 Public Class Profiil
 
-    Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\marku\Downloads\FoodDatabase\FoodDatabase.accdb;"
+    Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
 
     Private Sub Profiil_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtUsername.Text = loggedInFirstName
