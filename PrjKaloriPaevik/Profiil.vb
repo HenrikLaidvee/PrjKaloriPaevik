@@ -30,7 +30,7 @@ Public Class Profiil
             cmbYear.Items.Add(i)
         Next
 
-        For i As Integer = 100 To 1000 Step 100
+        For i As Integer = 0 To 1000 Step 100
             cbAlcohol.Items.Add(i)
         Next
 

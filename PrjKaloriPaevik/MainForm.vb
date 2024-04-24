@@ -20,4 +20,5 @@ Public Class MainForm
         btnLogFood.Enabled = False
         btnProfile.Enabled = False
     End Sub
+
 End Class

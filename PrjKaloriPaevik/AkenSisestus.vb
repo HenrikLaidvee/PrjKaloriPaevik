@@ -43,7 +43,7 @@ Public Class Form1
             ' Apply the filter
 
             If Kosher Then
-                filterString &= " AND NOT (description LIKE '*shellfish*' OR description LIKE '*crabs*' OR description LIKE '*lobster*' OR description LIKE '*shrimp*' " &
+                filterString &= " AND NOT (description LIKE '*shellfish*' OR description LIKE '*crab*' OR description LIKE '*lobster*' OR description LIKE '*shrimp*' " &
                     "OR description LIKE '*beef*' OR description LIKE '*game*' OR description LIKE '*lamb*' OR description LIKE '*chicken*' " &
                     "OR description LIKE '*turkey*' OR description LIKE '*duck*' OR description LIKE '*goose*' OR description LIKE '*Milk*' " &
                     "OR description LIKE '*cheese*' OR description LIKE '*yogurt*')"
@@ -126,8 +126,9 @@ Public Class Form1
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
         Me.Close()
         MainForm.Refresh()
-        Dim a As Integer = 3000 -KasutajaMoodul.food_amount
-        MessageBox.Show(food_amount, "Teade!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Dim a As Integer = 1872 '3000 - KasutajaMoodul.food_amount * 5
+        MainForm.txtCaloriesLeft.Text = a.ToString()
+        'MessageBox.Show(food_amount, "Teade!", MessageBoxButtons.OK, MessageBoxIcon.Information)
         'MessageBox.Show(loggedInID, "Teade!", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
