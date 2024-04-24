@@ -12,6 +12,7 @@ Public Class Profiil
         txtHeight.Text = loggedInHeight.ToString()
         txtDailyCalories.Text = loggedInCalories.ToString()
         txtGoalWeight.Text = loggedInGoal.ToString()
+        'txtCaloriesLeft.Text = (loggedInCalories - KasutajaMoodul.food_amount)
 
         lblLimitReached.Visible = False
 
@@ -29,9 +30,14 @@ Public Class Profiil
             cmbYear.Items.Add(i)
         Next
 
+        For i As Integer = 100 To 1000 Step 100
+            cbAlcohol.Items.Add(i)
+        Next
+
         cmbDay.SelectedItem = Convert.ToInt32(loggedInDay)
         cmbMonth.SelectedItem = loggedInMonth
         cmbYear.SelectedItem = Convert.ToInt32(loggedInYear)
+        cbAlcohol.SelectedItem = Convert.ToInt32(loggedAlcohol)
     End Sub
 
     Private Sub btnSeePassword_Click(sender As Object, e As EventArgs) Handles btnSeePassword.Click
@@ -90,6 +96,7 @@ Public Class Profiil
         cmbDay.SelectedIndex = -1
         cmbMonth.SelectedIndex = -1
         cmbYear.SelectedIndex = -1
+        cbAlcohol.SelectedIndex = -1
         txtWeight.Text = ""
         txtHeight.Text = ""
         txtGoalWeight.Text = ""
@@ -133,7 +140,7 @@ Public Class Profiil
 
                 Dim query As String = "UPDATE Kasutaja SET Eesnimi = @Eesnimi, Perenimi = @Perenimi, Pikkus = @Pikkus, 
                                Paev = @Paev, Kuu = @Kuu, Aasta = @Aasta, Parool = @Parool, Kaal = @Kaal, 
-                               Eesmark = @Eesmark, Kalorid = @Kalorid WHERE ID = @ID"
+                               Eesmark = @Eesmark, Kalorid = @Kalorid, Alkohol = @Alkohol WHERE ID = @ID"
                 Using command As New OleDbCommand(query, connection)
                     command.Parameters.AddWithValue("@Eesnimi", txtUsername.Text)
                     command.Parameters.AddWithValue("@Perenimi", txtLastName.Text)
@@ -146,6 +153,7 @@ Public Class Profiil
                     command.Parameters.AddWithValue("@Eesmark", goalWeight)
                     command.Parameters.AddWithValue("@Kalorid", dailyCalories)
                     command.Parameters.AddWithValue("@ID", loggedInID)
+                    command.Parameters.AddWithValue("@Alkohol", cbAlcohol.SelectedItem)
 
                     command.ExecuteNonQuery()
                     loggedInFirstName = txtUsername.Text
@@ -158,11 +166,16 @@ Public Class Profiil
                     loggedInWeight = weight
                     loggedInGoal = goalWeight
                     loggedInCalories = dailyCalories
+                    loggedAlcohol = cbAlcohol.SelectedItem
+
                 End Using
                 MainForm.txtCurrentWeight.Text = loggedInWeight.ToString()
                 MainForm.txtGoalWeight.Text = loggedInGoal.ToString()
                 MainForm.txtNeedToLose.Text = (loggedInWeight - loggedInGoal).ToString()
                 MainForm.txtCalorieLimit.Text = loggedInCalories.ToString()
+                ' Peaks muutma TEST
+                'MainForm.txtCaloriesLeft.Text = (loggedInCalories - KasutajaMoodul.food_amount).ToString()
+                'MainForm.txtCaloriesLeft.Text = (loggedInCalories - KasutajaMoodul.food_amount)
 
                 MainForm.Refresh()
                 LogInAken.Refresh()
@@ -178,5 +191,17 @@ Public Class Profiil
         Catch ex As Exception
             MessageBox.Show("Andmete salvestamisel tekkis viga: " & ex.Message, "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+    End Sub
+
+    Private Sub chbUnhealthy_CheckedChanged(sender As Object, e As EventArgs) Handles chbUnhealthy.CheckedChanged
+        If Unhealthy Then
+            Unhealthy = chbUnhealthy.Checked
+        End If
+    End Sub
+
+    Private Sub chbKosher_CheckedChanged(sender As Object, e As EventArgs) Handles chbKosher.CheckedChanged
+        If Kosher Then
+            Kosher = chbKosher.Checked
+        End If
     End Sub
 End Class

@@ -23,11 +23,13 @@ Partial Class RegAken
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.chbKosher = New System.Windows.Forms.CheckBox()
+        Me.txtDailyCalories = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.txtGoalWeight = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnBack = New System.Windows.Forms.Button()
         Me.txtHeight = New System.Windows.Forms.TextBox()
-        Me.btncalculateAge = New System.Windows.Forms.Button()
         Me.lblHeight = New System.Windows.Forms.Label()
         Me.lblLastNameMaxWords = New System.Windows.Forms.Label()
         Me.lblLastName = New System.Windows.Forms.Label()
@@ -47,20 +49,24 @@ Partial Class RegAken
         Me.lblFirstName = New System.Windows.Forms.Label()
         Me.btnCreateAccount = New System.Windows.Forms.Button()
         Me.txtUsername = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtDailyCalories = New System.Windows.Forms.TextBox()
+        Me.chbUnhealthy = New System.Windows.Forms.CheckBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.cbAlcohol = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.cbAlcohol)
+        Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Controls.Add(Me.chbUnhealthy)
+        Me.GroupBox1.Controls.Add(Me.chbKosher)
         Me.GroupBox1.Controls.Add(Me.txtDailyCalories)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.txtGoalWeight)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.btnBack)
         Me.GroupBox1.Controls.Add(Me.txtHeight)
-        Me.GroupBox1.Controls.Add(Me.btncalculateAge)
         Me.GroupBox1.Controls.Add(Me.lblHeight)
         Me.GroupBox1.Controls.Add(Me.lblLastNameMaxWords)
         Me.GroupBox1.Controls.Add(Me.lblLastName)
@@ -87,6 +93,32 @@ Partial Class RegAken
         Me.GroupBox1.TabIndex = 4
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Kasutaja andmed"
+        '
+        'chbKosher
+        '
+        Me.chbKosher.AutoSize = True
+        Me.chbKosher.Location = New System.Drawing.Point(330, 197)
+        Me.chbKosher.Name = "chbKosher"
+        Me.chbKosher.Size = New System.Drawing.Size(124, 29)
+        Me.chbKosher.TabIndex = 29
+        Me.chbKosher.Text = "Kosher toit"
+        Me.chbKosher.UseVisualStyleBackColor = True
+        '
+        'txtDailyCalories
+        '
+        Me.txtDailyCalories.Location = New System.Drawing.Point(198, 302)
+        Me.txtDailyCalories.Name = "txtDailyCalories"
+        Me.txtDailyCalories.Size = New System.Drawing.Size(102, 30)
+        Me.txtDailyCalories.TabIndex = 27
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(17, 302)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(175, 25)
+        Me.Label3.TabIndex = 26
+        Me.Label3.Text = "Päevane kaloraaž:"
         '
         'txtGoalWeight
         '
@@ -120,16 +152,6 @@ Partial Class RegAken
         Me.txtHeight.Name = "txtHeight"
         Me.txtHeight.Size = New System.Drawing.Size(102, 30)
         Me.txtHeight.TabIndex = 22
-        '
-        'btncalculateAge
-        '
-        Me.btncalculateAge.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.btncalculateAge.Location = New System.Drawing.Point(198, 336)
-        Me.btncalculateAge.Name = "btncalculateAge"
-        Me.btncalculateAge.Size = New System.Drawing.Size(322, 34)
-        Me.btncalculateAge.TabIndex = 17
-        Me.btncalculateAge.Text = "arvuta vanus"
-        Me.btncalculateAge.UseVisualStyleBackColor = True
         '
         'lblHeight
         '
@@ -300,21 +322,33 @@ Partial Class RegAken
         Me.txtUsername.Size = New System.Drawing.Size(320, 30)
         Me.txtUsername.TabIndex = 1
         '
-        'Label3
+        'chbUnhealthy
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(17, 302)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(175, 25)
-        Me.Label3.TabIndex = 26
-        Me.Label3.Text = "Päevane kaloraaž:"
+        Me.chbUnhealthy.AutoSize = True
+        Me.chbUnhealthy.Location = New System.Drawing.Point(330, 233)
+        Me.chbUnhealthy.Name = "chbUnhealthy"
+        Me.chbUnhealthy.Size = New System.Drawing.Size(247, 29)
+        Me.chbUnhealthy.TabIndex = 30
+        Me.chbUnhealthy.Text = "Ebatervisliku toidu teated"
+        Me.chbUnhealthy.UseVisualStyleBackColor = True
         '
-        'txtDailyCalories
+        'Label4
         '
-        Me.txtDailyCalories.Location = New System.Drawing.Point(198, 302)
-        Me.txtDailyCalories.Name = "txtDailyCalories"
-        Me.txtDailyCalories.Size = New System.Drawing.Size(102, 30)
-        Me.txtDailyCalories.TabIndex = 27
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(37, 340)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(155, 25)
+        Me.Label4.TabIndex = 32
+        Me.Label4.Text = "Akoholi limiit (g):"
+        '
+        'cbAlcohol
+        '
+        Me.cbAlcohol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbAlcohol.FormattingEnabled = True
+        Me.cbAlcohol.Location = New System.Drawing.Point(198, 337)
+        Me.cbAlcohol.Name = "cbAlcohol"
+        Me.cbAlcohol.Size = New System.Drawing.Size(102, 33)
+        Me.cbAlcohol.TabIndex = 33
         '
         'RegAken
         '
@@ -346,7 +380,6 @@ Partial Class RegAken
     Friend WithEvents cmbYear As ComboBox
     Friend WithEvents cmbMonth As ComboBox
     Friend WithEvents cmbDay As ComboBox
-    Friend WithEvents btncalculateAge As Button
     Friend WithEvents txtLastName As TextBox
     Friend WithEvents lblLastNameMaxWords As Label
     Friend WithEvents lblLastName As Label
@@ -357,4 +390,8 @@ Partial Class RegAken
     Friend WithEvents Label2 As Label
     Friend WithEvents txtDailyCalories As TextBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents chbKosher As CheckBox
+    Friend WithEvents chbUnhealthy As CheckBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents cbAlcohol As ComboBox
 End Class

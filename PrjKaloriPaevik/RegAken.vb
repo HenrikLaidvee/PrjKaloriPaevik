@@ -22,6 +22,10 @@ Public Class RegAken
             cmbYear.Items.Add(i)
         Next
 
+        For i As Integer = 100 To 1000 Step 100
+            cbAlcohol.Items.Add(i)
+        Next
+
     End Sub
 
     Private Sub btnSeePassword_Click(sender As Object, e As EventArgs) Handles btnSeePassword.Click
@@ -58,8 +62,8 @@ Public Class RegAken
             Using connection As New OleDbConnection(connectionString)
                 connection.Open()
 
-                Dim query As String = "INSERT INTO Kasutaja (Eesnimi, Perenimi, Pikkus, Paev, Kuu, Aasta, Parool, Kaal, Eesmark, Kalorid) 
-                                        VALUES (@Eesnimi, @Perenimi, @Pikkus, @Paev, @Kuu, @Aasta, @Parool, @Kaal, @Eesmark, @Kalorid)"
+                Dim query As String = "INSERT INTO Kasutaja (Eesnimi, Perenimi, Pikkus, Paev, Kuu, Aasta, Parool, Kaal, Eesmark, Kalorid, Alkohol) 
+                                        VALUES (@Eesnimi, @Perenimi, @Pikkus, @Paev, @Kuu, @Aasta, @Parool, @Kaal, @Eesmark, @Kalorid, @Alkohol)"
                 Using command As New OleDbCommand(query, connection)
 
                     command.Parameters.AddWithValue("@Eesnimi", txtUsername.Text)
@@ -72,6 +76,7 @@ Public Class RegAken
                     command.Parameters.AddWithValue("@Kaal", weight)
                     command.Parameters.AddWithValue("@Eesmark", goalWeight)
                     command.Parameters.AddWithValue("@Kalorid", dailyCalories)
+                    command.Parameters.AddWithValue("@Alkohol", cbAlcohol.SelectedItem)
 
                     'command.Parameters.AddWithValue("@Age", age)
 
@@ -145,7 +150,7 @@ Public Class RegAken
         txtUsername.Text = ""
     End Function
 
-    Private Sub btnCalculateAge_Click(sender As Object, e As EventArgs) Handles btncalculateAge.Click
+    Private Sub btnCalculateAge_Click(sender As Object, e As EventArgs)
 
         If cmbDay.SelectedItem Is Nothing OrElse cmbMonth.SelectedItem Is Nothing OrElse cmbYear.SelectedItem Is Nothing Then
             MessageBox.Show("Palun valige kõik kuupäevaväljad!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -187,5 +192,13 @@ Public Class RegAken
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
         Me.Close()
+    End Sub
+
+    Private Sub chbKosher_CheckedChanged(sender As Object, e As EventArgs) Handles chbKosher.CheckedChanged
+        Kosher = chbKosher.Checked
+    End Sub
+
+    Private Sub chbUnhealthy_CheckedChanged(sender As Object, e As EventArgs) Handles chbUnhealthy.CheckedChanged
+        Unhealthy = chbUnhealthy.Checked
     End Sub
 End Class

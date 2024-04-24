@@ -26,6 +26,12 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.gbDatabase = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FoodidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DescriptionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GramweightDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ToitBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ToiduAndmebaasDataSet = New PrjKaloriPaevik.ToiduAndmebaasDataSet()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
@@ -39,22 +45,16 @@ Partial Class Form1
         Me.FoodDataTableAdapter1 = New PrjKaloriPaevik.FoodDatabaseDataSet2TableAdapters.FoodDataTableAdapter()
         Me.ToitTableAdapter1 = New PrjKaloriPaevik.FoodDatabaseDataSet2TableAdapters.ToitTableAdapter()
         Me.FoodDataTableAdapter = New PrjKaloriPaevik.FoodDatabaseDataSetTableAdapters.FoodDataTableAdapter()
-        Me.ToiduAndmebaasDataSet = New PrjKaloriPaevik.ToiduAndmebaasDataSet()
-        Me.ToitBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ToitTableAdapter = New PrjKaloriPaevik.ToiduAndmebaasDataSetTableAdapters.ToitTableAdapter()
-        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FoodidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DescriptionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GramweightDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cbAmount = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.gbDatabase.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ToitBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ToiduAndmebaasDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbInfo.SuspendLayout()
         CType(Me.FoodDataBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FoodDatabaseDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ToiduAndmebaasDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ToitBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -91,6 +91,48 @@ Partial Class Form1
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.Size = New System.Drawing.Size(1062, 309)
         Me.DataGridView1.TabIndex = 0
+        '
+        'IDDataGridViewTextBoxColumn
+        '
+        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
+        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
+        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
+        Me.IDDataGridViewTextBoxColumn.ReadOnly = True
+        Me.IDDataGridViewTextBoxColumn.Visible = False
+        '
+        'FoodidDataGridViewTextBoxColumn
+        '
+        Me.FoodidDataGridViewTextBoxColumn.DataPropertyName = "food_id"
+        Me.FoodidDataGridViewTextBoxColumn.HeaderText = "food_id"
+        Me.FoodidDataGridViewTextBoxColumn.Name = "FoodidDataGridViewTextBoxColumn"
+        Me.FoodidDataGridViewTextBoxColumn.ReadOnly = True
+        Me.FoodidDataGridViewTextBoxColumn.Visible = False
+        '
+        'DescriptionDataGridViewTextBoxColumn
+        '
+        Me.DescriptionDataGridViewTextBoxColumn.DataPropertyName = "description"
+        Me.DescriptionDataGridViewTextBoxColumn.HeaderText = "description"
+        Me.DescriptionDataGridViewTextBoxColumn.Name = "DescriptionDataGridViewTextBoxColumn"
+        Me.DescriptionDataGridViewTextBoxColumn.ReadOnly = True
+        Me.DescriptionDataGridViewTextBoxColumn.Width = 800
+        '
+        'GramweightDataGridViewTextBoxColumn
+        '
+        Me.GramweightDataGridViewTextBoxColumn.DataPropertyName = "gram_weight"
+        Me.GramweightDataGridViewTextBoxColumn.HeaderText = "gram_weight"
+        Me.GramweightDataGridViewTextBoxColumn.Name = "GramweightDataGridViewTextBoxColumn"
+        Me.GramweightDataGridViewTextBoxColumn.ReadOnly = True
+        Me.GramweightDataGridViewTextBoxColumn.Width = 200
+        '
+        'ToitBindingSource
+        '
+        Me.ToitBindingSource.DataMember = "Toit"
+        Me.ToitBindingSource.DataSource = Me.ToiduAndmebaasDataSet
+        '
+        'ToiduAndmebaasDataSet
+        '
+        Me.ToiduAndmebaasDataSet.DataSetName = "ToiduAndmebaasDataSet"
+        Me.ToiduAndmebaasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'btnSearch
         '
@@ -136,18 +178,18 @@ Partial Class Form1
         '
         Me.gbInfo.Controls.Add(Me.RichTextBox1)
         Me.gbInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.gbInfo.Location = New System.Drawing.Point(44, 495)
+        Me.gbInfo.Location = New System.Drawing.Point(12, 476)
         Me.gbInfo.Name = "gbInfo"
-        Me.gbInfo.Size = New System.Drawing.Size(251, 237)
+        Me.gbInfo.Size = New System.Drawing.Size(1087, 237)
         Me.gbInfo.TabIndex = 7
         Me.gbInfo.TabStop = False
-        Me.gbInfo.Text = "Info"
+        Me.gbInfo.Text = "Toidu või joogi lisainfo ning toitained"
         '
         'RichTextBox1
         '
         Me.RichTextBox1.Location = New System.Drawing.Point(6, 29)
         Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(239, 202)
+        Me.RichTextBox1.Size = New System.Drawing.Size(1075, 202)
         Me.RichTextBox1.TabIndex = 0
         Me.RichTextBox1.Text = ""
         '
@@ -192,51 +234,9 @@ Partial Class Form1
         '
         Me.FoodDataTableAdapter.ClearBeforeFill = True
         '
-        'ToiduAndmebaasDataSet
-        '
-        Me.ToiduAndmebaasDataSet.DataSetName = "ToiduAndmebaasDataSet"
-        Me.ToiduAndmebaasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'ToitBindingSource
-        '
-        Me.ToitBindingSource.DataMember = "Toit"
-        Me.ToitBindingSource.DataSource = Me.ToiduAndmebaasDataSet
-        '
         'ToitTableAdapter
         '
         Me.ToitTableAdapter.ClearBeforeFill = True
-        '
-        'IDDataGridViewTextBoxColumn
-        '
-        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
-        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
-        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
-        Me.IDDataGridViewTextBoxColumn.ReadOnly = True
-        Me.IDDataGridViewTextBoxColumn.Visible = False
-        '
-        'FoodidDataGridViewTextBoxColumn
-        '
-        Me.FoodidDataGridViewTextBoxColumn.DataPropertyName = "food_id"
-        Me.FoodidDataGridViewTextBoxColumn.HeaderText = "food_id"
-        Me.FoodidDataGridViewTextBoxColumn.Name = "FoodidDataGridViewTextBoxColumn"
-        Me.FoodidDataGridViewTextBoxColumn.ReadOnly = True
-        Me.FoodidDataGridViewTextBoxColumn.Visible = False
-        '
-        'DescriptionDataGridViewTextBoxColumn
-        '
-        Me.DescriptionDataGridViewTextBoxColumn.DataPropertyName = "description"
-        Me.DescriptionDataGridViewTextBoxColumn.HeaderText = "description"
-        Me.DescriptionDataGridViewTextBoxColumn.Name = "DescriptionDataGridViewTextBoxColumn"
-        Me.DescriptionDataGridViewTextBoxColumn.ReadOnly = True
-        Me.DescriptionDataGridViewTextBoxColumn.Width = 800
-        '
-        'GramweightDataGridViewTextBoxColumn
-        '
-        Me.GramweightDataGridViewTextBoxColumn.DataPropertyName = "gram_weight"
-        Me.GramweightDataGridViewTextBoxColumn.HeaderText = "gram_weight"
-        Me.GramweightDataGridViewTextBoxColumn.Name = "GramweightDataGridViewTextBoxColumn"
-        Me.GramweightDataGridViewTextBoxColumn.ReadOnly = True
-        Me.GramweightDataGridViewTextBoxColumn.Width = 200
         '
         'cbAmount
         '
@@ -262,7 +262,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1103, 744)
+        Me.ClientSize = New System.Drawing.Size(1103, 712)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.cbAmount)
         Me.Controls.Add(Me.txtSisestus)
@@ -277,11 +277,11 @@ Partial Class Form1
         Me.Text = "Database aken"
         Me.gbDatabase.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ToitBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ToiduAndmebaasDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbInfo.ResumeLayout(False)
         CType(Me.FoodDataBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FoodDatabaseDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ToiduAndmebaasDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ToitBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

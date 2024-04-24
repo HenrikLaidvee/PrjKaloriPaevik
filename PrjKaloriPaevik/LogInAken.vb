@@ -51,6 +51,8 @@ Public Class LogInAken
                             MainForm.txtNeedToLose.Text = (loggedInWeight - loggedInGoal).ToString()
                             MainForm.txtCalorieLimit.Text = loggedInCalories.ToString()
 
+                            'KasutajaMoodul.latestUserID = GetLatestUserID()
+
                             Me.Close()
 
                             MainForm.Refresh()

@@ -146,11 +146,11 @@ Partial Class MainForm
         '
         Me.txtMotivation.Enabled = False
         Me.txtMotivation.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.txtMotivation.Location = New System.Drawing.Point(20, 19)
+        Me.txtMotivation.Location = New System.Drawing.Point(15, 38)
         Me.txtMotivation.Name = "txtMotivation"
-        Me.txtMotivation.Size = New System.Drawing.Size(447, 30)
+        Me.txtMotivation.Size = New System.Drawing.Size(681, 30)
         Me.txtMotivation.TabIndex = 10
-        Me.txtMotivation.Text = "Let's goo"
+        Me.txtMotivation.Text = """Raev, lõbu, pühendumus – purusta takistused, tõuse."" - Pope Francis "
         Me.txtMotivation.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label4
@@ -197,7 +197,8 @@ Partial Class MainForm
         Me.GroupBox1.Controls.Add(Me.btnLogFood)
         Me.GroupBox1.Controls.Add(Me.btnCreateUser)
         Me.GroupBox1.Controls.Add(Me.btnProfile)
-        Me.GroupBox1.Location = New System.Drawing.Point(24, 12)
+        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.GroupBox1.Location = New System.Drawing.Point(25, 18)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(167, 315)
         Me.GroupBox1.TabIndex = 16
@@ -216,9 +217,10 @@ Partial Class MainForm
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.Label1)
+        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
         Me.GroupBox2.Location = New System.Drawing.Point(240, 18)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(333, 277)
+        Me.GroupBox2.Size = New System.Drawing.Size(487, 315)
         Me.GroupBox2.TabIndex = 17
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Tänane statistika"
@@ -226,18 +228,19 @@ Partial Class MainForm
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.txtMotivation)
-        Me.GroupBox3.Location = New System.Drawing.Point(240, 354)
+        Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.GroupBox3.Location = New System.Drawing.Point(25, 353)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(472, 59)
+        Me.GroupBox3.Size = New System.Drawing.Size(702, 85)
         Me.GroupBox3.TabIndex = 18
         Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Motivatsioonilaks"
+        Me.GroupBox3.Text = "Tänane motiveeriv sõnum"
         '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(751, 450)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)

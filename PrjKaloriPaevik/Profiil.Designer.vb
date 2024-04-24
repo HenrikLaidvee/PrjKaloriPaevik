@@ -48,11 +48,19 @@ Partial Class Profiil
         Me.lblFirstName = New System.Windows.Forms.Label()
         Me.btnCreateAccount = New System.Windows.Forms.Button()
         Me.txtUsername = New System.Windows.Forms.TextBox()
+        Me.cbAlcohol = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.chbKosher = New System.Windows.Forms.CheckBox()
+        Me.chbUnhealthy = New System.Windows.Forms.CheckBox()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.chbUnhealthy)
+        Me.GroupBox1.Controls.Add(Me.chbKosher)
+        Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Controls.Add(Me.cbAlcohol)
         Me.GroupBox1.Controls.Add(Me.txtDailyCalories)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.txtGoalWeight)
@@ -304,6 +312,44 @@ Partial Class Profiil
         Me.txtUsername.Size = New System.Drawing.Size(320, 30)
         Me.txtUsername.TabIndex = 1
         '
+        'cbAlcohol
+        '
+        Me.cbAlcohol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbAlcohol.FormattingEnabled = True
+        Me.cbAlcohol.Location = New System.Drawing.Point(198, 337)
+        Me.cbAlcohol.Name = "cbAlcohol"
+        Me.cbAlcohol.Size = New System.Drawing.Size(102, 33)
+        Me.cbAlcohol.TabIndex = 28
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(37, 337)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(155, 25)
+        Me.Label4.TabIndex = 33
+        Me.Label4.Text = "Akoholi limiit (g):"
+        '
+        'chbKosher
+        '
+        Me.chbKosher.AutoSize = True
+        Me.chbKosher.Location = New System.Drawing.Point(326, 194)
+        Me.chbKosher.Name = "chbKosher"
+        Me.chbKosher.Size = New System.Drawing.Size(124, 29)
+        Me.chbKosher.TabIndex = 34
+        Me.chbKosher.Text = "Kosher toit"
+        Me.chbKosher.UseVisualStyleBackColor = True
+        '
+        'chbUnhealthy
+        '
+        Me.chbUnhealthy.AutoSize = True
+        Me.chbUnhealthy.Location = New System.Drawing.Point(326, 229)
+        Me.chbUnhealthy.Name = "chbUnhealthy"
+        Me.chbUnhealthy.Size = New System.Drawing.Size(247, 29)
+        Me.chbUnhealthy.TabIndex = 35
+        Me.chbUnhealthy.Text = "Ebatervisliku toidu teated"
+        Me.chbUnhealthy.UseVisualStyleBackColor = True
+        '
         'Profiil
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -344,4 +390,8 @@ Partial Class Profiil
     Friend WithEvents lblFirstName As Label
     Friend WithEvents btnCreateAccount As Button
     Friend WithEvents txtUsername As TextBox
+    Friend WithEvents cbAlcohol As ComboBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents chbKosher As CheckBox
+    Friend WithEvents chbUnhealthy As CheckBox
 End Class
