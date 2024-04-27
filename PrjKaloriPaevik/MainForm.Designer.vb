@@ -248,9 +248,9 @@ Partial Class MainForm
         '
         'btnKaal
         '
-        Me.btnKaal.Location = New System.Drawing.Point(491, 76)
+        Me.btnKaal.Location = New System.Drawing.Point(491, 42)
         Me.btnKaal.Name = "btnKaal"
-        Me.btnKaal.Size = New System.Drawing.Size(107, 48)
+        Me.btnKaal.Size = New System.Drawing.Size(127, 82)
         Me.btnKaal.TabIndex = 15
         Me.btnKaal.Text = "Kaalu statistika"
         Me.btnKaal.UseVisualStyleBackColor = True

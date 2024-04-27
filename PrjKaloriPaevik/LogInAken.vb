@@ -46,6 +46,7 @@ Public Class LogInAken
                             MainForm.btnCreateUser.Enabled = False
                             MainForm.btnProfile.Enabled = True
                             MainForm.btnLogFood.Enabled = True
+                            MainForm.btnKaal.Enabled = True
                             MainForm.txtCurrentWeight.Text = loggedInWeight.ToString()
                             MainForm.txtGoalWeight.Text = loggedInGoal.ToString()
                             MainForm.txtNeedToLose.Text = (loggedInWeight - loggedInGoal).ToString()

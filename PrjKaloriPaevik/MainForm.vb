@@ -20,6 +20,7 @@ Public Class MainForm
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         btnLogFood.Enabled = False
         btnProfile.Enabled = False
+        btnKaal.Enabled = False
     End Sub
 
     Private Sub btnKaal_Click(sender As Object, e As EventArgs) Handles btnKaal.Click
