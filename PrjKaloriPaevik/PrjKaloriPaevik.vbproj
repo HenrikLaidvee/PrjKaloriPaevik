@@ -76,6 +76,7 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -159,6 +160,12 @@
     <Compile Include="RegAken.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="StatistikaForm.Designer.vb">
+      <DependentUpon>StatistikaForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="StatistikaForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ToiduAndmebaasDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -186,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RegAken.resx">
       <DependentUpon>RegAken.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatistikaForm.resx">
+      <DependentUpon>StatistikaForm.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
