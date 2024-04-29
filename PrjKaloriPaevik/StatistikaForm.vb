@@ -9,19 +9,19 @@ Public Class StatistikaForm
         connection.Open()
 
         ' Retrieve data from the database
-        Dim command As New OleDbCommand("SELECT Kuupäev, Kaal FROM KaaluAndmed", connection)
+        Dim command As New OleDbCommand("SELECT Kuupäev, BMI FROM KaaluAndmed", connection)
         Dim reader As OleDbDataReader = command.ExecuteReader()
 
         ' Check if the series exists or create it if necessary
-        If Chart1.Series.IndexOf("Kaal") = -1 Then
+        If Chart1.Series.IndexOf("BMI") = -1 Then
             ' If the series does not exist, create it
-            Chart1.Series.Add("Kaal")
+            Chart1.Series.Add("BMI")
         End If
 
         ' Bind data to the chart
         Chart1.DataSource = reader
-        Chart1.Series("Kaal").XValueMember = "Kuupäev"
-        Chart1.Series("Kaal").YValueMembers = "Kaal"
+        Chart1.Series("BMI").XValueMember = "Kuupäev"
+        Chart1.Series("BMI").YValueMembers = "BMI"
         Chart1.DataBind()
 
         ' Close the connection
@@ -29,15 +29,15 @@ Public Class StatistikaForm
 
         ' Customize chart appearance
         Chart1.ChartAreas(0).AxisX.Title = "Kuupäev"
-        Chart1.ChartAreas(0).AxisY.Title = "Kaal (kg)"
+        Chart1.ChartAreas(0).AxisY.Title = "BMI"
         Chart1.ChartAreas(0).AxisX.LabelStyle.Format = "dd/MM/yyyy"
         Chart1.ChartAreas(0).AxisX.Interval = 1
         Chart1.ChartAreas(0).AxisY.Interval = 5
         Chart1.ChartAreas(0).AxisX.MajorGrid.LineColor = Color.LightGray
         Chart1.ChartAreas(0).AxisY.MajorGrid.LineColor = Color.LightGray
-        Chart1.Series("Kaal").Color = Color.Blue
-        Chart1.Series("Kaal").BorderWidth = 2
-        Chart1.Series("Kaal").ChartType = DataVisualization.Charting.SeriesChartType.Line
+        Chart1.Series("BMI").Color = Color.Blue
+        Chart1.Series("BMI").BorderWidth = 2
+        Chart1.Series("BMI").ChartType = DataVisualization.Charting.SeriesChartType.Line
         Chart1.Dock = DockStyle.Fill
     End Sub
 End Class

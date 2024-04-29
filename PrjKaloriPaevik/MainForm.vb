@@ -20,46 +20,64 @@ Public Class MainForm
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         btnLogFood.Enabled = False
         btnProfile.Enabled = False
-        btnKaal.Enabled = False
+        btnKaal.Enabled = Enabled
     End Sub
 
     Private Sub btnKaal_Click(sender As Object, e As EventArgs) Handles btnKaal.Click
         StatistikaForm.Show()
     End Sub
-    Private Sub InsertDataIntoWeightData(weightValue As Double)
-        ' Define your SQL query with parameterized query
-        Dim query As String = "INSERT INTO KaaluAndmed ([Kuupäev], [Kaal]) VALUES (@DateValue, @WeightValue)"
-
+    Private Sub InsertDataIntoWeightData(weightValue As Double, ID As Integer)
         ' Connect to your Access database
         Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduTest.accdb;"
+
+        ' Define your SQL query to retrieve Pikkus value
+        Dim selectQuery As String = "SELECT Pikkus FROM Kasutaja WHERE ID = @ID"
+
+        ' Define your SQL query to insert data with parameterized query
+        Dim insertQuery As String = "INSERT INTO KaaluAndmed ([Kuupäev], [Kaal], [BMI], [ID]) VALUES (@DateValue, @WeightValue, @BMIValue, @ID)"
+
         Using connection As New OleDbConnection(connectionString)
-            Using command As New OleDbCommand(query, connection)
-                ' Add parameters to the command
-                command.Parameters.AddWithValue("@DateValue", DateTime.Now) ' Use current system time as date value
-                command.Parameters.AddWithValue("@WeightValue", weightValue)
+            ' First, retrieve the Pikkus value from the database
+            Using selectCommand As New OleDbCommand(selectQuery, connection)
+                ' Add parameter for Eesnimi
+                selectCommand.Parameters.AddWithValue("@ID", ID) ' ID is a variable containing the User ID to search for
 
                 Try
-                    ' Open the connection
                     connection.Open()
 
-                    ' Execute the command
-                    command.ExecuteNonQuery()
+                    ' Execute the SELECT command and retrieve the Pikkus value
+                    Dim pikkus As Integer = Convert.ToInt32(selectCommand.ExecuteScalar())
+                    Dim BMI As Double = weightValue / ((pikkus / 100) * (pikkus / 100))
 
-                    ' Optionally, display a message indicating data was saved
-                    ' MessageBox.Show("Data saved successfully!")
+                    ' Now, you have the Pikkus value, proceed with inserting data
+                    Using insertCommand As New OleDbCommand(insertQuery, connection)
+                        ' Add parameters to the INSERT command
+                        insertCommand.Parameters.AddWithValue("@DateValue", DateTime.Now) ' Use current system time as date value
+                        insertCommand.Parameters.AddWithValue("@WeightValue", weightValue)
+                        insertCommand.Parameters.AddWithValue("@BMIValue", BMI) ' Use the calculated BMI value
+                        insertCommand.Parameters.AddWithValue("@ID", ID) ' Use the ID value
+
+                        ' Execute the INSERT command
+                        insertCommand.ExecuteNonQuery()
+
+                        ' Optionally, display a message indicating data was saved
+                        ' MessageBox.Show("Data saved successfully!")
+                    End Using
                 Catch ex As Exception
-                    MessageBox.Show("Error saving data: " & ex.Message)
+                    MessageBox.Show("Error retrieving or saving data: " & ex.Message)
                 End Try
             End Using
         End Using
+
     End Sub
 
     Private Sub txtCurrentWeight_TextChanged(sender As Object, e As EventArgs) Handles txtCurrentWeight.TextChanged
         ' Get the weight value from the textbox
         Dim weightValue As Double
+        Dim ID As Integer
         If Double.TryParse(txtCurrentWeight.Text, weightValue) Then
             ' Call the method to insert data into the WeightData table
-            InsertDataIntoWeightData(weightValue)
+            InsertDataIntoWeightData(weightValue, ID)
         End If
 
     End Sub
