@@ -41,6 +41,7 @@ Partial Class MainForm
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.btnKaal = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.btnDownload = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -225,6 +226,7 @@ Partial Class MainForm
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.btnDownload)
         Me.GroupBox2.Controls.Add(Me.btnKaal)
         Me.GroupBox2.Controls.Add(Me.txtCaloriesLeft)
         Me.GroupBox2.Controls.Add(Me.txtCalorieLimit)
@@ -268,6 +270,15 @@ Partial Class MainForm
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Tänane motiveeriv sõnum"
         '
+        'btnDownload
+        '
+        Me.btnDownload.Location = New System.Drawing.Point(491, 182)
+        Me.btnDownload.Name = "btnDownload"
+        Me.btnDownload.Size = New System.Drawing.Size(127, 77)
+        Me.btnDownload.TabIndex = 16
+        Me.btnDownload.Text = "Lae alla"
+        Me.btnDownload.UseVisualStyleBackColor = True
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -307,4 +318,5 @@ Partial Class MainForm
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents btnKaal As Button
+    Friend WithEvents btnDownload As Button
 End Class

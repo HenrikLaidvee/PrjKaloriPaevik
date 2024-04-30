@@ -1,5 +1,5 @@
 ﻿Imports System.Windows.Forms.VisualStyles
-Imports CExportToCSV
+Imports ExportToCSV
 
 'Tuleb mainformis välja kutsuda
 Public Class FilenameForm
@@ -19,5 +19,7 @@ Public Class FilenameForm
         exporter.WriteToFile(filepath, filename, numberOfLines)
     End Sub
 
+    Private Sub FilenameForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    End Sub
 End Class

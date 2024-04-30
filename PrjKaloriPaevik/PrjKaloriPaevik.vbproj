@@ -104,6 +104,12 @@
       <DependentUpon>AkenSisestus.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FilenameForm.Designer.vb">
+      <DependentUpon>FilenameForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FilenameForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FoodDatabaseDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -175,6 +181,9 @@
   <ItemGroup>
     <EmbeddedResource Include="AkenSisestus.resx">
       <DependentUpon>AkenSisestus.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FilenameForm.resx">
+      <DependentUpon>FilenameForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogInAken.resx">
       <DependentUpon>LogInAken.vb</DependentUpon>
@@ -258,6 +267,16 @@
     <Content Include="FoodDatabase.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExportToCSV\ExportToCSV.vbproj">
+      <Project>{7a951bd9-fabf-4cf6-a3da-51c23f931ba1}</Project>
+      <Name>ExportToCSV</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FoodSafetyWarning\FoodSafetyWarning.vbproj">
+      <Project>{c38822e9-660d-4538-a135-7ef8e1e04468}</Project>
+      <Name>FoodSafetyWarning</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

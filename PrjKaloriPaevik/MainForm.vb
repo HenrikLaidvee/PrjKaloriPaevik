@@ -1,5 +1,7 @@
 ﻿Imports System.Data.OleDb
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+
+
 Public Class MainForm
     Private Sub btnProfile_Click(sender As Object, e As EventArgs) Handles btnProfile.Click
         Profiil.Show()
@@ -80,5 +82,9 @@ Public Class MainForm
             InsertDataIntoWeightData(weightValue, ID)
         End If
 
+    End Sub
+
+    Private Sub btnDownload_Click(sender As Object, e As EventArgs) Handles btnDownload.Click
+        FilenameForm.ShowDialog()
     End Sub
 End Class
