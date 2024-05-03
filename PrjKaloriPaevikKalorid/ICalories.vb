@@ -1,4 +1,3 @@
 ﻿Public Interface ICalories
-    Sub AddCalories(ByRef foodID As Integer)
-    Sub SetCalorieLimit(ByRef limit As Integer)
+    Sub AddCalories(ByRef foodID As Integer, ByRef amount As Integer)
 End Interface
