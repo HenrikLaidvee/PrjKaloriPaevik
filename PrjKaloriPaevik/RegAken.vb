@@ -2,7 +2,7 @@
 
 Public Class RegAken
 
-    Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\FoodDatabase.accdb;"
+    Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduTest.accdb;"
 
     Private Sub RegAken_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -22,6 +22,10 @@ Public Class RegAken
             cmbYear.Items.Add(i)
         Next
 
+        For i As Integer = 0 To 1000 Step 100
+            cbAlcohol.Items.Add(i)
+        Next
+
     End Sub
 
     Private Sub btnSeePassword_Click(sender As Object, e As EventArgs) Handles btnSeePassword.Click
@@ -39,7 +43,8 @@ Public Class RegAken
         If cmbDay.SelectedIndex = -1 OrElse cmbMonth.SelectedIndex = -1 OrElse cmbYear.SelectedIndex = -1 _
             OrElse String.IsNullOrEmpty(txtWeight.Text) OrElse String.IsNullOrEmpty(txtPassword.Text) _
             OrElse String.IsNullOrEmpty(txtUsername.Text) OrElse String.IsNullOrEmpty(txtLastName.Text) _
-            OrElse String.IsNullOrEmpty(txtHeight.Text) Then
+            OrElse String.IsNullOrEmpty(txtHeight.Text) OrElse String.IsNullOrEmpty(txtGoalWeight.Text) _
+            OrElse String.IsNullOrEmpty(txtDailyCalories.Text) Then
 
             MessageBox.Show("Palun täitke kõik väljad!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
@@ -50,21 +55,28 @@ Public Class RegAken
 
             Dim height As Double = Double.Parse(txtHeight.Text)
 
+            Dim goalWeight As Double = Double.Parse(txtGoalWeight.Text)
+
+            Dim dailyCalories As Double = Double.Parse(txtDailyCalories.Text)
+
             Using connection As New OleDbConnection(connectionString)
                 connection.Open()
 
-                Dim query As String = "INSERT INTO Kasutaja (Eesnimi, Perenimi, Pikkus, Päev, Kuu, Aasta, Parool, Kaal) 
-                                        VALUES (@Eesnimi, @Perenimi, @Pikkus, @Päev, @Kuu, @Aasta, @Parool, @Kaal)"
+                Dim query As String = "INSERT INTO Kasutaja (Eesnimi, Perenimi, Pikkus, Paev, Kuu, Aasta, Parool, Kaal, Eesmark, Kalorid, Alkohol) 
+                                        VALUES (@Eesnimi, @Perenimi, @Pikkus, @Paev, @Kuu, @Aasta, @Parool, @Kaal, @Eesmark, @Kalorid, @Alkohol)"
                 Using command As New OleDbCommand(query, connection)
 
                     command.Parameters.AddWithValue("@Eesnimi", txtUsername.Text)
                     command.Parameters.AddWithValue("@Perenimi", txtLastName.Text)
                     command.Parameters.AddWithValue("@Pikkus", height)
-                    command.Parameters.AddWithValue("@Päev", cmbDay.SelectedItem)
+                    command.Parameters.AddWithValue("@Paev", cmbDay.SelectedItem)
                     command.Parameters.AddWithValue("@Kuu", cmbMonth.SelectedItem)
                     command.Parameters.AddWithValue("@Aasta", cmbYear.SelectedItem)
                     command.Parameters.AddWithValue("@Parool", txtPassword.Text)
                     command.Parameters.AddWithValue("@Kaal", weight)
+                    command.Parameters.AddWithValue("@Eesmark", goalWeight)
+                    command.Parameters.AddWithValue("@Kalorid", dailyCalories)
+                    command.Parameters.AddWithValue("@Alkohol", cbAlcohol.SelectedItem)
 
                     'command.Parameters.AddWithValue("@Age", age)
 
@@ -74,11 +86,11 @@ Public Class RegAken
 
             MessageBox.Show("Andmed salvestatud edukalt!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Clear()
-            Me.Hide()
+            Me.Close()
 
         Catch ex As FormatException
             ' Kui sisestatud tekst ei ole number, siis error
-            MessageBox.Show("Palun sisestage ainult numbrid kaalu ja pikkuse väljale!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Palun sisestage ainult numbrid kaalu, pikkuse, eemärgi ja kalorite väljale!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Catch ex As Exception
             MessageBox.Show("Andmete salvestamisel tekkis viga: " & ex.Message, "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -131,11 +143,14 @@ Public Class RegAken
         cmbMonth.SelectedIndex = -1
         cmbYear.SelectedIndex = -1
         txtWeight.Text = ""
+        txtHeight.Text = ""
+        txtGoalWeight.Text = ""
+        txtDailyCalories.Text = ""
         txtPassword.Text = ""
         txtUsername.Text = ""
     End Function
 
-    Private Sub btnCalculateAge_Click(sender As Object, e As EventArgs) Handles btncalculateAge.Click
+    Private Sub btnCalculateAge_Click(sender As Object, e As EventArgs)
 
         If cmbDay.SelectedItem Is Nothing OrElse cmbMonth.SelectedItem Is Nothing OrElse cmbYear.SelectedItem Is Nothing Then
             MessageBox.Show("Palun valige kõik kuupäevaväljad!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -177,5 +192,13 @@ Public Class RegAken
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
         Me.Close()
+    End Sub
+
+    Private Sub chbKosher_CheckedChanged(sender As Object, e As EventArgs) Handles chbKosher.CheckedChanged
+        Kosher = chbKosher.Checked
+    End Sub
+
+    Private Sub chbUnhealthy_CheckedChanged(sender As Object, e As EventArgs) Handles chbUnhealthy.CheckedChanged
+        Unhealthy = chbUnhealthy.Checked
     End Sub
 End Class
