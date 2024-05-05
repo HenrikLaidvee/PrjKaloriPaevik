@@ -4,7 +4,7 @@ Imports System.Windows.Forms.DataVisualization.Charting
 Public Class StatistikaForm
     Private Sub StatistikaForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Connect to your Access database
-        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduTest.accdb;"
+        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Throthar\source\repos\PrjKaloriPaevik\ToiduTest.accdb;"
         Dim connection As New OleDbConnection(connectionString)
         connection.Open()
 

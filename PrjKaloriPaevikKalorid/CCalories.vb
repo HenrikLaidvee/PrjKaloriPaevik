@@ -6,9 +6,8 @@ Public Class CCalories
 
     Private kasutaja As Integer
     Private food As Integer
-    Private amount As Integer
-    Private oldDate As Date
-    Private makro As Integer() = {0, 0, 0, 0, 0}
+    Private oldDate As String
+    Private makro As Double() = {0, 0, 0, 0, 0}
     Private nutrients As Integer() = {1003, 1004, 1005, 2000, 1008}
     'Private makrod As String() = {"protein", "fat", "carbs", "suhkur", "calories"}
     Private connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Throthar\source\repos\PrjKaloriPaevik\ToiduTest.accdb;"
@@ -16,27 +15,25 @@ Public Class CCalories
         Using connection As New OleDbConnection(connectionString)
             Try
                 connection.Open()
-                Dim commandText As String = "SELECT top 5 ID, kasutaja_ID, Toidu_ID, Nutrient_ID, amount, Date FROM ajalugu ORDER BY ID DESC"
+                Dim commandText As String = "SELECT COUNT(*) as counted FROM sisestatud_toit"
                 Dim command As New OleDbCommand(commandText, connection)
-                Dim reader As OleDbDataReader = command.ExecuteReader()
-                If reader.Read() Then
-                    If Date.Now > oldDate Then
-                        For i As Integer = 0 To 4
-                            makro(i) = 0
-                        Next
-                    Else
-                        For i As Integer = 0 To 4
-                            ' Access individual columns by column name or index
-                            Dim value As Integer = reader("Nutrient_id")
-                            makro(i) = value
-                        Next
-                    End If
-                    oldDate = Convert.ToDateTime(reader("Date"))
-                    kasutaja = reader("kasutaja_ID")
-                    food = reader("kasutaja_ID")
-                    amount = reader("amount")
+                Dim rowCount As Integer = CInt(command.ExecuteScalar())
+                connection.Close()
+                If rowCount > 0 Then
+                    connection.Open()
+                    Dim quoryText As String = "SELECT top 5 amount, daata FROM Sisestatud_toit ORDER BY ID DESC"
+                    Dim quory As New OleDbCommand(quoryText, connection)
+                    Dim reader As OleDbDataReader = quory.ExecuteReader()
+                    Dim i As Integer = 0
+                    While reader.Read() AndAlso i < 5
+                        ' Access individual columns by column name or index
+                        Dim value As Double = Convert.ToDouble(reader("amount"))
+                        makro(i) = value
+                        oldDate = reader("daata")
+                        i += 1
+                    End While
+                    reader.Close()
                 End If
-                reader.Close()
                 connection.Close()
             Catch ex As Exception
                 Throw New Exception("Error reading data from the database: " & ex.Message)
@@ -46,31 +43,32 @@ Public Class CCalories
 
     Public Sub AddCalories(ByRef foodID As Integer, ByRef amount As Integer) Implements ICalories.AddCalories
         'add consumed calories
-        Dim calories As Integer = getNutrient(foodID, nutrients(4))
-        Dim sugar As Integer = getNutrient(foodID, nutrients(3))
-        Dim carbs As Integer = getNutrient(foodID, nutrients(2))
-        Dim fat As Integer = getNutrient(foodID, nutrients(1))
-        Dim protein As Integer = getNutrient(foodID, nutrients(0))
+        food = foodID
+        Dim calories As Double = getNutrient(foodID, nutrients(4))
+        Dim sugar As Double = getNutrient(foodID, nutrients(3))
+        Dim carbs As Double = getNutrient(foodID, nutrients(2))
+        Dim fat As Double = getNutrient(foodID, nutrients(1))
+        Dim protein As Double = getNutrient(foodID, nutrients(0))
 
-        makro(0) += protein * amount
-        makro(1) += fat * amount
-        makro(2) += carbs * amount
-        makro(3) += sugar * amount
-        makro(4) += calories * amount
+        makro(0) += protein '* Convert.ToDouble(amount)
+        makro(1) += fat
+        makro(2) += carbs
+        makro(3) += sugar
+        makro(4) += calories
         WriteData()
     End Sub
 
     Private Function getNutrient(ByRef ID As Integer, ByRef nutient As Integer)
         'gets calories from food
-        Dim result As Integer
+        Dim result As Double
         Using connection As New OleDbConnection(connectionString)
             connection.Open()
-            Dim commandText As String = "SELECT nutrient_amount FROM toit_ja_toitained WHERE ID = ID AND Nutrient_ID = nutient"
+            Dim commandText As String = "SELECT nutrient_amount FROM toit_ja_toitained WHERE Food_ID = food AND nutrient_id = nut"
             Dim command As New OleDbCommand(commandText, connection)
             ' Specify the value of the primary key to retrieve
-            command.Parameters.AddWithValue("ID", ID)
-            command.Parameters.AddWithValue("nutient", nutient)
-            result = command.ExecuteScalar()
+            command.Parameters.AddWithValue("food", ID)
+            command.Parameters.AddWithValue("nut", nutient)
+            result = Convert.ToDouble(command.ExecuteScalar())
             connection.Close()
         End Using
         Return result
@@ -90,16 +88,16 @@ Public Class CCalories
         Try
             Using connection As New OleDbConnection(connectionString)
                 connection.Open()
-                For i As Integer = 0 To 4
-                    Dim commandText As String = "INSERT INTO sisestatud_toit (kasutaja_ID, Toidu_ID, Nutrient_ID, amount, Date) VALUES (@kasutaja, @food, @makro, @amount, @date)"
+                For i As Integer = 4 To 0 Step -1
+                    Dim commandText As String = "INSERT INTO sisestatud_toit (kasutaja_ID, food_ID, Nutrien_ID, amount, daata) VALUES (@kasutaja, @food, @nutrients, @makro, @date)"
                     Dim command As New OleDbCommand(commandText, connection)
 
                     ' Add parameters to the command
-                    command.Parameters.AddWithValue("@kasutaja", kasutaja)
-                    command.Parameters.AddWithValue("@food", food)
-                    command.Parameters.AddWithValue("@makro", makro(i))
-                    command.Parameters.AddWithValue("@amount", amount)
-                    command.Parameters.AddWithValue("@date", Date.Now)
+                    command.Parameters.AddWithValue("@kasutaja", CInt(kasutaja))
+                    command.Parameters.AddWithValue("@food", CInt(food))
+                    command.Parameters.AddWithValue("@nutrients", CInt(nutrients(i)))
+                    command.Parameters.AddWithValue("@makro", Convert.ToDouble(makro(i)))
+                    command.Parameters.AddWithValue("@date", Date.Now.ToString())
 
                     command.ExecuteNonQuery()
                 Next

@@ -13,7 +13,7 @@ Public Class LogInAken
         End If
 
         Try
-            Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
+            Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Throthar\source\repos\PrjKaloriPaevik\ToiduTest.accdb;"
             Dim query As String = "SELECT * FROM Kasutaja WHERE Eesnimi = @Eesnimi AND Perenimi = @Perenimi AND  Parool = @Parool"
 
             Using connection As New OleDbConnection(connectionString)
@@ -32,13 +32,11 @@ Public Class LogInAken
                                 loggedInFirstName = reader("Eesnimi").ToString()
                                 loggedInLastName = reader("Perenimi").ToString()
                                 loggedInHeight = reader("Pikkus")
-                                loggedInDay = reader("Paev")
+                                loggedInDay = reader("Päev")
                                 loggedInMonth = reader("Kuu").ToString()
                                 loggedInYear = reader("Aasta")
                                 loggedInPassword = reader("Parool").ToString()
                                 loggedInWeight = reader("Kaal")
-                                loggedInGoal = reader("Eesmark")
-                                loggedInCalories = reader("Kalorid")
                             End While
 
                             SetLoginStatus(True)

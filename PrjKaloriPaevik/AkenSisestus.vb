@@ -120,7 +120,14 @@ Public Class Form1
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        SaveSelectedFood()
+        'SaveSelectedFood()
+        Dim selectedRow As DataGridViewRow = DataGridView1.SelectedRows(0)
+        Dim foodID As Integer = Convert.ToInt32(selectedRow.Cells("food_id").Value)
+        Dim selectedAmount As Integer = cbAmount.SelectedIndex
+        Dim addfood As PrjKaloriPaevikKalorid.ICalories
+        addfood = New PrjKaloriPaevikKalorid.CCalories
+        addfood.AddCalories(foodID, selectedAmount)
+
 
     End Sub
 
