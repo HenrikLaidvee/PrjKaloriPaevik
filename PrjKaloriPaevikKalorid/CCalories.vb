@@ -6,7 +6,7 @@ Public Class CCalories
 
     Private kasutaja As Integer
     Private food As Integer
-    Private oldDate As String
+    Private oldDate As DateTime
     Private makro As Double() = {0, 0, 0, 0, 0}
     Private nutrients As Integer() = {1003, 1004, 1005, 2000, 1008}
     'Private makrod As String() = {"protein", "fat", "carbs", "suhkur", "calories"}
@@ -29,9 +29,13 @@ Public Class CCalories
                         ' Access individual columns by column name or index
                         Dim value As Double = Convert.ToDouble(reader("amount"))
                         makro(i) = value
-                        oldDate = reader("daata")
+                        oldDate = DateTime.Parse(reader("daata"))
+                        oldDate = oldDate.Date
                         i += 1
                     End While
+                    If oldDate < Date.Now.Date Then
+                        makro = {0, 0, 0, 0, 0}
+                    End If
                     reader.Close()
                 End If
                 connection.Close()
