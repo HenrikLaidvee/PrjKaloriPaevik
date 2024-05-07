@@ -2,7 +2,7 @@
 
 Public Class RegAken
 
-    Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduAndmebaas.accdb;"
+    Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduTest.accdb;"
 
     Private Sub RegAken_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -62,8 +62,8 @@ Public Class RegAken
             Using connection As New OleDbConnection(connectionString)
                 connection.Open()
 
-                Dim query As String = "INSERT INTO Kasutaja (Eesnimi, Perenimi, Pikkus, Paev, Kuu, Aasta, Parool, Kaal, Eesmark, Kalorid, Alkohol) 
-                                        VALUES (@Eesnimi, @Perenimi, @Pikkus, @Paev, @Kuu, @Aasta, @Parool, @Kaal, @Eesmark, @Kalorid, @Alkohol)"
+                Dim query As String = "INSERT INTO Kasutaja (Eesnimi, Perenimi, Pikkus, Päev, Kuu, Aasta, Parool, Kaal) 
+                                        VALUES (@Eesnimi, @Perenimi, @Pikkus, @Paev, @Kuu, @Aasta, @Parool, @Kaal)"
                 Using command As New OleDbCommand(query, connection)
 
                     command.Parameters.AddWithValue("@Eesnimi", txtUsername.Text)

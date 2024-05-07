@@ -127,70 +127,70 @@ Public Class Profiil
         End If
 
         Try
-                Dim weight As Double = Double.Parse(txtWeight.Text)
+            Dim weight As Double = Double.Parse(txtWeight.Text)
 
-                Dim height As Double = Double.Parse(txtHeight.Text)
+            Dim height As Double = Double.Parse(txtHeight.Text)
 
-                Dim goalWeight As Double = Double.Parse(txtGoalWeight.Text)
+            Dim goalWeight As Double = Double.Parse(txtGoalWeight.Text)
 
-                Dim dailyCalories As Double = Double.Parse(txtDailyCalories.Text)
+            Dim dailyCalories As Double = Double.Parse(txtDailyCalories.Text)
 
-                Using connection As New OleDbConnection(connectionString)
-                    connection.Open()
+            Using connection As New OleDbConnection(connectionString)
+                connection.Open()
 
-                    Dim query As String = "UPDATE Kasutaja SET Eesnimi = @Eesnimi, Perenimi = @Perenimi, Pikkus = @Pikkus, 
+                Dim query As String = "UPDATE Kasutaja SET Eesnimi = @Eesnimi, Perenimi = @Perenimi, Pikkus = @Pikkus, 
                                Paev = @Paev, Kuu = @Kuu, Aasta = @Aasta, Parool = @Parool, Kaal = @Kaal, 
                                Eesmark = @Eesmark, Kalorid = @Kalorid, Alkohol = @Alkohol WHERE ID = @ID"
-                    Using command As New OleDbCommand(query, connection)
-                        command.Parameters.AddWithValue("@Eesnimi", txtUsername.Text)
-                        command.Parameters.AddWithValue("@Perenimi", txtLastName.Text)
-                        command.Parameters.AddWithValue("@Pikkus", height)
-                        command.Parameters.AddWithValue("@Paev", cmbDay.SelectedItem)
-                        command.Parameters.AddWithValue("@Kuu", cmbMonth.SelectedItem)
-                        command.Parameters.AddWithValue("@Aasta", cmbYear.SelectedItem)
-                        command.Parameters.AddWithValue("@Parool", txtPassword.Text)
-                        command.Parameters.AddWithValue("@Kaal", weight)
-                        command.Parameters.AddWithValue("@Eesmark", goalWeight)
-                        command.Parameters.AddWithValue("@Kalorid", dailyCalories)
-                        command.Parameters.AddWithValue("@ID", loggedInID)
-                        command.Parameters.AddWithValue("@Alkohol", cbAlcohol.SelectedItem)
+                Using command As New OleDbCommand(query, connection)
+                    command.Parameters.AddWithValue("@Eesnimi", txtUsername.Text)
+                    command.Parameters.AddWithValue("@Perenimi", txtLastName.Text)
+                    command.Parameters.AddWithValue("@Pikkus", height)
+                    command.Parameters.AddWithValue("@Paev", cmbDay.SelectedItem)
+                    command.Parameters.AddWithValue("@Kuu", cmbMonth.SelectedItem)
+                    command.Parameters.AddWithValue("@Aasta", cmbYear.SelectedItem)
+                    command.Parameters.AddWithValue("@Parool", txtPassword.Text)
+                    command.Parameters.AddWithValue("@Kaal", weight)
+                    command.Parameters.AddWithValue("@Eesmark", goalWeight)
+                    command.Parameters.AddWithValue("@Kalorid", dailyCalories)
+                    command.Parameters.AddWithValue("@ID", loggedInID)
+                    command.Parameters.AddWithValue("@Alkohol", cbAlcohol.SelectedItem)
 
-                        command.ExecuteNonQuery()
-                        loggedInFirstName = txtUsername.Text
-                        loggedInLastName = txtLastName.Text
-                        loggedInHeight = height
-                        loggedInDay = cmbDay.SelectedItem
-                        loggedInMonth = cmbMonth.SelectedItem
-                        loggedInYear = cmbYear.SelectedItem
-                        loggedInPassword = txtPassword.Text
-                        loggedInWeight = weight
-                        loggedInGoal = goalWeight
-                        loggedInCalories = dailyCalories
-                        loggedAlcohol = cbAlcohol.SelectedItem
+                    command.ExecuteNonQuery()
+                    loggedInFirstName = txtUsername.Text
+                    loggedInLastName = txtLastName.Text
+                    loggedInHeight = height
+                    loggedInDay = cmbDay.SelectedItem
+                    loggedInMonth = cmbMonth.SelectedItem
+                    loggedInYear = cmbYear.SelectedItem
+                    loggedInPassword = txtPassword.Text
+                    loggedInWeight = weight
+                    loggedInGoal = goalWeight
+                    loggedInCalories = dailyCalories
+                    loggedAlcohol = cbAlcohol.SelectedItem
 
-                    End Using
-                    MainForm.txtCurrentWeight.Text = loggedInWeight.ToString()
-                    MainForm.txtGoalWeight.Text = loggedInGoal.ToString()
-                    MainForm.txtNeedToLose.Text = (loggedInWeight - loggedInGoal).ToString()
-                    MainForm.txtCalorieLimit.Text = loggedInCalories.ToString()
-                    ' Peaks muutma TEST
-                    'MainForm.txtCaloriesLeft.Text = (loggedInCalories - KasutajaMoodul.food_amount).ToString()
-                    'MainForm.txtCaloriesLeft.Text = (loggedInCalories - KasutajaMoodul.food_amount)
-
-                    MainForm.Refresh()
-                    LogInAken.Refresh()
                 End Using
+                MainForm.txtCurrentWeight.Text = loggedInWeight.ToString()
+                MainForm.txtGoalWeight.Text = loggedInGoal.ToString()
+                MainForm.txtNeedToLose.Text = (loggedInWeight - loggedInGoal).ToString()
+                MainForm.txtCalorieLimit.Text = loggedInCalories.ToString()
+                ' Peaks muutma TEST
+                'MainForm.txtCaloriesLeft.Text = (loggedInCalories - KasutajaMoodul.food_amount).ToString()
+                'MainForm.txtCaloriesLeft.Text = (loggedInCalories - KasutajaMoodul.food_amount)
 
-                MessageBox.Show("Andmed salvestatud edukalt!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Clear()
-                Me.Close()
+                MainForm.Refresh()
+                LogInAken.Refresh()
+            End Using
 
-            Catch ex As FormatException
-                ' Kui sisestatud tekst ei ole number, siis error
-                MessageBox.Show("Palun sisestage ainult numbrid kaalu, pikkuse, eemärgi ja kalorite väljale!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Catch ex As Exception
-                MessageBox.Show("Andmete salvestamisel tekkis viga: " & ex.Message, "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
+            MessageBox.Show("Andmed salvestatud edukalt!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Clear()
+            Me.Close()
+
+        Catch ex As FormatException
+            ' Kui sisestatud tekst ei ole number, siis error
+            MessageBox.Show("Palun sisestage ainult numbrid kaalu, pikkuse, eemärgi ja kalorite väljale!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Catch ex As Exception
+            MessageBox.Show("Andmete salvestamisel tekkis viga: " & ex.Message, "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
     Private Sub chbUnhealthy_CheckedChanged(sender As Object, e As EventArgs) Handles chbUnhealthy.CheckedChanged

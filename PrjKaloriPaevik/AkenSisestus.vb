@@ -1,12 +1,13 @@
 ﻿
 Imports System.Data.OleDb
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Imports PrjKaloriPaevikKalorid
 
 Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'ToiduAndmebaasDataSet.Toit' table. You can move, or remove it, as needed.
-        Me.ToitTableAdapter.Fill(Me.ToiduAndmebaasDataSet.Toit)
+        'Me.ToitTableAdapter.Fill(Me.ToiduAndmebaasDataSet.Toit)
 
         With DataGridView1
             .ClearSelection()
@@ -28,7 +29,7 @@ Public Class Form1
     End Sub
 
 
-    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs)
         'Dim keyword As String = txtSisestus.Text.Trim()
         'MessageBox.Show("Searching for: " & keyword)
 
@@ -73,7 +74,7 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub DataGridView1_SelectionChanged(sender As Object, e As EventArgs) Handles DataGridView1.SelectionChanged
+    Private Sub DataGridView1_SelectionChanged(sender As Object, e As EventArgs)
         ' Check the condition 'Unhealthy'
         If Unhealthy Then
             ' Check if a row is selected in the DataGridView
@@ -104,7 +105,7 @@ Public Class Form1
         txtSisestus.Select()
     End Sub
 
-    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+    Private Sub btnClear_Click(sender As Object, e As EventArgs)
 
         txtSisestus.Text = ""
         txtSisestus.Select()
@@ -118,12 +119,13 @@ Public Class Form1
 
     End Sub
 
-    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+    Private Sub btnSave_Click(sender As Object, e As EventArgs)
         SaveSelectedFood()
+
 
     End Sub
 
-    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+    Private Sub btnBack_Click(sender As Object, e As EventArgs)
         Me.Close()
         MainForm.Refresh()
         Dim a As Integer = 1872 '3000 - KasutajaMoodul.food_amount * 5

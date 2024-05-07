@@ -1,8 +1,10 @@
 ﻿Imports System.Data.OleDb
+Imports System.Windows.Forms.DataVisualization.Charting
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 
 Public Class MainForm
+    Public series As New Series()
     Private Sub btnProfile_Click(sender As Object, e As EventArgs) Handles btnProfile.Click
         Profiil.Show()
     End Sub
@@ -32,6 +34,16 @@ Public Class MainForm
             End Using
         End Using
 
+        Dim showMakro As PrjKaloriPaevikKalorid.ICalories
+        showMakro = New PrjKaloriPaevikKalorid.CCalories
+        txtProtein.Text = showMakro.makroPercent(0, loggedInID).ToString
+        txtFat.Text = showMakro.makroPercent(1, loggedInID).ToString
+        txtCarbs.Text = showMakro.makroPercent(2, loggedInID).ToString
+        series.ChartType = SeriesChartType.Pie
+        series.Points.AddXY("Protein", showMakro.makroPercent(0, loggedInID))
+        series.Points.AddXY("Fat", showMakro.makroPercent(1, loggedInID))
+        series.Points.AddXY("Carbs", showMakro.makroPercent(2, loggedInID))
+
         ' Display a random motivational quote
         If quotesDataTable.Rows.Count > 0 Then
             Dim random As New Random()
@@ -45,7 +57,6 @@ Public Class MainForm
         btnProfile.Enabled = False
         btnKaal.Enabled = False
         txtMotivate.ReadOnly = True
-
 
     End Sub
 
@@ -107,13 +118,12 @@ Public Class MainForm
         Dim ID As Integer
         If Double.TryParse(txtCurrentWeight.Text, weightValue) Then
             ' Call the method to insert data into the WeightData table
-            InsertDataIntoWeightData(weightValue, ID)
+            'InsertDataIntoWeightData(weightValue, ID)
         End If
 
     End Sub
 
-    Private Sub btnDownload2_Click(sender As Object, e As EventArgs) Handles btnDownload.Click
+    Private Sub btnDownload_Click(sender As Object, e As EventArgs) Handles btnDownload.Click
         FilenameForm.ShowDialog()
     End Sub
-
 End Class
