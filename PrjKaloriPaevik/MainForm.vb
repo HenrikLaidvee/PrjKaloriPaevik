@@ -21,6 +21,21 @@ Public Class MainForm
         btnLogFood.Enabled = False
         btnProfile.Enabled = False
         btnKaal.Enabled = False
+        txtMotivate.ReadOnly = True
+
+        ' Connect to the database and fetch a random motivational quote
+        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
+        Dim query As String = "SELECT TOP 1 Motivational_quote FROM Motivate ORDER BY Rnd(ID);"
+
+        Using connection As New OleDbConnection(connectionString)
+            Using command As New OleDbCommand(query, connection)
+                connection.Open()
+                Dim result As Object = command.ExecuteScalar()
+                If result IsNot Nothing Then
+                    txtMotivate.Text = result.ToString()
+                End If
+            End Using
+        End Using
     End Sub
 
     Private Sub btnKaal_Click(sender As Object, e As EventArgs) Handles btnKaal.Click
@@ -63,4 +78,5 @@ Public Class MainForm
         End If
 
     End Sub
+
 End Class
