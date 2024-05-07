@@ -40,11 +40,12 @@ Public Class LogInAken
                                 loggedInWeight = reader("Kaal")
                                 loggedInGoal = reader("Eesmark")
                                 loggedInCalories = reader("Kalorid")
+                                loggedInSugar = reader("suhkur")
                             End While
                             Dim showMakro As PrjKaloriPaevikKalorid.ICalories
                             showMakro = New PrjKaloriPaevikKalorid.CCalories
-                            loggedInRemainingCalories = showMakro.getCalories(loggedInID)
-                            loggedInRemainingSugar = showMakro.getSugar(loggedInID)
+                            loggedInRemainingCalories = loggedInCalories - showMakro.getCalories(loggedInID)
+                            loggedInRemainingSugar = loggedInSugar - showMakro.getSugar(loggedInID)
                             SetLoginStatus(True)
                             MainForm.btnLogIn.Enabled = False
                             MainForm.btnCreateUser.Enabled = False
