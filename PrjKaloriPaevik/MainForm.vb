@@ -19,6 +19,27 @@ Public Class MainForm
         LogInAken.Show()
     End Sub
 
+    Private Sub MainForm_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduAndmebaas.accdb;"
+        Dim query As String = "SELECT Motivational_quote FROM Motivate;"
+
+        Dim quotesDataTable As New DataTable()
+
+        Using connection As New OleDbConnection(connectionString)
+            Using adapter As New OleDbDataAdapter(query, connection)
+                connection.Open()
+                adapter.Fill(quotesDataTable)
+            End Using
+        End Using
+
+        ' Display a random motivational quote
+        If quotesDataTable.Rows.Count > 0 Then
+            Dim random As New Random()
+            Dim randomIndex As Integer = random.Next(0, quotesDataTable.Rows.Count)
+            txtMotivate.Text = quotesDataTable.Rows(randomIndex)("Motivational_quote").ToString()
+        End If
+    End Sub
+
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         btnLogFood.Enabled = False
         btnProfile.Enabled = False
@@ -38,6 +59,8 @@ Public Class MainForm
         ' Define SQL query to insert data with parameterized query
         Dim insertQuery As String = "INSERT INTO KaaluAndmed ([Kuupäev], [Kaal], [BMI], [ID]) VALUES (@DateValue, @WeightValue, @BMIValue, @ID)"
 
+        ' Connect to your Access database
+        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduAndmebaas.accdb;"
         Using connection As New OleDbConnection(connectionString)
             ' First, retrieve the Pikkus value from the database
             Using selectCommand As New OleDbCommand(selectQuery, connection)
