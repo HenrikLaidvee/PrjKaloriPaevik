@@ -75,8 +75,4 @@ Public Class MainForm
         End If
 
     End Sub
-
-    'Private Sub btnDownload_Click(sender As Object, e As EventArgs) Handles btnDownload.Click
-    '    FilenameForm.ShowDialog()
-    ' End Sub
 End Class
