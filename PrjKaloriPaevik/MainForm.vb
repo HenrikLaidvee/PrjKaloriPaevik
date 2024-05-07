@@ -60,7 +60,7 @@ Public Class MainForm
         Dim selectQuery As String = "SELECT Pikkus FROM Kasutaja WHERE ID = @ID"
 
         ' Define SQL query to insert data with parameterized query
-        Dim insertQuery As String = "INSERT INTO KaaluAndmed ([Kuupäev], [Kaal], [BMI], [ID]) VALUES (@DateValue, @WeightValue, @BMIValue, @ID)"
+        Dim insertQuery As String = "INSERT INTO KaaluAndmed ([Kuupäev], [Kaal], [BMI], [Kasutaja_ID]) VALUES (@DateValue, @WeightValue, @BMIValue, @Kasutaja_ID)"
 
         ' Connect to your Access database
         Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduAndmebaas.accdb;"
@@ -85,7 +85,7 @@ Public Class MainForm
                         insertCommand.Parameters.AddWithValue("@DateValue", DateTime.Now) ' Use current system time as date value
                         insertCommand.Parameters.AddWithValue("@WeightValue", weightValue)
                         insertCommand.Parameters.AddWithValue("@BMIValue", BMI) ' Use the calculated BMI value
-                        insertCommand.Parameters.AddWithValue("@ID", ID) ' Use the ID value
+                        insertCommand.Parameters.AddWithValue("@Kasutaja_ID", ID) ' Use the ID value
 
                         ' Execute the INSERT command
                         insertCommand.ExecuteNonQuery()
