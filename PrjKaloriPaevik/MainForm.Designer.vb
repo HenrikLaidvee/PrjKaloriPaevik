@@ -37,16 +37,16 @@ Partial Class MainForm
         Me.txtCalorieLimit = New System.Windows.Forms.TextBox()
         Me.txtCaloriesLeft = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.btnKaal = New System.Windows.Forms.Button()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.txtMotivate = New System.Windows.Forms.RichTextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.txtProtein = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.txtFat = New System.Windows.Forms.TextBox()
+        Me.txtCarbs = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.txtMotivate = New System.Windows.Forms.RichTextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -202,12 +202,22 @@ Partial Class MainForm
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Menüü"
         '
+        'btnKaal
+        '
+        Me.btnKaal.Location = New System.Drawing.Point(18, 320)
+        Me.btnKaal.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnKaal.Name = "btnKaal"
+        Me.btnKaal.Size = New System.Drawing.Size(137, 67)
+        Me.btnKaal.TabIndex = 15
+        Me.btnKaal.Text = "Kaalu statistika"
+        Me.btnKaal.UseVisualStyleBackColor = True
+        '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.TextBox3)
+        Me.GroupBox2.Controls.Add(Me.txtProtein)
         Me.GroupBox2.Controls.Add(Me.Label8)
-        Me.GroupBox2.Controls.Add(Me.TextBox1)
-        Me.GroupBox2.Controls.Add(Me.TextBox2)
+        Me.GroupBox2.Controls.Add(Me.txtFat)
+        Me.GroupBox2.Controls.Add(Me.txtCarbs)
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Controls.Add(Me.Label7)
         Me.GroupBox2.Controls.Add(Me.txtCaloriesLeft)
@@ -228,52 +238,42 @@ Partial Class MainForm
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Tänane statistika"
         '
-        'btnKaal
+        'txtProtein
         '
-        Me.btnKaal.Location = New System.Drawing.Point(18, 320)
-        Me.btnKaal.Margin = New System.Windows.Forms.Padding(2)
-        Me.btnKaal.Name = "btnKaal"
-        Me.btnKaal.Size = New System.Drawing.Size(137, 67)
-        Me.btnKaal.TabIndex = 15
-        Me.btnKaal.Text = "Kaalu statistika"
-        Me.btnKaal.UseVisualStyleBackColor = True
+        Me.txtProtein.Enabled = False
+        Me.txtProtein.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.txtProtein.Location = New System.Drawing.Point(222, 349)
+        Me.txtProtein.Name = "txtProtein"
+        Me.txtProtein.Size = New System.Drawing.Size(100, 30)
+        Me.txtProtein.TabIndex = 20
         '
-        'GroupBox3
+        'Label8
         '
-        Me.GroupBox3.Controls.Add(Me.txtMotivate)
-        Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.GroupBox3.Location = New System.Drawing.Point(25, 458)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(702, 198)
-        Me.GroupBox3.TabIndex = 18
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Tänane motiveeriv sõnum"
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.Label8.Location = New System.Drawing.Point(136, 349)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(80, 25)
+        Me.Label8.TabIndex = 19
+        Me.Label8.Text = "Valgud:"
         '
-        'txtMotivate
+        'txtFat
         '
-        Me.txtMotivate.Location = New System.Drawing.Point(6, 29)
-        Me.txtMotivate.Name = "txtMotivate"
-        Me.txtMotivate.Size = New System.Drawing.Size(690, 163)
-        Me.txtMotivate.TabIndex = 0
-        Me.txtMotivate.Text = ""
+        Me.txtFat.Enabled = False
+        Me.txtFat.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.txtFat.Location = New System.Drawing.Point(222, 313)
+        Me.txtFat.Name = "txtFat"
+        Me.txtFat.Size = New System.Drawing.Size(100, 30)
+        Me.txtFat.TabIndex = 18
         '
-        'TextBox1
+        'txtCarbs
         '
-        Me.TextBox1.Enabled = False
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.TextBox1.Location = New System.Drawing.Point(222, 313)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 30)
-        Me.TextBox1.TabIndex = 18
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Enabled = False
-        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.TextBox2.Location = New System.Drawing.Point(222, 271)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 30)
-        Me.TextBox2.TabIndex = 17
+        Me.txtCarbs.Enabled = False
+        Me.txtCarbs.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.txtCarbs.Location = New System.Drawing.Point(222, 271)
+        Me.txtCarbs.Name = "txtCarbs"
+        Me.txtCarbs.Size = New System.Drawing.Size(100, 30)
+        Me.txtCarbs.TabIndex = 17
         '
         'Label6
         '
@@ -295,24 +295,24 @@ Partial Class MainForm
         Me.Label7.TabIndex = 15
         Me.Label7.Text = "Süsivesikud:"
         '
-        'TextBox3
+        'GroupBox3
         '
-        Me.TextBox3.Enabled = False
-        Me.TextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.TextBox3.Location = New System.Drawing.Point(222, 349)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(100, 30)
-        Me.TextBox3.TabIndex = 20
+        Me.GroupBox3.Controls.Add(Me.txtMotivate)
+        Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.GroupBox3.Location = New System.Drawing.Point(25, 458)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(702, 198)
+        Me.GroupBox3.TabIndex = 18
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Tänane motiveeriv sõnum"
         '
-        'Label8
+        'txtMotivate
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.Label8.Location = New System.Drawing.Point(136, 349)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(80, 25)
-        Me.Label8.TabIndex = 19
-        Me.Label8.Text = "Valgud:"
+        Me.txtMotivate.Location = New System.Drawing.Point(6, 29)
+        Me.txtMotivate.Name = "txtMotivate"
+        Me.txtMotivate.Size = New System.Drawing.Size(690, 163)
+        Me.txtMotivate.TabIndex = 0
+        Me.txtMotivate.Text = ""
         '
         'MainForm
         '
@@ -350,10 +350,10 @@ Partial Class MainForm
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents btnKaal As Button
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents txtProtein As TextBox
     Friend WithEvents Label8 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents txtFat As TextBox
+    Friend WithEvents txtCarbs As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents txtMotivate As RichTextBox

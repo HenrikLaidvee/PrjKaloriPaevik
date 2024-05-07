@@ -106,7 +106,7 @@ Public Class Form1
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
 
-        'txtSisestus.Text = ""
+        txtSisestus.Text = ""
         txtSisestus.Select()
         ToitBindingSource.Filter = Nothing
 
