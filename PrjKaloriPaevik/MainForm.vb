@@ -19,10 +19,34 @@ Public Class MainForm
         LogInAken.Show()
     End Sub
 
+    Private Sub MainForm_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
+        Dim query As String = "SELECT Motivational_quote FROM Motivate;"
+
+        Dim quotesDataTable As New DataTable()
+
+        Using connection As New OleDbConnection(connectionString)
+            Using adapter As New OleDbDataAdapter(query, connection)
+                connection.Open()
+                adapter.Fill(quotesDataTable)
+            End Using
+        End Using
+
+        ' Display a random motivational quote
+        If quotesDataTable.Rows.Count > 0 Then
+            Dim random As New Random()
+            Dim randomIndex As Integer = random.Next(0, quotesDataTable.Rows.Count)
+            txtMotivate.Text = quotesDataTable.Rows(randomIndex)("Motivational_quote").ToString()
+        End If
+    End Sub
+
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        btnLogFood.Enabled = False
+        btnLogFood.Enabled = True
         btnProfile.Enabled = False
-        btnKaal.Enabled = Enabled
+        btnKaal.Enabled = False
+        txtMotivate.ReadOnly = True
+
+
     End Sub
 
     Private Sub btnKaal_Click(sender As Object, e As EventArgs) Handles btnKaal.Click
@@ -44,4 +68,5 @@ Public Class MainForm
     Private Sub btnDownload_Click(sender As Object, e As EventArgs) Handles btnDownload.Click
         FilenameForm.ShowDialog()
     End Sub
+
 End Class
