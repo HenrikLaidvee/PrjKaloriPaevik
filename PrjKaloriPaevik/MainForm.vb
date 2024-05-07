@@ -20,7 +20,7 @@ Public Class MainForm
     End Sub
 
     Private Sub MainForm_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
+        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduAndmebaas.accdb;"
         Dim query As String = "SELECT Motivational_quote FROM Motivate;"
 
         Dim quotesDataTable As New DataTable()
@@ -112,7 +112,7 @@ Public Class MainForm
 
     End Sub
 
-    Private Sub btnDownload_Click(sender As Object, e As EventArgs) Handles btnDownload.Click
+    Private Sub btnDownload2_Click(sender As Object, e As EventArgs) Handles btnDownload.Click
         FilenameForm.ShowDialog()
     End Sub
 
