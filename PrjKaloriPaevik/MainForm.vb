@@ -115,6 +115,7 @@ Public Class MainForm
     Private Sub txtCurrentWeight_TextChanged(sender As Object, e As EventArgs) Handles txtCurrentWeight.TextChanged
         ' Get the weight value from the textbox
         Dim weightValue As Double
+        'Current user ID
         Dim ID As Integer
         If Double.TryParse(txtCurrentWeight.Text, weightValue) Then
             ' Call the method to insert data into the WeightData table
