@@ -46,7 +46,6 @@ Partial Class MainForm
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.txtSugarLimit = New System.Windows.Forms.TextBox()
-        Me.btnDownload2 = New System.Windows.Forms.Button()
         Me.txtProtein = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtFat = New System.Windows.Forms.TextBox()
@@ -54,6 +53,7 @@ Partial Class MainForm
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btnDownload = New System.Windows.Forms.Button()
+        Me.btnDownload2 = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.txtMotivate = New System.Windows.Forms.RichTextBox()
         Me.chartMakro = New System.Windows.Forms.DataVisualization.Charting.Chart()
@@ -230,7 +230,7 @@ Partial Class MainForm
         '
         'btnKaal
         '
-        Me.btnKaal.Location = New System.Drawing.Point(24, 394)
+        Me.btnKaal.Location = New System.Drawing.Point(866, 444)
         Me.btnKaal.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnKaal.Name = "btnKaal"
         Me.btnKaal.Size = New System.Drawing.Size(183, 82)
@@ -251,7 +251,6 @@ Partial Class MainForm
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Controls.Add(Me.Label7)
         Me.GroupBox2.Controls.Add(Me.btnDownload)
-        Me.GroupBox2.Controls.Add(Me.btnKaal)
         Me.GroupBox2.Controls.Add(Me.txtCaloriesLeft)
         Me.GroupBox2.Controls.Add(Me.txtCalorieLimit)
         Me.GroupBox2.Controls.Add(Me.Label5)
@@ -303,15 +302,6 @@ Partial Class MainForm
         Me.txtSugarLimit.Name = "txtSugarLimit"
         Me.txtSugarLimit.Size = New System.Drawing.Size(132, 36)
         Me.txtSugarLimit.TabIndex = 21
-        '
-        'btnDownload2
-        '
-        Me.btnDownload2.Location = New System.Drawing.Point(466, 254)
-        Me.btnDownload2.Name = "btnDownload2"
-        Me.btnDownload2.Size = New System.Drawing.Size(147, 98)
-        Me.btnDownload2.TabIndex = 21
-        Me.btnDownload2.Text = "Export"
-        Me.btnDownload2.UseVisualStyleBackColor = True
         '
         'txtProtein
         '
@@ -378,13 +368,22 @@ Partial Class MainForm
         '
         'btnDownload
         '
-        Me.btnDownload.Location = New System.Drawing.Point(655, 224)
+        Me.btnDownload.Location = New System.Drawing.Point(491, 182)
         Me.btnDownload.Margin = New System.Windows.Forms.Padding(4)
         Me.btnDownload.Name = "btnDownload"
-        Me.btnDownload.Size = New System.Drawing.Size(169, 95)
+        Me.btnDownload.Size = New System.Drawing.Size(127, 77)
         Me.btnDownload.TabIndex = 16
         Me.btnDownload.Text = "Lae alla"
         Me.btnDownload.UseVisualStyleBackColor = True
+        '
+        'btnDownload2
+        '
+        Me.btnDownload2.Location = New System.Drawing.Point(466, 254)
+        Me.btnDownload2.Name = "btnDownload2"
+        Me.btnDownload2.Size = New System.Drawing.Size(147, 98)
+        Me.btnDownload2.TabIndex = 21
+        Me.btnDownload2.Text = "Export"
+        Me.btnDownload2.UseVisualStyleBackColor = True
         '
         'GroupBox3
         '
@@ -399,16 +398,6 @@ Partial Class MainForm
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Tänane motiveeriv sõnum"
         '
-<<<<<<<<< Temporary merge branch 1
-        'btnDownload
-        '
-        Me.btnDownload.Location = New System.Drawing.Point(491, 182)
-        Me.btnDownload.Name = "btnDownload"
-        Me.btnDownload.Size = New System.Drawing.Size(127, 77)
-        Me.btnDownload.TabIndex = 16
-        Me.btnDownload.Text = "Lae alla"
-        Me.btnDownload.UseVisualStyleBackColor = True
-=========
         'txtMotivate
         '
         Me.txtMotivate.Location = New System.Drawing.Point(8, 36)
@@ -448,6 +437,7 @@ Partial Class MainForm
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.btnKaal)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "MainForm"
         Me.Text = "MainForm"

@@ -123,10 +123,7 @@ Public Class MainForm
 
     End Sub
 
-<<<<<<<<< Temporary merge branch 1
     Private Sub btnDownload_Click(sender As Object, e As EventArgs) Handles btnDownload.Click
         FilenameForm.ShowDialog()
     End Sub
-=========
->>>>>>>>> Temporary merge branch 2
 End Class
