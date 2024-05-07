@@ -24,11 +24,11 @@ Public Class CCalories
         'gets calories from food
         Using connection As New OleDbConnection(connectionString)
             connection.Open()
-            Dim commandText As String = "SELECT SUM(Energy) as AllEnergy, SUM(Protein) as AllProtein, SUM(Fat) as AllFat, SUM(Carbohydrates) as AllCarbohydrates, SUM(sugar) as AllSugar, SUM(amount) as AllMass FROM sisestatud_toit WHERE Date = ? and kasutaj_id = user"
+            Dim commandText As String = "SELECT SUM(Energy) as AllEnergy, SUM(Protein) as AllProtein, SUM(Fat) as AllFat, SUM(Carbohydrates) as AllCarbohydrates, SUM(sugar) as AllSugar, SUM(amount) as AllMass FROM sisestatud_toit WHERE Date = data and kasutaj_id = user"
             Dim command As New OleDbCommand(commandText, connection)
             ' Specify the value of the primary key to retrieve
             command.Parameters.AddWithValue("?", Date.Now.ToString("yyyy-MM-dd"))
-            command.Parameters.AddWithValue("user", user)
+            command.Parameters.AddWithValue("data", user)
             Dim reader As OleDbDataReader = command.ExecuteScalar()
             makro(0) = reader("AllProtein")
             makro(1) = reader("AllFat")
