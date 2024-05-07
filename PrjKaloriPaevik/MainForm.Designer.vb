@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class MainForm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class MainForm
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.btnProfile = New System.Windows.Forms.Button()
         Me.btnCreateUser = New System.Windows.Forms.Button()
@@ -46,6 +46,7 @@ Partial Class MainForm
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.btnDownload = New System.Windows.Forms.Button()
         Me.txtMotivate = New System.Windows.Forms.RichTextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -220,6 +221,8 @@ Partial Class MainForm
         Me.GroupBox2.Controls.Add(Me.txtCarbs)
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Controls.Add(Me.Label7)
+        Me.GroupBox2.Controls.Add(Me.btnDownload)
+        Me.GroupBox2.Controls.Add(Me.btnKaal)
         Me.GroupBox2.Controls.Add(Me.txtCaloriesLeft)
         Me.GroupBox2.Controls.Add(Me.txtCalorieLimit)
         Me.GroupBox2.Controls.Add(Me.Label5)
@@ -306,6 +309,15 @@ Partial Class MainForm
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Tänane motiveeriv sõnum"
         '
+        'btnDownload
+        '
+        Me.btnDownload.Location = New System.Drawing.Point(491, 182)
+        Me.btnDownload.Name = "btnDownload"
+        Me.btnDownload.Size = New System.Drawing.Size(127, 77)
+        Me.btnDownload.TabIndex = 16
+        Me.btnDownload.Text = "Lae alla"
+        Me.btnDownload.UseVisualStyleBackColor = True
+        '
         'txtMotivate
         '
         Me.txtMotivate.Location = New System.Drawing.Point(6, 29)
@@ -357,4 +369,5 @@ Partial Class MainForm
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents txtMotivate As RichTextBox
+    Friend WithEvents btnDownload As Button
 End Class

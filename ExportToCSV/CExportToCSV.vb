@@ -5,7 +5,7 @@ Imports System.Windows.Forms
 Public Class CExportToCSV
     Implements IExportToCSV
 
-    Private connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\FoodDatabase.accdb;"
+    Private ReadOnly connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduTest.accdb;"
 
     Public Sub IExportToCSV_WriteToFile(filepath As String, filename As String, numberOfLines As Integer) Implements IExportToCSV.WriteToFile
         Dim completePath As String
@@ -64,7 +64,7 @@ Public Class CExportToCSV
                 End Using
             End Using
         End Using
-
+        MessageBox.Show("Edukalt salvestatud")
         '    Dim fileWriter As New System.IO.StreamWriter(completePath, True)
         '    'MessageBox.Show(filepath + "\" + filename)
         '    Dim record As String = field1 + delimiter + field2 + delimiter + field3 + delimiter + field4 + delimiter + field5
