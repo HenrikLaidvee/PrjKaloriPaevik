@@ -53,8 +53,8 @@ Public Class MainForm
         StatistikaForm.Show()
     End Sub
     Private Sub InsertDataIntoWeightData(weightValue As Double, ID As Integer)
-        ' Connect to  Access database
-        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduTest.accdb;"
+
+
 
         ' Define SQL query to retrieve Pikkus value
         Dim selectQuery As String = "SELECT Pikkus FROM Kasutaja WHERE ID = @ID"
