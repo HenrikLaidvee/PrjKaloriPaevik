@@ -29,19 +29,19 @@ Public Class MainForm
         StatistikaForm.Show()
     End Sub
     Private Sub InsertDataIntoWeightData(weightValue As Double, ID As Integer)
-        ' Connect to your Access database
+        ' Connect to  Access database
         Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduTest.accdb;"
 
-        ' Define your SQL query to retrieve Pikkus value
+        ' Define SQL query to retrieve Pikkus value
         Dim selectQuery As String = "SELECT Pikkus FROM Kasutaja WHERE ID = @ID"
 
-        ' Define your SQL query to insert data with parameterized query
+        ' Define SQL query to insert data with parameterized query
         Dim insertQuery As String = "INSERT INTO KaaluAndmed ([Kuupäev], [Kaal], [BMI], [ID]) VALUES (@DateValue, @WeightValue, @BMIValue, @ID)"
 
         Using connection As New OleDbConnection(connectionString)
             ' First, retrieve the Pikkus value from the database
             Using selectCommand As New OleDbCommand(selectQuery, connection)
-                ' Add parameter for Eesnimi
+                ' Add parameter for ID
                 selectCommand.Parameters.AddWithValue("@ID", ID) ' ID is a variable containing the User ID to search for
 
                 Try
@@ -49,6 +49,8 @@ Public Class MainForm
 
                     ' Execute the SELECT command and retrieve the Pikkus value
                     Dim pikkus As Integer = Convert.ToInt32(selectCommand.ExecuteScalar())
+
+                    'Calculate BMI values
                     Dim BMI As Double = weightValue / ((pikkus / 100) * (pikkus / 100))
 
                     ' Now, you have the Pikkus value, proceed with inserting data
