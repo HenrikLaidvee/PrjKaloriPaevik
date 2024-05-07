@@ -14,6 +14,9 @@
     Public food_amount As Double
     Public loggedInGoal As Double
     Public loggedInCalories As Double
+    Public loggedInSugar As Double
+    Public loggedInRemainingSugar As Boolean
+    Public loggedInRemainingCalories As Boolean
     Public Unhealthy As Boolean
     'Public RemainingCalories As Double
     'Public latestUserID As Integer = -1

@@ -1,4 +1,5 @@
 ﻿Imports System.Data.OleDb
+Imports System.Windows.Forms.DataVisualization.Charting
 
 Public Class LogInAken
     Private Sub LogInAken_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -40,7 +41,10 @@ Public Class LogInAken
                                 loggedInGoal = reader("Eesmark")
                                 loggedInCalories = reader("Kalorid")
                             End While
-
+                            Dim showMakro As PrjKaloriPaevikKalorid.ICalories
+                            showMakro = New PrjKaloriPaevikKalorid.CCalories
+                            loggedInRemainingCalories = showMakro.getCalories(loggedInID)
+                            loggedInRemainingSugar = showMakro.getSugar(loggedInID)
                             SetLoginStatus(True)
                             MainForm.btnLogIn.Enabled = False
                             MainForm.btnCreateUser.Enabled = False
@@ -51,6 +55,9 @@ Public Class LogInAken
                             MainForm.txtGoalWeight.Text = loggedInGoal.ToString()
                             MainForm.txtNeedToLose.Text = (loggedInWeight - loggedInGoal).ToString()
                             MainForm.txtCalorieLimit.Text = loggedInCalories.ToString()
+                            MainForm.txtSugarLimit.Text = loggedInSugar.ToString()
+                            MainForm.txtSugarLeft.Text = loggedInRemainingSugar.ToString()
+                            MainForm.txtCaloriesLeft.Text = loggedInRemainingCalories.ToString()
 
                             'KasutajaMoodul.latestUserID = GetLatestUserID()
 

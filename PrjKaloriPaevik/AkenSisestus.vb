@@ -1,6 +1,7 @@
 ﻿
 Imports System.Data.OleDb
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Imports PrjKaloriPaevikKalorid
 
 Public Class Form1
 
@@ -120,6 +121,7 @@ Public Class Form1
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         SaveSelectedFood()
+
 
     End Sub
 
