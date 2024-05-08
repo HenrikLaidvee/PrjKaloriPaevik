@@ -5,7 +5,9 @@ Public Class LogInAken
     Private Sub LogInAken_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lblLimitReached.Visible = False
     End Sub
-    Private Sub btnLogIn_Click(sender As Object, e As EventArgs)
+
+
+    Private Sub btnLogIn_Click_1(sender As Object, e As EventArgs) Handles btnLogIn.Click
         If String.IsNullOrEmpty(txtPassword.Text) OrElse String.IsNullOrEmpty(txtEmail.Text) Then
 
             MessageBox.Show("Palun täitke kõik väljad!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -94,7 +96,7 @@ Public Class LogInAken
         End Try
     End Sub
 
-    Private Sub btnSeePassword_Click(sender As Object, e As EventArgs)
+    Private Sub btnSeePassword_Click_1(sender As Object, e As EventArgs) Handles btnSeePassword.Click
         If txtPassword.PasswordChar = "" Or txtPassword.PasswordChar = "*" Then
             txtPassword.PasswordChar = ""
             btnSeePassword.Text = "Peida parool"
@@ -102,9 +104,5 @@ Public Class LogInAken
             txtPassword.PasswordChar = "*"
             btnSeePassword.Text = "Vaata parooli"
         End If
-    End Sub
-
-    Private Sub txtEmail_TextChanged(sender As Object, e As EventArgs) Handles txtEmail.TextChanged
-
     End Sub
 End Class
