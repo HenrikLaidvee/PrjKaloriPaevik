@@ -2,21 +2,23 @@
 Imports ExportToCSV
 Imports CSVExporterDNF
 Imports System.Data.OleDb
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 
 'Tuleb mainformis välja kutsuda
 
 Public Class FilenameForm
     Private numberOfLines As Integer = 0 ' Declare numberOfLines as a class-level variable
-    Private connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduAndmebaas.accdb;"
+    Private connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
+    'Private connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduAndmebaas.accdb;"
 
     Private Sub txtRidadeArv_TextChanged(sender As Object, e As EventArgs) Handles txtRidadeArv.TextChanged
         Integer.TryParse(txtRidadeArv.Text, numberOfLines)
     End Sub
-    Private Sub pathBtn_Click(sender As Object, e As EventArgs) Handles pathBtn.Click
+    Private Sub pathBtn_Click(sender As Object, e As EventArgs) Handles pathbtn.Click
         FolderBrowserDialog1.ShowDialog()
         Dim filepath As String = FolderBrowserDialog1.SelectedPath
-        Dim filename As String = filepathTxt.Text + ".csv"
+        Dim filename As String = filepathtxt.Text + ".csv"
 
         Dim exporter As IExportToCSV
         exporter = New ExportToCSV.CExportToCSV
@@ -33,7 +35,10 @@ Public Class FilenameForm
         chkAppend.Enabled = False
         btnPathSelect.Enabled = False
         btnSaveDll.Enabled = False
-        chkExport1.Enabled = False
+
+        cmbDelimiter.SelectedIndex = 0
+        cmbEraldus.SelectedIndex = 0
+
     End Sub
 
     Private Sub btnSaveDll_Click(sender As Object, e As EventArgs) Handles btnSaveDll.Click
@@ -47,13 +52,13 @@ Public Class FilenameForm
             append = False
         End If
 
-        Dim dllExporter As IExporter
-        dllExporter = New CSVExporterDNF.CExporter
+        'Dim dllExporter As IExporter
+        'dllExporter = New CSVExporterDNF.CExporter
 
-        Dim success As Integer = dllExporter.saveDataToCsv(myArray, append)
-        If success < 0 Then
-            MessageBox.Show("Salvestamine õnnestus. Salvestatud ridade arv :" & success)
-        End If
+        'Dim success As Integer = dllExporter.saveDataToCsv(myArray, append)
+        'If success < 0 Then
+        'MessageBox.Show("Salvestamine õnnestus. Salvestatud ridade arv :" & success)
+        'End If
 
 
 
@@ -106,28 +111,28 @@ Public Class FilenameForm
 
     Private Sub btnPathSelect_Click(sender As Object, e As EventArgs) Handles btnPathSelect.Click
 
-        Dim dllExporter As IExporter
-        dllExporter = New CSVExporterDNF.CExporter
+        'Dim dllExporter As IExporter
+        'dllExporter = New CSVExporterDNF.CExporter
 
 
-        lblCurrentFilePath.Text = dllExporter.setFileToSave()
+        'lblCurrentFilePath.Text = dllExporter.setFileToSave()
 
     End Sub
 
     Private Sub chkExport1_CheckedChanged(sender As Object, e As EventArgs) Handles chkExport1.CheckedChanged
-        filepathtxt.Enabled = True
-        txtRidadeArv.Enabled = True
-        pathbtn.Enabled = True
-        chkExport2.Enabled = False
+        filepathtxt.Enabled = chkExport1.Checked
+        txtRidadeArv.Enabled = chkExport1.Checked
+        pathbtn.Enabled = chkExport1.Checked
+        chkExport2.Enabled = Not chkExport1.Checked
 
     End Sub
 
     Private Sub chkExport2_CheckedChanged(sender As Object, e As EventArgs) Handles chkExport2.CheckedChanged
-        cmbDelimiter.Enabled = True
-        cmbEraldus.Enabled = True
-        chkAppend.Enabled = True
-        btnPathSelect.Enabled = True
-        btnSaveDll.Enabled = True
-        chkExport1.Enabled = False
+        cmbDelimiter.Enabled = chkExport2.Checked
+        cmbEraldus.Enabled = chkExport2.Checked
+        chkAppend.Enabled = chkExport2.Checked
+        btnPathSelect.Enabled = chkExport2.Checked
+        btnSaveDll.Enabled = chkExport2.Checked
+        chkExport1.Enabled = Not chkExport2.Checked
     End Sub
 End Class
