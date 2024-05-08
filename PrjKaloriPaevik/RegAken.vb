@@ -66,7 +66,7 @@ Public Class RegAken
             Using connection As New OleDbConnection(connectionString)
                 connection.Open()
 
-                Dim query As String = "INSERT INTO Kasutaja (Eesnimi, Perenimi, Pikkus, Päev, Kuu, Aasta, Parool, Kaal, suhkur) 
+                Dim query As String = "INSERT INTO Kasutaja (Eesnimi, Perenimi, Pikkus, Paev, Kuu, Aasta, Parool, Kaal, suhkur) 
                                         VALUES (@Eesnimi, @Perenimi, @Pikkus, @Paev, @Kuu, @Aasta, @Parool, @Kaal, @suhkur)"
                 Using command As New OleDbCommand(query, connection)
 

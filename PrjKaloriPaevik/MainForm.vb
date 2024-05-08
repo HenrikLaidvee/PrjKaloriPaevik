@@ -121,10 +121,10 @@ Public Class MainForm
         ' Get the weight value from the textbox
         Dim weightValue As Double
         'Current user ID
-        Dim ID As Integer
+
         If Double.TryParse(txtCurrentWeight.Text, weightValue) Then
-            ' Call the method to insert data into the WeightData table
-            'InsertDataIntoWeightData(weightValue, ID)
+            'Call the method To insert data into the WeightData table
+            InsertDataIntoWeightData(weightValue, KasutajaMoodul.loggedInID)
         End If
 
     End Sub
