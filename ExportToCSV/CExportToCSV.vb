@@ -63,7 +63,7 @@ Public Class CExportToCSV
                 End Using
             End Using
         End Using
-        MessageBox.Show("Edukalt salvestatud")
+        MessageBox.Show("Edukalt salvestatud:" & completePath)
 
     End Sub
 

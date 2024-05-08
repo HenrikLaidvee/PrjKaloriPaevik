@@ -169,6 +169,7 @@ Partial Class FilenameForm
         'cmbEraldus
         '
         Me.cmbEraldus.FormattingEnabled = True
+        Me.cmbEraldus.Items.AddRange(New Object() {"0", "1", "2"})
         Me.cmbEraldus.Location = New System.Drawing.Point(123, 267)
         Me.cmbEraldus.Name = "cmbEraldus"
         Me.cmbEraldus.Size = New System.Drawing.Size(121, 24)

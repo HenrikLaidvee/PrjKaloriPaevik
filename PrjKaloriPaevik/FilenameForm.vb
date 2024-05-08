@@ -2,6 +2,7 @@
 Imports ExportToCSV
 Imports CSVExporterDNF
 Imports System.Data.OleDb
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 
 'Tuleb mainformis välja kutsuda
@@ -13,10 +14,10 @@ Public Class FilenameForm
     Private Sub txtRidadeArv_TextChanged(sender As Object, e As EventArgs) Handles txtRidadeArv.TextChanged
         Integer.TryParse(txtRidadeArv.Text, numberOfLines)
     End Sub
-    Private Sub pathBtn_Click(sender As Object, e As EventArgs) Handles pathBtn.Click
+    Private Sub pathBtn_Click(sender As Object, e As EventArgs) Handles pathbtn.Click
         FolderBrowserDialog1.ShowDialog()
         Dim filepath As String = FolderBrowserDialog1.SelectedPath
-        Dim filename As String = filepathTxt.Text + ".csv"
+        Dim filename As String = filepathtxt.Text + ".csv"
 
         Dim exporter As IExportToCSV
         exporter = New ExportToCSV.CExportToCSV
@@ -33,6 +34,9 @@ Public Class FilenameForm
         chkAppend.Enabled = False
         btnPathSelect.Enabled = False
         btnSaveDll.Enabled = False
+
+        cmbDelimiter.SelectedIndex = 0
+        cmbEraldus.SelectedIndex = 0
 
     End Sub
 
