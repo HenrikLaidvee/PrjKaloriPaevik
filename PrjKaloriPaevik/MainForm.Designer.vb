@@ -22,9 +22,9 @@ Partial Class MainForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.btnProfile = New System.Windows.Forms.Button()
         Me.btnCreateUser = New System.Windows.Forms.Button()
         Me.btnLogFood = New System.Windows.Forms.Button()
@@ -40,6 +40,7 @@ Partial Class MainForm
         Me.txtCalorieLimit = New System.Windows.Forms.TextBox()
         Me.txtCaloriesLeft = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnExport = New System.Windows.Forms.Button()
         Me.btnKaal = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.txtSugarLeft = New System.Windows.Forms.TextBox()
@@ -214,6 +215,7 @@ Partial Class MainForm
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.btnExport)
         Me.GroupBox1.Controls.Add(Me.btnLogIn)
         Me.GroupBox1.Controls.Add(Me.btnLogFood)
         Me.GroupBox1.Controls.Add(Me.btnCreateUser)
@@ -227,6 +229,15 @@ Partial Class MainForm
         Me.GroupBox1.TabIndex = 16
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Menüü"
+        '
+        'btnExport
+        '
+        Me.btnExport.Location = New System.Drawing.Point(24, 402)
+        Me.btnExport.Name = "btnExport"
+        Me.btnExport.Size = New System.Drawing.Size(183, 63)
+        Me.btnExport.TabIndex = 4
+        Me.btnExport.Text = "Lae alla"
+        Me.btnExport.UseVisualStyleBackColor = True
         '
         'btnKaal
         '
@@ -411,19 +422,19 @@ Partial Class MainForm
         '
         Me.chartMakro.BackColor = System.Drawing.Color.Transparent
         Me.chartMakro.BorderlineColor = System.Drawing.Color.Transparent
-        ChartArea1.BackSecondaryColor = System.Drawing.Color.Transparent
-        ChartArea1.Name = "ChartArea1"
-        Me.chartMakro.ChartAreas.Add(ChartArea1)
-        Legend1.Name = "Legend1"
-        Legend1.TitleBackColor = System.Drawing.Color.Transparent
-        Me.chartMakro.Legends.Add(Legend1)
+        ChartArea2.BackSecondaryColor = System.Drawing.Color.Transparent
+        ChartArea2.Name = "ChartArea1"
+        Me.chartMakro.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Legend2.TitleBackColor = System.Drawing.Color.Transparent
+        Me.chartMakro.Legends.Add(Legend2)
         Me.chartMakro.Location = New System.Drawing.Point(778, 37)
         Me.chartMakro.Name = "chartMakro"
-        Series1.ChartArea = "ChartArea1"
-        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut
-        Series1.Legend = "Legend1"
-        Series1.Name = "series"
-        Me.chartMakro.Series.Add(Series1)
+        Series2.ChartArea = "ChartArea1"
+        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut
+        Series2.Legend = "Legend1"
+        Series2.Name = "series"
+        Me.chartMakro.Series.Add(Series2)
         Me.chartMakro.Size = New System.Drawing.Size(405, 356)
         Me.chartMakro.TabIndex = 19
         Me.chartMakro.Text = "Chart1"
@@ -482,4 +493,5 @@ Partial Class MainForm
     Friend WithEvents chartMakro As DataVisualization.Charting.Chart
     Friend WithEvents btnDownload As Button
     Friend WithEvents btnDownload2 As Button
+    Friend WithEvents btnExport As Button
 End Class

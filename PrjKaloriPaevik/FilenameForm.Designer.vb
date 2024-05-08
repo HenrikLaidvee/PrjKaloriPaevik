@@ -151,7 +151,7 @@ Partial Class FilenameForm
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(53, 233)
+        Me.Label3.Location = New System.Drawing.Point(45, 233)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(64, 16)
         Me.Label3.TabIndex = 12
@@ -177,7 +177,7 @@ Partial Class FilenameForm
         'lblQualifier
         '
         Me.lblQualifier.AutoSize = True
-        Me.lblQualifier.Location = New System.Drawing.Point(20, 270)
+        Me.lblQualifier.Location = New System.Drawing.Point(12, 270)
         Me.lblQualifier.Name = "lblQualifier"
         Me.lblQualifier.Size = New System.Drawing.Size(97, 16)
         Me.lblQualifier.TabIndex = 15
