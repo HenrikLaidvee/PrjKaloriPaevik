@@ -9,7 +9,8 @@ Public Class CCalories
     Private calories As Double
     Private makro() As Double = {0, 0, 0}
     Private mass As Double
-    Private connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Throthar\source\repos\PrjKaloriPaevik\ToiduTest.accdb;"
+    Private connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
+    'Private connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Throthar\source\repos\PrjKaloriPaevik\ToiduTest.accdb;"
 
     Public Function makroPercent(ByRef index As Integer, ByRef user As Integer) As Double Implements ICalories.makroPercent
         Dim aine As Double = 0
@@ -24,7 +25,7 @@ Public Class CCalories
         'gets calories from food
         Using connection As New OleDbConnection(connectionString)
             connection.Open()
-            Dim commandText As String = "SELECT SUM(Energy) as AllEnergy, SUM(Protein) as AllProtein, SUM(Fat) as AllFat, SUM(Carbohydrates) as AllCarbohydrates, SUM(sugar) as AllSugar, SUM(amount) as AllMass FROM sisestatud_toit WHERE Date = data and kasutaj_id = user"
+            Dim commandText As String = "SELECT SUM(Energy) as AllEnergy, SUM(Protein) as AllProtein, SUM(Fat) as AllFat, SUM(Carbohydrates) as AllCarbohydrates, SUM(sugar) as AllSugar, SUM(amount) as AllMass FROM sisestatud_toit WHERE kasutaja_id = 0"
             Dim command As New OleDbCommand(commandText, connection)
             ' Specify the value of the primary key to retrieve
             command.Parameters.AddWithValue("?", Date.Now.ToString("yyyy-MM-dd"))

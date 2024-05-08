@@ -22,7 +22,8 @@ Public Class MainForm
     End Sub
 
     Private Sub MainForm_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduAndmebaas.accdb;"
+        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
+        'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduAndmebaas.accdb;"
         Dim query As String = "SELECT Motivational_quote FROM Motivate;"
 
         Dim quotesDataTable As New DataTable()
@@ -34,15 +35,18 @@ Public Class MainForm
             End Using
         End Using
 
-        Dim showMakro As PrjKaloriPaevikKalorid.ICalories
-        showMakro = New PrjKaloriPaevikKalorid.CCalories
-        txtProtein.Text = showMakro.makroPercent(0, loggedInID).ToString
-        txtFat.Text = showMakro.makroPercent(1, loggedInID).ToString
-        txtCarbs.Text = showMakro.makroPercent(2, loggedInID).ToString
-        series.ChartType = SeriesChartType.Pie
-        series.Points.AddXY("Protein", showMakro.makroPercent(0, loggedInID))
-        series.Points.AddXY("Fat", showMakro.makroPercent(1, loggedInID))
-        series.Points.AddXY("Carbs", showMakro.makroPercent(2, loggedInID))
+        If loggedInID <> 0 Then
+            Dim showMakro As PrjKaloriPaevikKalorid.ICalories
+            showMakro = New PrjKaloriPaevikKalorid.CCalories
+            txtProtein.Text = showMakro.makroPercent(0, loggedInID).ToString
+            txtFat.Text = showMakro.makroPercent(1, loggedInID).ToString
+            txtCarbs.Text = showMakro.makroPercent(2, loggedInID).ToString
+            series.ChartType = SeriesChartType.Pie
+            series.Points.AddXY("Protein", showMakro.makroPercent(0, loggedInID))
+            series.Points.AddXY("Fat", showMakro.makroPercent(1, loggedInID))
+            series.Points.AddXY("Carbs", showMakro.makroPercent(2, loggedInID))
+        End If
+
 
         ' Display a random motivational quote
         If quotesDataTable.Rows.Count > 0 Then
@@ -74,7 +78,8 @@ Public Class MainForm
         Dim insertQuery As String = "INSERT INTO KaaluAndmed ([Kuupäev], [Kaal], [BMI], [ID]) VALUES (@DateValue, @WeightValue, @BMIValue, @ID)"
 
         ' Connect to your Access database
-        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduAndmebaas.accdb;"
+        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
+        'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduAndmebaas.accdb;"
         Using connection As New OleDbConnection(connectionString)
             ' First, retrieve the Pikkus value from the database
             Using selectCommand As New OleDbCommand(selectQuery, connection)
