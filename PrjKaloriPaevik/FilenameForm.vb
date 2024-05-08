@@ -2,6 +2,7 @@
 Imports ExportToCSV
 Imports CSVExporterDNF
 Imports System.Data.OleDb
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 
 'Tuleb mainformis välja kutsuda
@@ -13,10 +14,10 @@ Public Class FilenameForm
     Private Sub txtRidadeArv_TextChanged(sender As Object, e As EventArgs) Handles txtRidadeArv.TextChanged
         Integer.TryParse(txtRidadeArv.Text, numberOfLines)
     End Sub
-    Private Sub pathBtn_Click(sender As Object, e As EventArgs) Handles pathBtn.Click
+    Private Sub pathBtn_Click(sender As Object, e As EventArgs) Handles pathbtn.Click
         FolderBrowserDialog1.ShowDialog()
         Dim filepath As String = FolderBrowserDialog1.SelectedPath
-        Dim filename As String = filepathTxt.Text + ".csv"
+        Dim filename As String = filepathtxt.Text + ".csv"
 
         Dim exporter As IExportToCSV
         exporter = New ExportToCSV.CExportToCSV
@@ -33,7 +34,10 @@ Public Class FilenameForm
         chkAppend.Enabled = False
         btnPathSelect.Enabled = False
         btnSaveDll.Enabled = False
-        chkExport1.Enabled = False
+
+        cmbDelimiter.SelectedIndex = 0
+        cmbEraldus.SelectedIndex = 0
+
     End Sub
 
     Private Sub btnSaveDll_Click(sender As Object, e As EventArgs) Handles btnSaveDll.Click
@@ -115,19 +119,19 @@ Public Class FilenameForm
     End Sub
 
     Private Sub chkExport1_CheckedChanged(sender As Object, e As EventArgs) Handles chkExport1.CheckedChanged
-        filepathtxt.Enabled = True
-        txtRidadeArv.Enabled = True
-        pathbtn.Enabled = True
-        chkExport2.Enabled = False
+        filepathtxt.Enabled = chkExport1.Checked
+        txtRidadeArv.Enabled = chkExport1.Checked
+        pathbtn.Enabled = chkExport1.Checked
+        chkExport2.Enabled = Not chkExport1.Checked
 
     End Sub
 
     Private Sub chkExport2_CheckedChanged(sender As Object, e As EventArgs) Handles chkExport2.CheckedChanged
-        cmbDelimiter.Enabled = True
-        cmbEraldus.Enabled = True
-        chkAppend.Enabled = True
-        btnPathSelect.Enabled = True
-        btnSaveDll.Enabled = True
-        chkExport1.Enabled = False
+        cmbDelimiter.Enabled = chkExport2.Checked
+        cmbEraldus.Enabled = chkExport2.Checked
+        chkAppend.Enabled = chkExport2.Checked
+        btnPathSelect.Enabled = chkExport2.Checked
+        btnSaveDll.Enabled = chkExport2.Checked
+        chkExport1.Enabled = Not chkExport2.Checked
     End Sub
 End Class

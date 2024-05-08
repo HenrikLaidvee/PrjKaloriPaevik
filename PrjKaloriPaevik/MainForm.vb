@@ -129,7 +129,7 @@ Public Class MainForm
 
     End Sub
 
-    Private Sub btnDownload_Click(sender As Object, e As EventArgs) Handles btnDownload.Click
-        FilenameForm.ShowDialog()
+    Private Sub btnExport_Click(sender As Object, e As EventArgs) Handles btnExport.Click
+        FilenameForm.Show()
     End Sub
 End Class
