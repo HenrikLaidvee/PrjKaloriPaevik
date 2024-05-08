@@ -1,4 +1,5 @@
 ﻿Imports System.Data.OleDb
+Imports System.Windows.Forms.DataVisualization.Charting
 
 Public Class LogInAken
     Private Sub LogInAken_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -14,7 +15,8 @@ Public Class LogInAken
 
         Try
             'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
-            Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduAndmebaas.accdb;"
+            'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduAndmebaas.accdb;"
+            Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Throthar\source\repos\PrjKaloriPaevik\ToiduAndmebaas.accdb;"
             Dim query As String = "SELECT * FROM Kasutaja WHERE Eesnimi = @Eesnimi AND Perenimi = @Perenimi AND  Parool = @Parool"
 
             Using connection As New OleDbConnection(connectionString)
@@ -44,10 +46,13 @@ Public Class LogInAken
                             End While
                             Dim showMakro As PrjKaloriPaevikKalorid.ICalories
                             showMakro = New PrjKaloriPaevikKalorid.CCalories
-                            loggedInRemainingCalories = loggedInCalories - showMakro.getCalories(loggedInID)
-                            loggedInRemainingSugar = loggedInSugar - showMakro.getSugar(loggedInID)
+                            loggedInRemainingCalories = loggedInCalories - Convert.ToDouble(showMakro.getCalories(loggedInID))
+                            loggedInRemainingSugar = loggedInSugar - Convert.ToDouble(showMakro.getSugar(loggedInID))
 
                             SetLoginStatus(True)
+                            MainForm.txtSugarLimit.Text = loggedInSugar.ToString()
+                            MainForm.txtCaloriesLeft.Text = loggedInRemainingCalories.ToString()
+                            MainForm.txtSugarLeft.Text = loggedInRemainingSugar.ToString()
                             MainForm.btnLogIn.Enabled = False
                             MainForm.btnCreateUser.Enabled = False
                             MainForm.btnProfile.Enabled = True
@@ -57,6 +62,14 @@ Public Class LogInAken
                             MainForm.txtGoalWeight.Text = loggedInGoal.ToString()
                             MainForm.txtNeedToLose.Text = (loggedInWeight - loggedInGoal).ToString()
                             MainForm.txtCalorieLimit.Text = loggedInCalories.ToString()
+
+                            MainForm.txtProtein.Text = showMakro.makroPercent(0, loggedInID).ToString
+                            MainForm.txtFat.Text = showMakro.makroPercent(1, loggedInID).ToString
+                            MainForm.txtCarbs.Text = showMakro.makroPercent(2, loggedInID).ToString
+                            MainForm.series.ChartType = SeriesChartType.Pie
+                            MainForm.series.Points.AddXY("Protein", showMakro.makroPercent(0, loggedInID))
+                            MainForm.series.Points.AddXY("Fat", showMakro.makroPercent(1, loggedInID))
+                            MainForm.series.Points.AddXY("Carbs", showMakro.makroPercent(2, loggedInID))
 
                             'KasutajaMoodul.latestUserID = GetLatestUserID()
 
