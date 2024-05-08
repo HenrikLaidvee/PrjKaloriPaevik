@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class LogInAken
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class LogInAken
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnLogIn = New System.Windows.Forms.Button()
@@ -47,12 +47,10 @@ Partial Class LogInAken
         Me.GroupBox1.Controls.Add(Me.lblFirstName)
         Me.GroupBox1.Controls.Add(Me.txtEmail)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.GroupBox1.Location = New System.Drawing.Point(18, 18)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox1.Location = New System.Drawing.Point(15, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.GroupBox1.Size = New System.Drawing.Size(951, 412)
-        Me.GroupBox1.TabIndex = 5
+        Me.GroupBox1.Size = New System.Drawing.Size(634, 268)
+        Me.GroupBox1.TabIndex = 6
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Kasutaja andmed"
         '
@@ -69,8 +67,7 @@ Partial Class LogInAken
         'lblLimitReached
         '
         Me.lblLimitReached.AutoSize = True
-        Me.lblLimitReached.Location = New System.Drawing.Point(393, 48)
-        Me.lblLimitReached.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblLimitReached.Location = New System.Drawing.Point(262, 31)
         Me.lblLimitReached.Name = "lblLimitReached"
         Me.lblLimitReached.Size = New System.Drawing.Size(174, 25)
         Me.lblLimitReached.TabIndex = 9
@@ -118,8 +115,7 @@ Partial Class LogInAken
         'lblUsernameMaxWords
         '
         Me.lblUsernameMaxWords.AutoSize = True
-        Me.lblUsernameMaxWords.Location = New System.Drawing.Point(723, 124)
-        Me.lblUsernameMaxWords.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblUsernameMaxWords.Location = New System.Drawing.Point(482, 81)
         Me.lblUsernameMaxWords.Name = "lblUsernameMaxWords"
         Me.lblUsernameMaxWords.Size = New System.Drawing.Size(34, 25)
         Me.lblUsernameMaxWords.TabIndex = 3
@@ -129,8 +125,7 @@ Partial Class LogInAken
         '
         Me.lblFirstName.AutoSize = True
         Me.lblFirstName.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.lblFirstName.Location = New System.Drawing.Point(108, 117)
-        Me.lblFirstName.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblFirstName.Location = New System.Drawing.Point(72, 76)
         Me.lblFirstName.Name = "lblFirstName"
         Me.lblFirstName.Size = New System.Drawing.Size(66, 25)
         Me.lblFirstName.TabIndex = 2
@@ -138,10 +133,9 @@ Partial Class LogInAken
         '
         'txtEmail
         '
-        Me.txtEmail.Location = New System.Drawing.Point(234, 117)
-        Me.txtEmail.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txtEmail.Location = New System.Drawing.Point(156, 76)
         Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(478, 30)
+        Me.txtEmail.Size = New System.Drawing.Size(320, 30)
         Me.txtEmail.TabIndex = 1
         '
         'LogInAken
