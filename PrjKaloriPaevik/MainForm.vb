@@ -75,7 +75,7 @@ Public Class MainForm
         Dim selectQuery As String = "SELECT Pikkus FROM Kasutaja WHERE ID = @ID"
 
         ' Define SQL query to insert data with parameterized query
-        Dim insertQuery As String = "INSERT INTO KaaluAndmed ([Kuupäev], [Kaal], [BMI], [ID]) VALUES (@DateValue, @WeightValue, @BMIValue, @ID)"
+        Dim insertQuery As String = "INSERT INTO KaaluAndmed ([Kuupäev], [Kaal], [BMI], [Kasutaja_ID]) VALUES (@DateValue, @WeightValue, @BMIValue, @Kasutaja_ID)"
 
         ' Connect to your Access database
         Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
@@ -101,7 +101,7 @@ Public Class MainForm
                         insertCommand.Parameters.AddWithValue("@DateValue", DateTime.Now) ' Use current system time as date value
                         insertCommand.Parameters.AddWithValue("@WeightValue", weightValue)
                         insertCommand.Parameters.AddWithValue("@BMIValue", BMI) ' Use the calculated BMI value
-                        insertCommand.Parameters.AddWithValue("@ID", ID) ' Use the ID value
+                        insertCommand.Parameters.AddWithValue("@Kasutaja_ID", ID) ' Use the ID value
 
                         ' Execute the INSERT command
                         insertCommand.ExecuteNonQuery()
@@ -120,6 +120,7 @@ Public Class MainForm
     Private Sub txtCurrentWeight_TextChanged(sender As Object, e As EventArgs) Handles txtCurrentWeight.TextChanged
         ' Get the weight value from the textbox
         Dim weightValue As Double
+        'Current user ID
         Dim ID As Integer
         If Double.TryParse(txtCurrentWeight.Text, weightValue) Then
             ' Call the method to insert data into the WeightData table
