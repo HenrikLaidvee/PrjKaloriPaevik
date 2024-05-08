@@ -1,6 +1,7 @@
 ﻿
 Imports System.Data.OleDb
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Imports FoodSafetyWarning
 Imports PrjKaloriPaevikKalorid
 
 Public Class Form1
@@ -23,31 +24,35 @@ Public Class Form1
 
         cbAmount.SelectedIndex = 0
 
+        RichTextBox2.ReadOnly = True
+
         'cbValik.Items.AddRange(colors)
 
 
     End Sub
 
+    Private foodWarning As New CFoodWarning() ' Create an instance of CFoodWarning
 
-    Private Sub DataGridView1_SelectionChanged(sender As Object, e As EventArgs)
-        ' Check the condition 'Unhealthy'
+    Private Sub DataGridView1_SelectionChanged(sender As Object, e As EventArgs) Handles DataGridView1.SelectionChanged
         If Unhealthy Then
-            ' Check if a row is selected in the DataGridView
-            If DataGridView1.SelectedRows.Count > 0 Then
-                ' Retrieve the selected row
-                Dim selectedRow As DataGridViewRow = DataGridView1.SelectedRows(0)
+            Dim foodName As String = txtFoodName.Text
+            Dim calorieContent As Integer
+            If Integer.TryParse(txtEnergy.Text, calorieContent) Then
+                Dim fatContent As Double
+                If Double.TryParse(txtFat.Text, fatContent) Then
 
-                ' Extract the gram_weight from the selected row
-                Dim gramWeight As Integer ' = Convert.ToInt32(selectedRow.Cells("gram_weight").Value)
-
-                ' Check if the gram_weight is greater than 700
-                If gramWeight > 700 Then
-                    ' Display a warning message box
-                    MessageBox.Show("Ebatervislik toit", "Hoiatus", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    ' Check if the food is unhealthy and display warning if necessary
+                    foodWarning.DisplayWarning(foodName, calorieContent, fatContent)
+                Else
+                    MessageBox.Show("Invalid value for fat content.")
                 End If
+            Else
+                MessageBox.Show("Invalid value for calorie content.")
             End If
         End If
+
     End Sub
+
 
     Private Sub cbValik_SelectedIndexChanged(sender As Object, e As EventArgs)
         txtSisestus.Select()
@@ -73,8 +78,8 @@ Public Class Form1
                                     Dim currentDate As String = DateTime.Now.ToString("dd-MM-yyyy")
 
                                     ' Insert the values into the Access table "sisestatud_toit"
-                                    'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
-                                    Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduAndmebaas.accdb;"
+                                    Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
+                                    'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduAndmebaas.accdb;"
                                     Dim query As String = "INSERT INTO sisestatud_toit (food_id, kasutaja_id, carbohydrates, protein, fat, Energy, Sugar, Amount, [Date]) VALUES (@food_id, @kasutaja_id, @carbohydrates, @protein, @fat, @Energy, @Sugar, @Amount, @Date)"
 
                                     Using connection As New OleDbConnection(connectionString)
@@ -228,4 +233,5 @@ Public Class Form1
 
         End If
     End Sub
+
 End Class

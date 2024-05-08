@@ -25,7 +25,6 @@ Partial Class Form1
         Me.components = New System.ComponentModel.Container()
         Me.ToitBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.FoodDataBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
         Me.txtWeight = New System.Windows.Forms.TextBox()
         Me.ToitBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
         Me.ToiduAndmebaasDataSet = New PrjKaloriPaevik.ToiduAndmebaasDataSet()
@@ -71,6 +70,8 @@ Partial Class Form1
         Me.ToitBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.ToitTableAdapter = New PrjKaloriPaevik.ToiduAndmebaasDataSetTableAdapters.ToitTableAdapter()
         Me.TableAdapterManager = New PrjKaloriPaevik.ToiduAndmebaasDataSetTableAdapters.TableAdapterManager()
+        Me.txtFoodName = New System.Windows.Forms.TextBox()
+        Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
         CType(Me.ToitBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FoodDataBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ToitBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -88,15 +89,6 @@ Partial Class Form1
         'FoodDataBindingSource2
         '
         Me.FoodDataBindingSource2.DataMember = "FoodData"
-        '
-        'RichTextBox2
-        '
-        Me.RichTextBox2.BackColor = System.Drawing.SystemColors.Menu
-        Me.RichTextBox2.Location = New System.Drawing.Point(9, 494)
-        Me.RichTextBox2.Name = "RichTextBox2"
-        Me.RichTextBox2.Size = New System.Drawing.Size(1084, 81)
-        Me.RichTextBox2.TabIndex = 35
-        Me.RichTextBox2.Text = ""
         '
         'txtWeight
         '
@@ -500,13 +492,32 @@ Partial Class Form1
         Me.TableAdapterManager.ToitTableAdapter = Me.ToitTableAdapter
         Me.TableAdapterManager.UpdateOrder = PrjKaloriPaevik.ToiduAndmebaasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
+        'txtFoodName
+        '
+        Me.txtFoodName.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ToitBindingSource2, "description", True))
+        Me.txtFoodName.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.txtFoodName.Location = New System.Drawing.Point(726, 512)
+        Me.txtFoodName.Name = "txtFoodName"
+        Me.txtFoodName.Size = New System.Drawing.Size(100, 30)
+        Me.txtFoodName.TabIndex = 44
+        '
+        'RichTextBox2
+        '
+        Me.RichTextBox2.BackColor = System.Drawing.SystemColors.Menu
+        Me.RichTextBox2.Location = New System.Drawing.Point(9, 494)
+        Me.RichTextBox2.Name = "RichTextBox2"
+        Me.RichTextBox2.Size = New System.Drawing.Size(1084, 81)
+        Me.RichTextBox2.TabIndex = 45
+        Me.RichTextBox2.Text = ""
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1117, 693)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.RichTextBox2)
+        Me.Controls.Add(Me.txtFoodName)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.cbAmount)
         Me.Controls.Add(Me.txtSisestus)
         Me.Controls.Add(Me.btnBack)
@@ -549,7 +560,6 @@ Partial Class Form1
     Friend WithEvents food_id As DataGridViewTextBoxColumn
     Friend WithEvents DescriptionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents GramweightDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents RichTextBox2 As RichTextBox
     Friend WithEvents txtWeight As TextBox
     Friend WithEvents txtSugar As TextBox
     Friend WithEvents GroupBox1 As GroupBox
@@ -595,4 +605,6 @@ Partial Class Form1
     Friend WithEvents CarbohydratesDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents FatDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents SugarDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents txtFoodName As TextBox
+    Friend WithEvents RichTextBox2 As RichTextBox
 End Class

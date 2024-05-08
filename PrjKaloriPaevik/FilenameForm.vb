@@ -47,13 +47,13 @@ Public Class FilenameForm
             append = False
         End If
 
-        Dim dllExporter As IExporter
-        dllExporter = New CSVExporterDNF.CExporter
+        'Dim dllExporter As IExporter
+        'dllExporter = New CSVExporterDNF.CExporter
 
-        Dim success As Integer = dllExporter.saveDataToCsv(myArray, append)
-        If success < 0 Then
-            MessageBox.Show("Salvestamine õnnestus. Salvestatud ridade arv :" & success)
-        End If
+        'Dim success As Integer = dllExporter.saveDataToCsv(myArray, append)
+        'If success < 0 Then
+        'MessageBox.Show("Salvestamine õnnestus. Salvestatud ridade arv :" & success)
+        'End If
 
 
 
@@ -106,11 +106,11 @@ Public Class FilenameForm
 
     Private Sub btnPathSelect_Click(sender As Object, e As EventArgs) Handles btnPathSelect.Click
 
-        Dim dllExporter As IExporter
-        dllExporter = New CSVExporterDNF.CExporter
+        'Dim dllExporter As IExporter
+        'dllExporter = New CSVExporterDNF.CExporter
 
 
-        lblCurrentFilePath.Text = dllExporter.setFileToSave()
+        'lblCurrentFilePath.Text = dllExporter.setFileToSave()
 
     End Sub
 

@@ -17,7 +17,7 @@
     Public loggedInSugar As Double
     Public loggedInRemainingSugar As Double
     Public loggedInRemainingCalories As Double
-    Public Unhealthy As Boolean
+    Public Unhealthy As Boolean = True
     'Public RemainingCalories As Double
     'Public latestUserID As Integer = -1
     Public Kosher As Boolean
