@@ -51,6 +51,9 @@ Public Class LogInAken
                             'loggedInRemainingCalories = loggedInCalories - showMakro.getCalories(loggedInID)
                             'loggedInRemainingSugar = loggedInSugar - showMakro.getSugar(loggedInID)
                             SetLoginStatus(True)
+                            MainForm.txtSugarLimit.Text = loggedInSugar.ToString()
+                            MainForm.txtCaloriesLeft.Text = loggedInRemainingCalories.ToString()
+                            MainForm.txtSugarLeft.Text = loggedInRemainingSugar.ToString()
                             MainForm.btnLogIn.Enabled = False
                             MainForm.btnCreateUser.Enabled = False
                             MainForm.btnProfile.Enabled = True
@@ -65,6 +68,14 @@ Public Class LogInAken
                             MainForm.txtSugarLimit.Text = loggedInSugar.ToString()
                             MainForm.txtSugarLeft.Text = loggedInRemainingSugar.ToString()
                             MainForm.txtCaloriesLeft.Text = loggedInRemainingCalories.ToString()
+
+                            MainForm.txtProtein.Text = showMakro.makroPercent(0, loggedInID).ToString
+                            MainForm.txtFat.Text = showMakro.makroPercent(1, loggedInID).ToString
+                            MainForm.txtCarbs.Text = showMakro.makroPercent(2, loggedInID).ToString
+                            MainForm.series.ChartType = SeriesChartType.Pie
+                            MainForm.series.Points.AddXY("Protein", showMakro.makroPercent(0, loggedInID))
+                            MainForm.series.Points.AddXY("Fat", showMakro.makroPercent(1, loggedInID))
+                            MainForm.series.Points.AddXY("Carbs", showMakro.makroPercent(2, loggedInID))
 
                             'KasutajaMoodul.latestUserID = GetLatestUserID()
 
