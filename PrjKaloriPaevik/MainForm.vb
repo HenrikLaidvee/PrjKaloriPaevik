@@ -22,8 +22,8 @@ Public Class MainForm
     End Sub
 
     Private Sub MainForm_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
-        'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduAndmebaas.accdb;"
+        'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
+        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduAndmebaas.accdb;"
         Dim query As String = "SELECT Motivational_quote FROM Motivate;"
 
         Dim quotesDataTable As New DataTable()
@@ -84,7 +84,7 @@ Public Class MainForm
             ' First, retrieve the Pikkus value from the database
             Using selectCommand As New OleDbCommand(selectQuery, connection)
                 ' Add parameter for ID
-                selectCommand.Parameters.AddWithValue("@ID", ID) ' ID is a variable containing the User ID to search for
+                selectCommand.Parameters.AddWithValue("@Kasutaja_ID", ID) ' ID is a variable containing the User ID to search for
 
                 Try
                     connection.Open()
@@ -121,10 +121,10 @@ Public Class MainForm
         ' Get the weight value from the textbox
         Dim weightValue As Double
         'Current user ID
-        Dim ID As Integer
+
         If Double.TryParse(txtCurrentWeight.Text, weightValue) Then
-            ' Call the method to insert data into the WeightData table
-            'InsertDataIntoWeightData(weightValue, ID)
+            'Call the method To insert data into the WeightData table
+            InsertDataIntoWeightData(weightValue, KasutajaMoodul.loggedInID)
         End If
 
     End Sub

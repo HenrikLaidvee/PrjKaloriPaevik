@@ -5,9 +5,8 @@ Imports System.Windows.Forms
 Public Class CExportToCSV
     Implements IExportToCSV
 
-    Private ReadOnly connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduTest.accdb;"
 
-    Public Sub IExportToCSV_WriteToFile(filepath As String, filename As String, numberOfLines As Integer) Implements IExportToCSV.WriteToFile
+    Public Sub IExportToCSV_WriteToFile(filepath As String, filename As String, numberOfLines As Integer, connectionString As String) Implements IExportToCSV.WriteToFile
         Dim completePath As String
         Try
 
@@ -65,22 +64,7 @@ Public Class CExportToCSV
             End Using
         End Using
         MessageBox.Show("Edukalt salvestatud")
-        '    Dim fileWriter As New System.IO.StreamWriter(completePath, True)
-        '    'MessageBox.Show(filepath + "\" + filename)
-        '    Dim record As String = field1 + delimiter + field2 + delimiter + field3 + delimiter + field4 + delimiter + field5
-        '    'Seda tuleks teha võibolla tsükliliselt oleneb kuidas data antakse
-        '    fileWriter.WriteLine(record)
 
-        '    fileWriter.Close()
-
-        '    If File.ReadAllText(completePath).Length > 0 Then
-        '        MessageBox.Show("Salvestatud")
-        '    Else
-        '        MessageBox.Show("Ebaõnnestus")
-        '    End If
-        'Catch ex As IOException
-        '    'MessageBox.Show("An IO error occurred: " & ex.Message)
-        'End Try
     End Sub
 
     Public Function ContainsSymbols(input As String) As Boolean Implements IExportToCSV.ContainsSymbols
