@@ -1,5 +1,4 @@
 ﻿Imports System.Data.OleDb
-Imports System.Windows.Forms.DataVisualization.Charting
 
 Public Class LogInAken
     Private Sub LogInAken_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -14,7 +13,8 @@ Public Class LogInAken
         End If
 
         Try
-            Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduAndmebaas.accdb;"
+            Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
+            ' Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduAndmebaas.accdb;"
             Dim query As String = "SELECT * FROM Kasutaja WHERE Eesnimi = @Eesnimi AND Perenimi = @Perenimi AND  Parool = @Parool"
 
             Using connection As New OleDbConnection(connectionString)
@@ -46,6 +46,7 @@ Public Class LogInAken
                             showMakro = New PrjKaloriPaevikKalorid.CCalories
                             loggedInRemainingCalories = loggedInCalories - showMakro.getCalories(loggedInID)
                             loggedInRemainingSugar = loggedInSugar - showMakro.getSugar(loggedInID)
+
                             SetLoginStatus(True)
                             MainForm.btnLogIn.Enabled = False
                             MainForm.btnCreateUser.Enabled = False
@@ -56,9 +57,6 @@ Public Class LogInAken
                             MainForm.txtGoalWeight.Text = loggedInGoal.ToString()
                             MainForm.txtNeedToLose.Text = (loggedInWeight - loggedInGoal).ToString()
                             MainForm.txtCalorieLimit.Text = loggedInCalories.ToString()
-                            MainForm.txtSugarLimit.Text = loggedInSugar.ToString()
-                            MainForm.txtSugarLeft.Text = loggedInRemainingSugar.ToString()
-                            MainForm.txtCaloriesLeft.Text = loggedInRemainingCalories.ToString()
 
                             'KasutajaMoodul.latestUserID = GetLatestUserID()
 

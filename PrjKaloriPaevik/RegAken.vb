@@ -44,7 +44,7 @@ Public Class RegAken
             OrElse String.IsNullOrEmpty(txtWeight.Text) OrElse String.IsNullOrEmpty(txtPassword.Text) _
             OrElse String.IsNullOrEmpty(txtUsername.Text) OrElse String.IsNullOrEmpty(txtLastName.Text) _
             OrElse String.IsNullOrEmpty(txtHeight.Text) OrElse String.IsNullOrEmpty(txtGoalWeight.Text) _
-            OrElse String.IsNullOrEmpty(txtDailyCalories.Text) Then
+            OrElse String.IsNullOrEmpty(txtDailyCalories.Text) OrElse String.IsNullOrEmpty(txtDailySuhkur.Text) Then
 
             MessageBox.Show("Palun täitke kõik väljad!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
@@ -59,11 +59,13 @@ Public Class RegAken
 
             Dim dailyCalories As Double = Double.Parse(txtDailyCalories.Text)
 
+            Dim dailySuhkur As Double = Double.Parse(txtDailySuhkur.Text)
+
             Using connection As New OleDbConnection(connectionString)
                 connection.Open()
 
-                Dim query As String = "INSERT INTO Kasutaja (Eesnimi, Perenimi, Pikkus, Päev, Kuu, Aasta, Parool, Kaal) 
-                                        VALUES (@Eesnimi, @Perenimi, @Pikkus, @Paev, @Kuu, @Aasta, @Parool, @Kaal)"
+                Dim query As String = "INSERT INTO Kasutaja (Eesnimi, Perenimi, Pikkus, Päev, Kuu, Aasta, Parool, Kaal, suhkur) 
+                                        VALUES (@Eesnimi, @Perenimi, @Pikkus, @Paev, @Kuu, @Aasta, @Parool, @Kaal, @suhkur)"
                 Using command As New OleDbCommand(query, connection)
 
                     command.Parameters.AddWithValue("@Eesnimi", txtUsername.Text)
@@ -77,6 +79,7 @@ Public Class RegAken
                     command.Parameters.AddWithValue("@Eesmark", goalWeight)
                     command.Parameters.AddWithValue("@Kalorid", dailyCalories)
                     command.Parameters.AddWithValue("@Alkohol", cbAlcohol.SelectedItem)
+                    command.Parameters.AddWithValue("@suhkur", dailySuhkur)
 
                     'command.Parameters.AddWithValue("@Age", age)
 

@@ -27,6 +27,8 @@ Partial Class Form1
         Me.FoodDataBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
         Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
         Me.txtWeight = New System.Windows.Forms.TextBox()
+        Me.ToitBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ToiduAndmebaasDataSet = New PrjKaloriPaevik.ToiduAndmebaasDataSet()
         Me.txtSugar = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -49,6 +51,15 @@ Partial Class Form1
         Me.txtEnergy = New System.Windows.Forms.TextBox()
         Me.gbDatabase = New System.Windows.Forms.GroupBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FoodidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EnergyDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProteinDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CarbohydratesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FatDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SugarDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cbAmount = New System.Windows.Forms.ComboBox()
         Me.txtSisestus = New System.Windows.Forms.TextBox()
@@ -57,11 +68,17 @@ Partial Class Form1
         Me.btnSave = New System.Windows.Forms.Button()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.ToitBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ToitTableAdapter = New PrjKaloriPaevik.ToiduAndmebaasDataSetTableAdapters.ToitTableAdapter()
+        Me.TableAdapterManager = New PrjKaloriPaevik.ToiduAndmebaasDataSetTableAdapters.TableAdapterManager()
         CType(Me.ToitBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FoodDataBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ToitBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ToiduAndmebaasDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.gbDatabase.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ToitBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ToitBindingSource
@@ -75,7 +92,7 @@ Partial Class Form1
         'RichTextBox2
         '
         Me.RichTextBox2.BackColor = System.Drawing.SystemColors.Menu
-        Me.RichTextBox2.Location = New System.Drawing.Point(12, 494)
+        Me.RichTextBox2.Location = New System.Drawing.Point(9, 494)
         Me.RichTextBox2.Name = "RichTextBox2"
         Me.RichTextBox2.Size = New System.Drawing.Size(1084, 81)
         Me.RichTextBox2.TabIndex = 35
@@ -83,14 +100,26 @@ Partial Class Form1
         '
         'txtWeight
         '
+        Me.txtWeight.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ToitBindingSource2, "gram_weight", True))
         Me.txtWeight.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
         Me.txtWeight.Location = New System.Drawing.Point(620, 512)
         Me.txtWeight.Name = "txtWeight"
         Me.txtWeight.Size = New System.Drawing.Size(100, 30)
         Me.txtWeight.TabIndex = 34
         '
+        'ToitBindingSource2
+        '
+        Me.ToitBindingSource2.DataMember = "Toit"
+        Me.ToitBindingSource2.DataSource = Me.ToiduAndmebaasDataSet
+        '
+        'ToiduAndmebaasDataSet
+        '
+        Me.ToiduAndmebaasDataSet.DataSetName = "ToiduAndmebaasDataSet"
+        Me.ToiduAndmebaasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'txtSugar
         '
+        Me.txtSugar.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ToitBindingSource2, "Sugar", True))
         Me.txtSugar.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
         Me.txtSugar.Location = New System.Drawing.Point(514, 512)
         Me.txtSugar.Name = "txtSugar"
@@ -210,6 +239,7 @@ Partial Class Form1
         '
         'txtFoodID
         '
+        Me.txtFoodID.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ToitBindingSource2, "food_id", True))
         Me.txtFoodID.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
         Me.txtFoodID.Location = New System.Drawing.Point(15, 62)
         Me.txtFoodID.Name = "txtFoodID"
@@ -242,6 +272,7 @@ Partial Class Form1
         '
         'txtFat
         '
+        Me.txtFat.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ToitBindingSource2, "Fat", True))
         Me.txtFat.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
         Me.txtFat.Location = New System.Drawing.Point(408, 512)
         Me.txtFat.Name = "txtFat"
@@ -250,6 +281,7 @@ Partial Class Form1
         '
         'txtCarbs
         '
+        Me.txtCarbs.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ToitBindingSource2, "Carbohydrates", True))
         Me.txtCarbs.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
         Me.txtCarbs.Location = New System.Drawing.Point(302, 512)
         Me.txtCarbs.Name = "txtCarbs"
@@ -258,6 +290,7 @@ Partial Class Form1
         '
         'txtProtein
         '
+        Me.txtProtein.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ToitBindingSource2, "Protein", True))
         Me.txtProtein.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
         Me.txtProtein.Location = New System.Drawing.Point(196, 512)
         Me.txtProtein.Name = "txtProtein"
@@ -266,6 +299,7 @@ Partial Class Form1
         '
         'txtEnergy
         '
+        Me.txtEnergy.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ToitBindingSource2, "Energy", True))
         Me.txtEnergy.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
         Me.txtEnergy.Location = New System.Drawing.Point(90, 512)
         Me.txtEnergy.Name = "txtEnergy"
@@ -287,12 +321,87 @@ Partial Class Form1
         '
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.FoodidDataGridViewTextBoxColumn, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.EnergyDataGridViewTextBoxColumn, Me.ProteinDataGridViewTextBoxColumn, Me.CarbohydratesDataGridViewTextBoxColumn, Me.FatDataGridViewTextBoxColumn, Me.SugarDataGridViewTextBoxColumn})
+        Me.DataGridView1.DataSource = Me.ToitBindingSource2
         Me.DataGridView1.Location = New System.Drawing.Point(15, 29)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.Size = New System.Drawing.Size(1062, 309)
         Me.DataGridView1.TabIndex = 0
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "ID"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "ID"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Visible = False
+        '
+        'FoodidDataGridViewTextBoxColumn
+        '
+        Me.FoodidDataGridViewTextBoxColumn.DataPropertyName = "food_id"
+        Me.FoodidDataGridViewTextBoxColumn.HeaderText = "food_id"
+        Me.FoodidDataGridViewTextBoxColumn.Name = "FoodidDataGridViewTextBoxColumn"
+        Me.FoodidDataGridViewTextBoxColumn.ReadOnly = True
+        Me.FoodidDataGridViewTextBoxColumn.Visible = False
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "description"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "description"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 1000
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "gram_weight"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "gram_weight"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Width = 200
+        '
+        'EnergyDataGridViewTextBoxColumn
+        '
+        Me.EnergyDataGridViewTextBoxColumn.DataPropertyName = "Energy"
+        Me.EnergyDataGridViewTextBoxColumn.HeaderText = "Energy"
+        Me.EnergyDataGridViewTextBoxColumn.Name = "EnergyDataGridViewTextBoxColumn"
+        Me.EnergyDataGridViewTextBoxColumn.ReadOnly = True
+        Me.EnergyDataGridViewTextBoxColumn.Width = 200
+        '
+        'ProteinDataGridViewTextBoxColumn
+        '
+        Me.ProteinDataGridViewTextBoxColumn.DataPropertyName = "Protein"
+        Me.ProteinDataGridViewTextBoxColumn.HeaderText = "Protein"
+        Me.ProteinDataGridViewTextBoxColumn.Name = "ProteinDataGridViewTextBoxColumn"
+        Me.ProteinDataGridViewTextBoxColumn.ReadOnly = True
+        Me.ProteinDataGridViewTextBoxColumn.Width = 200
+        '
+        'CarbohydratesDataGridViewTextBoxColumn
+        '
+        Me.CarbohydratesDataGridViewTextBoxColumn.DataPropertyName = "Carbohydrates"
+        Me.CarbohydratesDataGridViewTextBoxColumn.HeaderText = "Carbohydrates"
+        Me.CarbohydratesDataGridViewTextBoxColumn.Name = "CarbohydratesDataGridViewTextBoxColumn"
+        Me.CarbohydratesDataGridViewTextBoxColumn.ReadOnly = True
+        Me.CarbohydratesDataGridViewTextBoxColumn.Width = 200
+        '
+        'FatDataGridViewTextBoxColumn
+        '
+        Me.FatDataGridViewTextBoxColumn.DataPropertyName = "Fat"
+        Me.FatDataGridViewTextBoxColumn.HeaderText = "Fat"
+        Me.FatDataGridViewTextBoxColumn.Name = "FatDataGridViewTextBoxColumn"
+        Me.FatDataGridViewTextBoxColumn.ReadOnly = True
+        Me.FatDataGridViewTextBoxColumn.Width = 200
+        '
+        'SugarDataGridViewTextBoxColumn
+        '
+        Me.SugarDataGridViewTextBoxColumn.DataPropertyName = "Sugar"
+        Me.SugarDataGridViewTextBoxColumn.HeaderText = "Sugar"
+        Me.SugarDataGridViewTextBoxColumn.Name = "SugarDataGridViewTextBoxColumn"
+        Me.SugarDataGridViewTextBoxColumn.ReadOnly = True
+        Me.SugarDataGridViewTextBoxColumn.Width = 200
         '
         'Label2
         '
@@ -372,12 +481,32 @@ Partial Class Form1
         Me.Label1.TabIndex = 36
         Me.Label1.Text = "Sisestage toit:"
         '
+        'ToitBindingSource1
+        '
+        Me.ToitBindingSource1.DataMember = "Toit"
+        Me.ToitBindingSource1.DataSource = Me.ToiduAndmebaasDataSet
+        '
+        'ToitTableAdapter
+        '
+        Me.ToitTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.KaaluAndmedTableAdapter = Nothing
+        Me.TableAdapterManager.KasutajaTableAdapter = Nothing
+        Me.TableAdapterManager.MotivateTableAdapter = Nothing
+        Me.TableAdapterManager.Sisestatud_toitTableAdapter = Nothing
+        Me.TableAdapterManager.ToitTableAdapter = Me.ToitTableAdapter
+        Me.TableAdapterManager.UpdateOrder = PrjKaloriPaevik.ToiduAndmebaasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1117, 693)
         Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.RichTextBox2)
         Me.Controls.Add(Me.cbAmount)
         Me.Controls.Add(Me.txtSisestus)
         Me.Controls.Add(Me.btnBack)
@@ -385,7 +514,6 @@ Partial Class Form1
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.RichTextBox2)
         Me.Controls.Add(Me.txtWeight)
         Me.Controls.Add(Me.txtSugar)
         Me.Controls.Add(Me.GroupBox1)
@@ -398,10 +526,13 @@ Partial Class Form1
         Me.Text = "Database aken"
         CType(Me.ToitBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FoodDataBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ToitBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ToiduAndmebaasDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.gbDatabase.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ToitBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -450,4 +581,18 @@ Partial Class Form1
     Friend WithEvents btnSave As Button
     Friend WithEvents btnSearch As Button
     Friend WithEvents Label1 As Label
+    Friend WithEvents ToiduAndmebaasDataSet As ToiduAndmebaasDataSet
+    Friend WithEvents ToitBindingSource1 As BindingSource
+    Friend WithEvents ToitTableAdapter As ToiduAndmebaasDataSetTableAdapters.ToitTableAdapter
+    Friend WithEvents TableAdapterManager As ToiduAndmebaasDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents ToitBindingSource2 As BindingSource
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents FoodidDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents EnergyDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ProteinDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CarbohydratesDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents FatDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents SugarDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 End Class

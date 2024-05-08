@@ -175,6 +175,11 @@
     <Compile Include="StatistikaForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ToiduAndmebaasDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ToiduAndmebaasDataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AkenSisestus.resx">
@@ -216,6 +221,17 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="ToiduAndmebaasDataSet.xsc">
+      <DependentUpon>ToiduAndmebaasDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ToiduAndmebaasDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ToiduAndmebaasDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ToiduAndmebaasDataSet.xss">
+      <DependentUpon>ToiduAndmebaasDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ExportToCSV\ExportToCSV.vbproj">
