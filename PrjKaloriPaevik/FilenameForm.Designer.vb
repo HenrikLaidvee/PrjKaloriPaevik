@@ -37,6 +37,9 @@ Partial Class FilenameForm
         Me.cmbDelimiter = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnPathSelect = New System.Windows.Forms.Button()
+        Me.cmbEraldus = New System.Windows.Forms.ComboBox()
+        Me.lblQualifier = New System.Windows.Forms.Label()
+        Me.chkAppend = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'Button1
@@ -163,11 +166,41 @@ Partial Class FilenameForm
         Me.btnPathSelect.Text = "Vali teekond"
         Me.btnPathSelect.UseVisualStyleBackColor = True
         '
+        'cmbEraldus
+        '
+        Me.cmbEraldus.FormattingEnabled = True
+        Me.cmbEraldus.Location = New System.Drawing.Point(123, 267)
+        Me.cmbEraldus.Name = "cmbEraldus"
+        Me.cmbEraldus.Size = New System.Drawing.Size(121, 24)
+        Me.cmbEraldus.TabIndex = 14
+        '
+        'lblQualifier
+        '
+        Me.lblQualifier.AutoSize = True
+        Me.lblQualifier.Location = New System.Drawing.Point(20, 270)
+        Me.lblQualifier.Name = "lblQualifier"
+        Me.lblQualifier.Size = New System.Drawing.Size(97, 16)
+        Me.lblQualifier.TabIndex = 15
+        Me.lblQualifier.Text = "Eraldustunnus: "
+        '
+        'chkAppend
+        '
+        Me.chkAppend.AutoSize = True
+        Me.chkAppend.Location = New System.Drawing.Point(123, 308)
+        Me.chkAppend.Name = "chkAppend"
+        Me.chkAppend.Size = New System.Drawing.Size(125, 20)
+        Me.chkAppend.TabIndex = 16
+        Me.chkAppend.Text = "Kirjutada lõppu?"
+        Me.chkAppend.UseVisualStyleBackColor = True
+        '
         'FilenameForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(687, 374)
+        Me.Controls.Add(Me.chkAppend)
+        Me.Controls.Add(Me.lblQualifier)
+        Me.Controls.Add(Me.cmbEraldus)
         Me.Controls.Add(Me.btnPathSelect)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cmbDelimiter)
@@ -204,4 +237,7 @@ Partial Class FilenameForm
     Friend WithEvents cmbDelimiter As ComboBox
     Friend WithEvents Label3 As Label
     Friend WithEvents btnPathSelect As Button
+    Friend WithEvents cmbEraldus As ComboBox
+    Friend WithEvents lblQualifier As Label
+    Friend WithEvents chkAppend As CheckBox
 End Class

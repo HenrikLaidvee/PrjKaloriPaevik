@@ -5,9 +5,8 @@ Imports System.Windows.Forms
 Public Class CExportToCSV
     Implements IExportToCSV
 
-    Private ReadOnly connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduTest.accdb;"
 
-    Public Sub IExportToCSV_WriteToFile(filepath As String, filename As String, numberOfLines As Integer) Implements IExportToCSV.WriteToFile
+    Public Sub IExportToCSV_WriteToFile(filepath As String, filename As String, numberOfLines As Integer, connectionString As String) Implements IExportToCSV.WriteToFile
         Dim completePath As String
         Try
 
