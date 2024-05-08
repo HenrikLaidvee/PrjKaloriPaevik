@@ -23,6 +23,10 @@ Partial Class Profiil
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.chbUnhealthy = New System.Windows.Forms.CheckBox()
+        Me.chbKosher = New System.Windows.Forms.CheckBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.cbAlcohol = New System.Windows.Forms.ComboBox()
         Me.txtDailyCalories = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtGoalWeight = New System.Windows.Forms.TextBox()
@@ -48,15 +52,21 @@ Partial Class Profiil
         Me.lblFirstName = New System.Windows.Forms.Label()
         Me.btnCreateAccount = New System.Windows.Forms.Button()
         Me.txtUsername = New System.Windows.Forms.TextBox()
-        Me.cbAlcohol = New System.Windows.Forms.ComboBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.chbKosher = New System.Windows.Forms.CheckBox()
-        Me.chbUnhealthy = New System.Windows.Forms.CheckBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.txtSugarLimit = New System.Windows.Forms.TextBox()
+        Me.txtEmail = New System.Windows.Forms.TextBox()
+        Me.lblEmailMaxWords = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.lblEmailMaxWords)
+        Me.GroupBox1.Controls.Add(Me.txtEmail)
+        Me.GroupBox1.Controls.Add(Me.txtSugarLimit)
+        Me.GroupBox1.Controls.Add(Me.Label6)
+        Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.chbUnhealthy)
         Me.GroupBox1.Controls.Add(Me.chbKosher)
         Me.GroupBox1.Controls.Add(Me.Label4)
@@ -87,24 +97,70 @@ Partial Class Profiil
         Me.GroupBox1.Controls.Add(Me.btnCreateAccount)
         Me.GroupBox1.Controls.Add(Me.txtUsername)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.GroupBox1.Location = New System.Drawing.Point(23, 11)
+        Me.GroupBox1.Location = New System.Drawing.Point(34, 17)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(723, 455)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox1.Size = New System.Drawing.Size(1084, 801)
         Me.GroupBox1.TabIndex = 5
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Kasutaja andmed"
         '
+        'chbUnhealthy
+        '
+        Me.chbUnhealthy.AutoSize = True
+        Me.chbUnhealthy.Location = New System.Drawing.Point(485, 402)
+        Me.chbUnhealthy.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.chbUnhealthy.Name = "chbUnhealthy"
+        Me.chbUnhealthy.Size = New System.Drawing.Size(247, 29)
+        Me.chbUnhealthy.TabIndex = 35
+        Me.chbUnhealthy.Text = "Ebatervisliku toidu teated"
+        Me.chbUnhealthy.UseVisualStyleBackColor = True
+        '
+        'chbKosher
+        '
+        Me.chbKosher.AutoSize = True
+        Me.chbKosher.Location = New System.Drawing.Point(485, 348)
+        Me.chbKosher.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.chbKosher.Name = "chbKosher"
+        Me.chbKosher.Size = New System.Drawing.Size(124, 29)
+        Me.chbKosher.TabIndex = 34
+        Me.chbKosher.Text = "Kosher toit"
+        Me.chbKosher.UseVisualStyleBackColor = True
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(52, 568)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(155, 25)
+        Me.Label4.TabIndex = 33
+        Me.Label4.Text = "Akoholi limiit (g):"
+        '
+        'cbAlcohol
+        '
+        Me.cbAlcohol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbAlcohol.FormattingEnabled = True
+        Me.cbAlcohol.Location = New System.Drawing.Point(293, 568)
+        Me.cbAlcohol.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.cbAlcohol.Name = "cbAlcohol"
+        Me.cbAlcohol.Size = New System.Drawing.Size(151, 33)
+        Me.cbAlcohol.TabIndex = 28
+        '
         'txtDailyCalories
         '
-        Me.txtDailyCalories.Location = New System.Drawing.Point(198, 302)
+        Me.txtDailyCalories.Location = New System.Drawing.Point(293, 515)
+        Me.txtDailyCalories.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtDailyCalories.Name = "txtDailyCalories"
-        Me.txtDailyCalories.Size = New System.Drawing.Size(102, 30)
+        Me.txtDailyCalories.Size = New System.Drawing.Size(151, 30)
         Me.txtDailyCalories.TabIndex = 27
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(17, 302)
+        Me.Label3.Location = New System.Drawing.Point(22, 515)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(175, 25)
         Me.Label3.TabIndex = 26
@@ -112,15 +168,17 @@ Partial Class Profiil
         '
         'txtGoalWeight
         '
-        Me.txtGoalWeight.Location = New System.Drawing.Point(198, 266)
+        Me.txtGoalWeight.Location = New System.Drawing.Point(293, 459)
+        Me.txtGoalWeight.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtGoalWeight.Name = "txtGoalWeight"
-        Me.txtGoalWeight.Size = New System.Drawing.Size(102, 30)
+        Me.txtGoalWeight.Size = New System.Drawing.Size(151, 30)
         Me.txtGoalWeight.TabIndex = 25
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(56, 266)
+        Me.Label2.Location = New System.Drawing.Point(80, 459)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(136, 25)
         Me.Label2.TabIndex = 24
@@ -129,25 +187,28 @@ Partial Class Profiil
         'btnBack
         '
         Me.btnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.btnBack.Location = New System.Drawing.Point(198, 416)
+        Me.btnBack.Location = New System.Drawing.Point(293, 740)
+        Me.btnBack.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(324, 33)
+        Me.btnBack.Size = New System.Drawing.Size(486, 51)
         Me.btnBack.TabIndex = 23
         Me.btnBack.Text = "Tagasi"
         Me.btnBack.UseVisualStyleBackColor = True
         '
         'txtHeight
         '
-        Me.txtHeight.Location = New System.Drawing.Point(198, 230)
+        Me.txtHeight.Location = New System.Drawing.Point(293, 404)
+        Me.txtHeight.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtHeight.Name = "txtHeight"
-        Me.txtHeight.Size = New System.Drawing.Size(102, 30)
+        Me.txtHeight.Size = New System.Drawing.Size(151, 30)
         Me.txtHeight.TabIndex = 22
         '
         'lblHeight
         '
         Me.lblHeight.AutoSize = True
         Me.lblHeight.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.lblHeight.Location = New System.Drawing.Point(71, 233)
+        Me.lblHeight.Location = New System.Drawing.Point(102, 408)
+        Me.lblHeight.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblHeight.Name = "lblHeight"
         Me.lblHeight.Size = New System.Drawing.Size(121, 25)
         Me.lblHeight.TabIndex = 21
@@ -156,7 +217,8 @@ Partial Class Profiil
         'lblLastNameMaxWords
         '
         Me.lblLastNameMaxWords.AutoSize = True
-        Me.lblLastNameMaxWords.Location = New System.Drawing.Point(524, 85)
+        Me.lblLastNameMaxWords.Location = New System.Drawing.Point(782, 181)
+        Me.lblLastNameMaxWords.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblLastNameMaxWords.Name = "lblLastNameMaxWords"
         Me.lblLastNameMaxWords.Size = New System.Drawing.Size(34, 25)
         Me.lblLastNameMaxWords.TabIndex = 20
@@ -166,7 +228,8 @@ Partial Class Profiil
         '
         Me.lblLastName.AutoSize = True
         Me.lblLastName.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.lblLastName.Location = New System.Drawing.Point(98, 82)
+        Me.lblLastName.Location = New System.Drawing.Point(143, 176)
+        Me.lblLastName.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblLastName.Name = "lblLastName"
         Me.lblLastName.Size = New System.Drawing.Size(94, 25)
         Me.lblLastName.TabIndex = 19
@@ -174,43 +237,48 @@ Partial Class Profiil
         '
         'txtLastName
         '
-        Me.txtLastName.Location = New System.Drawing.Point(198, 82)
+        Me.txtLastName.Location = New System.Drawing.Point(293, 176)
+        Me.txtLastName.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtLastName.Name = "txtLastName"
-        Me.txtLastName.Size = New System.Drawing.Size(320, 30)
+        Me.txtLastName.Size = New System.Drawing.Size(478, 30)
         Me.txtLastName.TabIndex = 18
         '
         'cmbYear
         '
         Me.cmbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbYear.FormattingEnabled = True
-        Me.cmbYear.Location = New System.Drawing.Point(416, 152)
+        Me.cmbYear.Location = New System.Drawing.Point(620, 284)
+        Me.cmbYear.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.cmbYear.Name = "cmbYear"
-        Me.cmbYear.Size = New System.Drawing.Size(102, 33)
+        Me.cmbYear.Size = New System.Drawing.Size(151, 33)
         Me.cmbYear.TabIndex = 16
         '
         'cmbMonth
         '
         Me.cmbMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbMonth.FormattingEnabled = True
-        Me.cmbMonth.Location = New System.Drawing.Point(308, 152)
+        Me.cmbMonth.Location = New System.Drawing.Point(458, 284)
+        Me.cmbMonth.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.cmbMonth.Name = "cmbMonth"
-        Me.cmbMonth.Size = New System.Drawing.Size(102, 33)
+        Me.cmbMonth.Size = New System.Drawing.Size(151, 33)
         Me.cmbMonth.TabIndex = 15
         '
         'cmbDay
         '
         Me.cmbDay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbDay.FormattingEnabled = True
-        Me.cmbDay.Location = New System.Drawing.Point(198, 152)
+        Me.cmbDay.Location = New System.Drawing.Point(293, 284)
+        Me.cmbDay.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.cmbDay.Name = "cmbDay"
-        Me.cmbDay.Size = New System.Drawing.Size(102, 33)
+        Me.cmbDay.Size = New System.Drawing.Size(151, 33)
         Me.cmbDay.TabIndex = 14
         '
         'lblWeight
         '
         Me.lblWeight.AutoSize = True
         Me.lblWeight.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.lblWeight.Location = New System.Drawing.Point(94, 197)
+        Me.lblWeight.Location = New System.Drawing.Point(137, 353)
+        Me.lblWeight.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblWeight.Name = "lblWeight"
         Me.lblWeight.Size = New System.Drawing.Size(98, 25)
         Me.lblWeight.TabIndex = 13
@@ -220,7 +288,8 @@ Partial Class Profiil
         '
         Me.lblAge.AutoSize = True
         Me.lblAge.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.lblAge.Location = New System.Drawing.Point(48, 152)
+        Me.lblAge.Location = New System.Drawing.Point(68, 284)
+        Me.lblAge.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblAge.Name = "lblAge"
         Me.lblAge.Size = New System.Drawing.Size(144, 25)
         Me.lblAge.TabIndex = 12
@@ -228,15 +297,17 @@ Partial Class Profiil
         '
         'txtWeight
         '
-        Me.txtWeight.Location = New System.Drawing.Point(198, 194)
+        Me.txtWeight.Location = New System.Drawing.Point(293, 348)
+        Me.txtWeight.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtWeight.Name = "txtWeight"
-        Me.txtWeight.Size = New System.Drawing.Size(102, 30)
+        Me.txtWeight.Size = New System.Drawing.Size(151, 30)
         Me.txtWeight.TabIndex = 11
         '
         'lblLimitReached
         '
         Me.lblLimitReached.AutoSize = True
-        Me.lblLimitReached.Location = New System.Drawing.Point(275, 18)
+        Me.lblLimitReached.Location = New System.Drawing.Point(412, 28)
+        Me.lblLimitReached.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblLimitReached.Name = "lblLimitReached"
         Me.lblLimitReached.Size = New System.Drawing.Size(241, 25)
         Me.lblLimitReached.TabIndex = 9
@@ -244,9 +315,10 @@ Partial Class Profiil
         '
         'btnSeePassword
         '
-        Me.btnSeePassword.Location = New System.Drawing.Point(529, 116)
+        Me.btnSeePassword.Location = New System.Drawing.Point(790, 228)
+        Me.btnSeePassword.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnSeePassword.Name = "btnSeePassword"
-        Me.btnSeePassword.Size = New System.Drawing.Size(137, 30)
+        Me.btnSeePassword.Size = New System.Drawing.Size(206, 46)
         Me.btnSeePassword.TabIndex = 8
         Me.btnSeePassword.Text = "Vaata parooli"
         Me.btnSeePassword.UseVisualStyleBackColor = True
@@ -254,24 +326,27 @@ Partial Class Profiil
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(454, 123)
+        Me.Label1.Location = New System.Drawing.Point(677, 239)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(0, 25)
         Me.Label1.TabIndex = 7
         '
         'txtPassword
         '
-        Me.txtPassword.Location = New System.Drawing.Point(198, 116)
+        Me.txtPassword.Location = New System.Drawing.Point(293, 228)
+        Me.txtPassword.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtPassword.Size = New System.Drawing.Size(320, 30)
+        Me.txtPassword.Size = New System.Drawing.Size(478, 30)
         Me.txtPassword.TabIndex = 6
         '
         'lblPassword
         '
         Me.lblPassword.AutoSize = True
         Me.lblPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.lblPassword.Location = New System.Drawing.Point(118, 116)
+        Me.lblPassword.Location = New System.Drawing.Point(173, 228)
+        Me.lblPassword.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblPassword.Name = "lblPassword"
         Me.lblPassword.Size = New System.Drawing.Size(74, 25)
         Me.lblPassword.TabIndex = 4
@@ -280,7 +355,8 @@ Partial Class Profiil
         'lblUsernameMaxWords
         '
         Me.lblUsernameMaxWords.AutoSize = True
-        Me.lblUsernameMaxWords.Location = New System.Drawing.Point(524, 51)
+        Me.lblUsernameMaxWords.Location = New System.Drawing.Point(782, 128)
+        Me.lblUsernameMaxWords.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblUsernameMaxWords.Name = "lblUsernameMaxWords"
         Me.lblUsernameMaxWords.Size = New System.Drawing.Size(34, 25)
         Me.lblUsernameMaxWords.TabIndex = 3
@@ -290,7 +366,8 @@ Partial Class Profiil
         '
         Me.lblFirstName.AutoSize = True
         Me.lblFirstName.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.lblFirstName.Location = New System.Drawing.Point(105, 49)
+        Me.lblFirstName.Location = New System.Drawing.Point(154, 125)
+        Me.lblFirstName.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblFirstName.Name = "lblFirstName"
         Me.lblFirstName.Size = New System.Drawing.Size(87, 25)
         Me.lblFirstName.TabIndex = 2
@@ -298,64 +375,70 @@ Partial Class Profiil
         '
         'btnCreateAccount
         '
-        Me.btnCreateAccount.Location = New System.Drawing.Point(198, 376)
+        Me.btnCreateAccount.Location = New System.Drawing.Point(293, 678)
+        Me.btnCreateAccount.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnCreateAccount.Name = "btnCreateAccount"
-        Me.btnCreateAccount.Size = New System.Drawing.Size(324, 34)
+        Me.btnCreateAccount.Size = New System.Drawing.Size(486, 52)
         Me.btnCreateAccount.TabIndex = 0
         Me.btnCreateAccount.Text = "Muuda andmeid"
         Me.btnCreateAccount.UseVisualStyleBackColor = True
         '
         'txtUsername
         '
-        Me.txtUsername.Location = New System.Drawing.Point(198, 46)
+        Me.txtUsername.Location = New System.Drawing.Point(293, 121)
+        Me.txtUsername.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(320, 30)
+        Me.txtUsername.Size = New System.Drawing.Size(478, 30)
         Me.txtUsername.TabIndex = 1
         '
-        'cbAlcohol
+        'Label5
         '
-        Me.cbAlcohol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbAlcohol.FormattingEnabled = True
-        Me.cbAlcohol.Location = New System.Drawing.Point(198, 337)
-        Me.cbAlcohol.Name = "cbAlcohol"
-        Me.cbAlcohol.Size = New System.Drawing.Size(102, 33)
-        Me.cbAlcohol.TabIndex = 28
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(169, 77)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(66, 25)
+        Me.Label5.TabIndex = 36
+        Me.Label5.Text = "Email:"
         '
-        'Label4
+        'Label6
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(37, 337)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(155, 25)
-        Me.Label4.TabIndex = 33
-        Me.Label4.Text = "Akoholi limiit (g):"
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(55, 634)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(153, 25)
+        Me.Label6.TabIndex = 37
+        Me.Label6.Text = "Suhkru limiit (g):"
         '
-        'chbKosher
+        'txtSugarLimit
         '
-        Me.chbKosher.AutoSize = True
-        Me.chbKosher.Location = New System.Drawing.Point(326, 194)
-        Me.chbKosher.Name = "chbKosher"
-        Me.chbKosher.Size = New System.Drawing.Size(124, 29)
-        Me.chbKosher.TabIndex = 34
-        Me.chbKosher.Text = "Kosher toit"
-        Me.chbKosher.UseVisualStyleBackColor = True
+        Me.txtSugarLimit.Location = New System.Drawing.Point(293, 629)
+        Me.txtSugarLimit.Name = "txtSugarLimit"
+        Me.txtSugarLimit.Size = New System.Drawing.Size(151, 30)
+        Me.txtSugarLimit.TabIndex = 38
         '
-        'chbUnhealthy
+        'txtEmail
         '
-        Me.chbUnhealthy.AutoSize = True
-        Me.chbUnhealthy.Location = New System.Drawing.Point(326, 229)
-        Me.chbUnhealthy.Name = "chbUnhealthy"
-        Me.chbUnhealthy.Size = New System.Drawing.Size(247, 29)
-        Me.chbUnhealthy.TabIndex = 35
-        Me.chbUnhealthy.Text = "Ebatervisliku toidu teated"
-        Me.chbUnhealthy.UseVisualStyleBackColor = True
+        Me.txtEmail.Location = New System.Drawing.Point(293, 77)
+        Me.txtEmail.Name = "txtEmail"
+        Me.txtEmail.Size = New System.Drawing.Size(478, 30)
+        Me.txtEmail.TabIndex = 39
+        '
+        'lblEmailMaxWords
+        '
+        Me.lblEmailMaxWords.AutoSize = True
+        Me.lblEmailMaxWords.Location = New System.Drawing.Point(782, 77)
+        Me.lblEmailMaxWords.Name = "lblEmailMaxWords"
+        Me.lblEmailMaxWords.Size = New System.Drawing.Size(34, 25)
+        Me.lblEmailMaxWords.TabIndex = 40
+        Me.lblEmailMaxWords.Text = "50"
         '
         'Profiil
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(769, 477)
+        Me.ClientSize = New System.Drawing.Size(1154, 832)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Profiil"
         Me.Text = "Profiil"
         Me.GroupBox1.ResumeLayout(False)
@@ -394,4 +477,9 @@ Partial Class Profiil
     Friend WithEvents Label4 As Label
     Friend WithEvents chbKosher As CheckBox
     Friend WithEvents chbUnhealthy As CheckBox
+    Friend WithEvents txtSugarLimit As TextBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents lblEmailMaxWords As Label
+    Friend WithEvents txtEmail As TextBox
 End Class

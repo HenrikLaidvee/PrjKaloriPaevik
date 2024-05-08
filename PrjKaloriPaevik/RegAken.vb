@@ -2,7 +2,8 @@
 
 Public Class RegAken
 
-    Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduTest.accdb;"
+    'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduTest.accdb;"
+    Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\marku\Downloads\ToiduAndmebaas\ToiduAndmebaas.accdb;"
 
     Private Sub RegAken_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -26,6 +27,7 @@ Public Class RegAken
             cbAlcohol.Items.Add(i)
         Next
 
+
     End Sub
 
     Private Sub btnSeePassword_Click(sender As Object, e As EventArgs) Handles btnSeePassword.Click
@@ -42,9 +44,10 @@ Public Class RegAken
 
         If cmbDay.SelectedIndex = -1 OrElse cmbMonth.SelectedIndex = -1 OrElse cmbYear.SelectedIndex = -1 _
             OrElse String.IsNullOrEmpty(txtWeight.Text) OrElse String.IsNullOrEmpty(txtPassword.Text) _
+            OrElse String.IsNullOrEmpty(txtEmail.Text) _
             OrElse String.IsNullOrEmpty(txtUsername.Text) OrElse String.IsNullOrEmpty(txtLastName.Text) _
             OrElse String.IsNullOrEmpty(txtHeight.Text) OrElse String.IsNullOrEmpty(txtGoalWeight.Text) _
-            OrElse String.IsNullOrEmpty(txtDailyCalories.Text) Then
+            OrElse String.IsNullOrEmpty(txtDailyCalories.Text) OrElse String.IsNullOrEmpty(txtSugarLimit.Text) Then
 
             MessageBox.Show("Palun täitke kõik väljad!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
@@ -59,13 +62,32 @@ Public Class RegAken
 
             Dim dailyCalories As Double = Double.Parse(txtDailyCalories.Text)
 
+            Dim sugarLimit As Double = Double.Parse(txtSugarLimit.Text)
+
+            Dim KosherChecked As Double
+
+            Dim UnhealthyChecked As Double
+
+            If chbKosher.Checked Then
+                KosherChecked = 1
+            Else
+                KosherChecked = 0
+            End If
+
+            If chbUnhealthy.Checked Then
+                UnhealthyChecked = 1
+            Else
+                UnhealthyChecked = 0
+            End If
+
             Using connection As New OleDbConnection(connectionString)
                 connection.Open()
 
-                Dim query As String = "INSERT INTO Kasutaja (Eesnimi, Perenimi, Pikkus, Päev, Kuu, Aasta, Parool, Kaal) 
-                                        VALUES (@Eesnimi, @Perenimi, @Pikkus, @Paev, @Kuu, @Aasta, @Parool, @Kaal)"
+                Dim query As String = "INSERT INTO Kasutaja (Email, Eesnimi, Perenimi, Pikkus, Paev, Kuu, Aasta, Parool, Kaal, Eesmark, Kalorid, Alkohol, Suhkur, Kosher, Ebatervislik) 
+                                        VALUES (@Email, @Eesnimi, @Perenimi, @Pikkus, @Paev, @Kuu, @Aasta, @Parool, @Kaal, @Eesmark, @Kalorid, @Alkohol, @Suhkur, @Kosher, @Ebatervislik)"
                 Using command As New OleDbCommand(query, connection)
 
+                    command.Parameters.AddWithValue("@Email", txtEmail.Text)
                     command.Parameters.AddWithValue("@Eesnimi", txtUsername.Text)
                     command.Parameters.AddWithValue("@Perenimi", txtLastName.Text)
                     command.Parameters.AddWithValue("@Pikkus", height)
@@ -77,6 +99,9 @@ Public Class RegAken
                     command.Parameters.AddWithValue("@Eesmark", goalWeight)
                     command.Parameters.AddWithValue("@Kalorid", dailyCalories)
                     command.Parameters.AddWithValue("@Alkohol", cbAlcohol.SelectedItem)
+                    command.Parameters.AddWithValue("@Suhkur", sugarLimit)
+                    command.Parameters.AddWithValue("@Kohser", KosherChecked)
+                    command.Parameters.AddWithValue("@Ebatervislik", UnhealthyChecked)
 
                     'command.Parameters.AddWithValue("@Age", age)
 
@@ -94,6 +119,29 @@ Public Class RegAken
         Catch ex As Exception
             MessageBox.Show("Andmete salvestamisel tekkis viga: " & ex.Message, "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+    End Sub
+
+
+    Private Sub txtEmail_TextChanged(sender As Object, e As EventArgs) Handles txtEmail.TextChanged
+
+        Dim maxChars As Integer = 50
+
+        Dim remainingChars As Integer = maxChars - txtEmail.Text.Length
+
+        ' Uuendame Labeli teksti, et näidata järelejäänud tähemärkide arvu
+        lblEmailMaxWords.Text = $"{remainingChars}"
+
+        If remainingChars <= 0 Then
+            ' Kui järelejäänud tähemärkide arv on null või väiksem, siis takistame tähemärkide sisestamist
+            Dim newText As String = txtEmail.Text.Substring(0, maxChars)
+            txtEmail.Text = newText
+            txtEmail.SelectionStart = maxChars ' liigutame kursori teksti lõppu
+
+            lblLimitReached.Visible = True
+        Else
+            lblLimitReached.Visible = False ' peidame teate, kui piirangut pole veel täis
+        End If
+
     End Sub
 
     Private Sub txtUsername_TextChanged(sender As Object, e As EventArgs) Handles txtUsername.TextChanged
@@ -200,5 +248,9 @@ Public Class RegAken
 
     Private Sub chbUnhealthy_CheckedChanged(sender As Object, e As EventArgs) Handles chbUnhealthy.CheckedChanged
         Unhealthy = chbUnhealthy.Checked
+    End Sub
+
+    Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
+
     End Sub
 End Class

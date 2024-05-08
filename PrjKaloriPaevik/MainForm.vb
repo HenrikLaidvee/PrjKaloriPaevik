@@ -22,8 +22,9 @@ Public Class MainForm
     End Sub
 
     Private Sub MainForm_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
+        'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
         'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduAndmebaas.accdb;"
+        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\marku\Downloads\ToiduAndmebaas\ToiduAndmebaas.accdb;"
         Dim query As String = "SELECT Motivational_quote FROM Motivate;"
 
         Dim quotesDataTable As New DataTable()
@@ -57,9 +58,10 @@ Public Class MainForm
     End Sub
 
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        btnLogFood.Enabled = True
+        btnLogFood.Enabled = False
         btnProfile.Enabled = False
         btnKaal.Enabled = False
+        btnLogOut.Enabled = False
         txtMotivate.ReadOnly = True
 
     End Sub
@@ -78,7 +80,8 @@ Public Class MainForm
         Dim insertQuery As String = "INSERT INTO KaaluAndmed ([Kuupäev], [Kaal], [BMI], [Kasutaja_ID]) VALUES (@DateValue, @WeightValue, @BMIValue, @Kasutaja_ID)"
 
         ' Connect to your Access database
-        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
+        'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
+        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\marku\Downloads\ToiduAndmebaas\ToiduAndmebaas.accdb;"
         'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduAndmebaas.accdb;"
         Using connection As New OleDbConnection(connectionString)
             ' First, retrieve the Pikkus value from the database
@@ -131,5 +134,12 @@ Public Class MainForm
 
     Private Sub btnDownload_Click(sender As Object, e As EventArgs) Handles btnDownload.Click
         FilenameForm.ShowDialog()
+    End Sub
+
+    Private Sub btnLogOut_Click(sender As Object, e As EventArgs) Handles btnLogOut.Click
+        Dim appPath As String = Application.ExecutablePath
+
+        Process.Start(appPath)
+        Application.Exit()
     End Sub
 End Class

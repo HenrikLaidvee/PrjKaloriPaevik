@@ -23,6 +23,14 @@ Partial Class RegAken
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtSugarLimit = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.lblEmailMaxWords = New System.Windows.Forms.Label()
+        Me.txtEmail = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.cbAlcohol = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.chbUnhealthy = New System.Windows.Forms.CheckBox()
         Me.chbKosher = New System.Windows.Forms.CheckBox()
         Me.txtDailyCalories = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -49,14 +57,16 @@ Partial Class RegAken
         Me.lblFirstName = New System.Windows.Forms.Label()
         Me.btnCreateAccount = New System.Windows.Forms.Button()
         Me.txtUsername = New System.Windows.Forms.TextBox()
-        Me.chbUnhealthy = New System.Windows.Forms.CheckBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.cbAlcohol = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.txtSugarLimit)
+        Me.GroupBox1.Controls.Add(Me.Label6)
+        Me.GroupBox1.Controls.Add(Me.lblEmailMaxWords)
+        Me.GroupBox1.Controls.Add(Me.txtEmail)
+        Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.cbAlcohol)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.chbUnhealthy)
@@ -87,17 +97,92 @@ Partial Class RegAken
         Me.GroupBox1.Controls.Add(Me.btnCreateAccount)
         Me.GroupBox1.Controls.Add(Me.txtUsername)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(18, 18)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(723, 455)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox1.Size = New System.Drawing.Size(1084, 804)
         Me.GroupBox1.TabIndex = 4
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Kasutaja andmed"
         '
+        'txtSugarLimit
+        '
+        Me.txtSugarLimit.Location = New System.Drawing.Point(287, 627)
+        Me.txtSugarLimit.Name = "txtSugarLimit"
+        Me.txtSugarLimit.Size = New System.Drawing.Size(149, 30)
+        Me.txtSugarLimit.TabIndex = 38
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(53, 630)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(148, 25)
+        Me.Label6.TabIndex = 37
+        Me.Label6.Text = "Suhkru limiit(g):"
+        '
+        'lblEmailMaxWords
+        '
+        Me.lblEmailMaxWords.AutoSize = True
+        Me.lblEmailMaxWords.Location = New System.Drawing.Point(776, 77)
+        Me.lblEmailMaxWords.Name = "lblEmailMaxWords"
+        Me.lblEmailMaxWords.Size = New System.Drawing.Size(34, 25)
+        Me.lblEmailMaxWords.TabIndex = 36
+        Me.lblEmailMaxWords.Text = "50"
+        '
+        'txtEmail
+        '
+        Me.txtEmail.Location = New System.Drawing.Point(287, 72)
+        Me.txtEmail.Name = "txtEmail"
+        Me.txtEmail.Size = New System.Drawing.Size(477, 30)
+        Me.txtEmail.TabIndex = 35
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(165, 77)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(66, 25)
+        Me.Label5.TabIndex = 34
+        Me.Label5.Text = "Email:"
+        '
+        'cbAlcohol
+        '
+        Me.cbAlcohol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbAlcohol.FormattingEnabled = True
+        Me.cbAlcohol.Location = New System.Drawing.Point(287, 568)
+        Me.cbAlcohol.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.cbAlcohol.Name = "cbAlcohol"
+        Me.cbAlcohol.Size = New System.Drawing.Size(151, 33)
+        Me.cbAlcohol.TabIndex = 33
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(46, 573)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(155, 25)
+        Me.Label4.TabIndex = 32
+        Me.Label4.Text = "Akoholi limiit (g):"
+        '
+        'chbUnhealthy
+        '
+        Me.chbUnhealthy.AutoSize = True
+        Me.chbUnhealthy.Location = New System.Drawing.Point(485, 408)
+        Me.chbUnhealthy.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.chbUnhealthy.Name = "chbUnhealthy"
+        Me.chbUnhealthy.Size = New System.Drawing.Size(247, 29)
+        Me.chbUnhealthy.TabIndex = 30
+        Me.chbUnhealthy.Text = "Ebatervisliku toidu teated"
+        Me.chbUnhealthy.UseVisualStyleBackColor = True
+        '
         'chbKosher
         '
         Me.chbKosher.AutoSize = True
-        Me.chbKosher.Location = New System.Drawing.Point(330, 197)
+        Me.chbKosher.Location = New System.Drawing.Point(485, 353)
+        Me.chbKosher.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.chbKosher.Name = "chbKosher"
         Me.chbKosher.Size = New System.Drawing.Size(124, 29)
         Me.chbKosher.TabIndex = 29
@@ -106,15 +191,17 @@ Partial Class RegAken
         '
         'txtDailyCalories
         '
-        Me.txtDailyCalories.Location = New System.Drawing.Point(198, 302)
+        Me.txtDailyCalories.Location = New System.Drawing.Point(287, 515)
+        Me.txtDailyCalories.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtDailyCalories.Name = "txtDailyCalories"
-        Me.txtDailyCalories.Size = New System.Drawing.Size(102, 30)
+        Me.txtDailyCalories.Size = New System.Drawing.Size(151, 30)
         Me.txtDailyCalories.TabIndex = 27
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(17, 302)
+        Me.Label3.Location = New System.Drawing.Point(16, 515)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(175, 25)
         Me.Label3.TabIndex = 26
@@ -122,15 +209,17 @@ Partial Class RegAken
         '
         'txtGoalWeight
         '
-        Me.txtGoalWeight.Location = New System.Drawing.Point(198, 266)
+        Me.txtGoalWeight.Location = New System.Drawing.Point(287, 459)
+        Me.txtGoalWeight.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtGoalWeight.Name = "txtGoalWeight"
-        Me.txtGoalWeight.Size = New System.Drawing.Size(102, 30)
+        Me.txtGoalWeight.Size = New System.Drawing.Size(151, 30)
         Me.txtGoalWeight.TabIndex = 25
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(56, 266)
+        Me.Label2.Location = New System.Drawing.Point(74, 459)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(136, 25)
         Me.Label2.TabIndex = 24
@@ -139,25 +228,28 @@ Partial Class RegAken
         'btnBack
         '
         Me.btnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.btnBack.Location = New System.Drawing.Point(198, 416)
+        Me.btnBack.Location = New System.Drawing.Point(287, 741)
+        Me.btnBack.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(324, 33)
+        Me.btnBack.Size = New System.Drawing.Size(486, 51)
         Me.btnBack.TabIndex = 23
         Me.btnBack.Text = "Tagasi"
         Me.btnBack.UseVisualStyleBackColor = True
         '
         'txtHeight
         '
-        Me.txtHeight.Location = New System.Drawing.Point(198, 230)
+        Me.txtHeight.Location = New System.Drawing.Point(287, 404)
+        Me.txtHeight.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtHeight.Name = "txtHeight"
-        Me.txtHeight.Size = New System.Drawing.Size(102, 30)
+        Me.txtHeight.Size = New System.Drawing.Size(151, 30)
         Me.txtHeight.TabIndex = 22
         '
         'lblHeight
         '
         Me.lblHeight.AutoSize = True
         Me.lblHeight.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.lblHeight.Location = New System.Drawing.Point(71, 233)
+        Me.lblHeight.Location = New System.Drawing.Point(96, 408)
+        Me.lblHeight.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblHeight.Name = "lblHeight"
         Me.lblHeight.Size = New System.Drawing.Size(121, 25)
         Me.lblHeight.TabIndex = 21
@@ -166,7 +258,8 @@ Partial Class RegAken
         'lblLastNameMaxWords
         '
         Me.lblLastNameMaxWords.AutoSize = True
-        Me.lblLastNameMaxWords.Location = New System.Drawing.Point(524, 85)
+        Me.lblLastNameMaxWords.Location = New System.Drawing.Point(776, 181)
+        Me.lblLastNameMaxWords.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblLastNameMaxWords.Name = "lblLastNameMaxWords"
         Me.lblLastNameMaxWords.Size = New System.Drawing.Size(34, 25)
         Me.lblLastNameMaxWords.TabIndex = 20
@@ -176,7 +269,8 @@ Partial Class RegAken
         '
         Me.lblLastName.AutoSize = True
         Me.lblLastName.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.lblLastName.Location = New System.Drawing.Point(98, 82)
+        Me.lblLastName.Location = New System.Drawing.Point(137, 176)
+        Me.lblLastName.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblLastName.Name = "lblLastName"
         Me.lblLastName.Size = New System.Drawing.Size(94, 25)
         Me.lblLastName.TabIndex = 19
@@ -184,43 +278,48 @@ Partial Class RegAken
         '
         'txtLastName
         '
-        Me.txtLastName.Location = New System.Drawing.Point(198, 82)
+        Me.txtLastName.Location = New System.Drawing.Point(287, 176)
+        Me.txtLastName.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtLastName.Name = "txtLastName"
-        Me.txtLastName.Size = New System.Drawing.Size(320, 30)
+        Me.txtLastName.Size = New System.Drawing.Size(478, 30)
         Me.txtLastName.TabIndex = 18
         '
         'cmbYear
         '
         Me.cmbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbYear.FormattingEnabled = True
-        Me.cmbYear.Location = New System.Drawing.Point(416, 152)
+        Me.cmbYear.Location = New System.Drawing.Point(614, 284)
+        Me.cmbYear.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.cmbYear.Name = "cmbYear"
-        Me.cmbYear.Size = New System.Drawing.Size(102, 33)
+        Me.cmbYear.Size = New System.Drawing.Size(151, 33)
         Me.cmbYear.TabIndex = 16
         '
         'cmbMonth
         '
         Me.cmbMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbMonth.FormattingEnabled = True
-        Me.cmbMonth.Location = New System.Drawing.Point(308, 152)
+        Me.cmbMonth.Location = New System.Drawing.Point(452, 284)
+        Me.cmbMonth.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.cmbMonth.Name = "cmbMonth"
-        Me.cmbMonth.Size = New System.Drawing.Size(102, 33)
+        Me.cmbMonth.Size = New System.Drawing.Size(151, 33)
         Me.cmbMonth.TabIndex = 15
         '
         'cmbDay
         '
         Me.cmbDay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbDay.FormattingEnabled = True
-        Me.cmbDay.Location = New System.Drawing.Point(198, 152)
+        Me.cmbDay.Location = New System.Drawing.Point(287, 284)
+        Me.cmbDay.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.cmbDay.Name = "cmbDay"
-        Me.cmbDay.Size = New System.Drawing.Size(102, 33)
+        Me.cmbDay.Size = New System.Drawing.Size(151, 33)
         Me.cmbDay.TabIndex = 14
         '
         'lblWeight
         '
         Me.lblWeight.AutoSize = True
         Me.lblWeight.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.lblWeight.Location = New System.Drawing.Point(94, 197)
+        Me.lblWeight.Location = New System.Drawing.Point(131, 353)
+        Me.lblWeight.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblWeight.Name = "lblWeight"
         Me.lblWeight.Size = New System.Drawing.Size(98, 25)
         Me.lblWeight.TabIndex = 13
@@ -230,7 +329,8 @@ Partial Class RegAken
         '
         Me.lblAge.AutoSize = True
         Me.lblAge.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.lblAge.Location = New System.Drawing.Point(48, 152)
+        Me.lblAge.Location = New System.Drawing.Point(62, 284)
+        Me.lblAge.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblAge.Name = "lblAge"
         Me.lblAge.Size = New System.Drawing.Size(144, 25)
         Me.lblAge.TabIndex = 12
@@ -238,15 +338,17 @@ Partial Class RegAken
         '
         'txtWeight
         '
-        Me.txtWeight.Location = New System.Drawing.Point(198, 194)
+        Me.txtWeight.Location = New System.Drawing.Point(287, 348)
+        Me.txtWeight.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtWeight.Name = "txtWeight"
-        Me.txtWeight.Size = New System.Drawing.Size(102, 30)
+        Me.txtWeight.Size = New System.Drawing.Size(151, 30)
         Me.txtWeight.TabIndex = 11
         '
         'lblLimitReached
         '
         Me.lblLimitReached.AutoSize = True
-        Me.lblLimitReached.Location = New System.Drawing.Point(275, 18)
+        Me.lblLimitReached.Location = New System.Drawing.Point(412, 28)
+        Me.lblLimitReached.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblLimitReached.Name = "lblLimitReached"
         Me.lblLimitReached.Size = New System.Drawing.Size(241, 25)
         Me.lblLimitReached.TabIndex = 9
@@ -254,9 +356,10 @@ Partial Class RegAken
         '
         'btnSeePassword
         '
-        Me.btnSeePassword.Location = New System.Drawing.Point(529, 116)
+        Me.btnSeePassword.Location = New System.Drawing.Point(784, 228)
+        Me.btnSeePassword.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnSeePassword.Name = "btnSeePassword"
-        Me.btnSeePassword.Size = New System.Drawing.Size(137, 30)
+        Me.btnSeePassword.Size = New System.Drawing.Size(206, 46)
         Me.btnSeePassword.TabIndex = 8
         Me.btnSeePassword.Text = "Vaata parooli"
         Me.btnSeePassword.UseVisualStyleBackColor = True
@@ -264,24 +367,27 @@ Partial Class RegAken
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(454, 123)
+        Me.Label1.Location = New System.Drawing.Point(671, 239)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(0, 25)
         Me.Label1.TabIndex = 7
         '
         'txtPassword
         '
-        Me.txtPassword.Location = New System.Drawing.Point(198, 116)
+        Me.txtPassword.Location = New System.Drawing.Point(287, 228)
+        Me.txtPassword.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtPassword.Size = New System.Drawing.Size(320, 30)
+        Me.txtPassword.Size = New System.Drawing.Size(478, 30)
         Me.txtPassword.TabIndex = 6
         '
         'lblPassword
         '
         Me.lblPassword.AutoSize = True
         Me.lblPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.lblPassword.Location = New System.Drawing.Point(118, 116)
+        Me.lblPassword.Location = New System.Drawing.Point(167, 228)
+        Me.lblPassword.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblPassword.Name = "lblPassword"
         Me.lblPassword.Size = New System.Drawing.Size(74, 25)
         Me.lblPassword.TabIndex = 4
@@ -290,7 +396,8 @@ Partial Class RegAken
         'lblUsernameMaxWords
         '
         Me.lblUsernameMaxWords.AutoSize = True
-        Me.lblUsernameMaxWords.Location = New System.Drawing.Point(524, 51)
+        Me.lblUsernameMaxWords.Location = New System.Drawing.Point(776, 128)
+        Me.lblUsernameMaxWords.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblUsernameMaxWords.Name = "lblUsernameMaxWords"
         Me.lblUsernameMaxWords.Size = New System.Drawing.Size(34, 25)
         Me.lblUsernameMaxWords.TabIndex = 3
@@ -300,7 +407,8 @@ Partial Class RegAken
         '
         Me.lblFirstName.AutoSize = True
         Me.lblFirstName.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.lblFirstName.Location = New System.Drawing.Point(105, 49)
+        Me.lblFirstName.Location = New System.Drawing.Point(148, 125)
+        Me.lblFirstName.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblFirstName.Name = "lblFirstName"
         Me.lblFirstName.Size = New System.Drawing.Size(87, 25)
         Me.lblFirstName.TabIndex = 2
@@ -308,54 +416,29 @@ Partial Class RegAken
         '
         'btnCreateAccount
         '
-        Me.btnCreateAccount.Location = New System.Drawing.Point(198, 376)
+        Me.btnCreateAccount.Location = New System.Drawing.Point(287, 679)
+        Me.btnCreateAccount.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnCreateAccount.Name = "btnCreateAccount"
-        Me.btnCreateAccount.Size = New System.Drawing.Size(324, 34)
+        Me.btnCreateAccount.Size = New System.Drawing.Size(486, 52)
         Me.btnCreateAccount.TabIndex = 0
         Me.btnCreateAccount.Text = "Loo kasutaja"
         Me.btnCreateAccount.UseVisualStyleBackColor = True
         '
         'txtUsername
         '
-        Me.txtUsername.Location = New System.Drawing.Point(198, 46)
+        Me.txtUsername.Location = New System.Drawing.Point(287, 121)
+        Me.txtUsername.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(320, 30)
+        Me.txtUsername.Size = New System.Drawing.Size(478, 30)
         Me.txtUsername.TabIndex = 1
-        '
-        'chbUnhealthy
-        '
-        Me.chbUnhealthy.AutoSize = True
-        Me.chbUnhealthy.Location = New System.Drawing.Point(330, 233)
-        Me.chbUnhealthy.Name = "chbUnhealthy"
-        Me.chbUnhealthy.Size = New System.Drawing.Size(247, 29)
-        Me.chbUnhealthy.TabIndex = 30
-        Me.chbUnhealthy.Text = "Ebatervisliku toidu teated"
-        Me.chbUnhealthy.UseVisualStyleBackColor = True
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(37, 340)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(155, 25)
-        Me.Label4.TabIndex = 32
-        Me.Label4.Text = "Akoholi limiit (g):"
-        '
-        'cbAlcohol
-        '
-        Me.cbAlcohol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbAlcohol.FormattingEnabled = True
-        Me.cbAlcohol.Location = New System.Drawing.Point(198, 337)
-        Me.cbAlcohol.Name = "cbAlcohol"
-        Me.cbAlcohol.Size = New System.Drawing.Size(102, 33)
-        Me.cbAlcohol.TabIndex = 33
         '
         'RegAken
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(747, 479)
+        Me.ClientSize = New System.Drawing.Size(1120, 836)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "RegAken"
         Me.Text = "RegAken"
         Me.GroupBox1.ResumeLayout(False)
@@ -394,4 +477,9 @@ Partial Class RegAken
     Friend WithEvents chbUnhealthy As CheckBox
     Friend WithEvents Label4 As Label
     Friend WithEvents cbAlcohol As ComboBox
+    Friend WithEvents lblEmailMaxWords As Label
+    Friend WithEvents txtEmail As TextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents txtSugarLimit As TextBox
 End Class

@@ -31,7 +31,7 @@ Public Class Form1
 
     Private Sub DataGridView1_SelectionChanged(sender As Object, e As EventArgs)
         ' Check the condition 'Unhealthy'
-        If Unhealthy Then
+        If Unhealthy = 1 Then
             ' Check if a row is selected in the DataGridView
             If DataGridView1.SelectedRows.Count > 0 Then
                 ' Retrieve the selected row
@@ -73,7 +73,8 @@ Public Class Form1
                                     Dim currentDate As String = DateTime.Now.ToString("dd-MM-yyyy")
 
                                     ' Insert the values into the Access table "sisestatud_toit"
-                                    Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
+                                    'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
+                                    Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\marku\Downloads\ToiduAndmebaas\ToiduAndmebaas.accdb;"
                                     Dim query As String = "INSERT INTO sisestatud_toit (food_id, kasutaja_id, carbohydrates, protein, fat, Energy, Sugar, Amount, [Date]) VALUES (@food_id, @kasutaja_id, @carbohydrates, @protein, @fat, @Energy, @Sugar, @Amount, @Date)"
 
                                     Using connection As New OleDbConnection(connectionString)
@@ -197,7 +198,7 @@ Public Class Form1
             Dim filterString As String = $"description LIKE '*{keyword}*'"
             ' Apply the filter
 
-            If Kosher Then
+            If Kosher = 1 Then
                 filterString &= " AND NOT (description LIKE '*shellfish*' OR description LIKE '*crab*' OR description LIKE '*lobster*' OR description LIKE '*shrimp*' " &
                     "OR description LIKE '*beef*' OR description LIKE '*game*' OR description LIKE '*lamb*' OR description LIKE '*chicken*' " &
                     "OR description LIKE '*turkey*' OR description LIKE '*duck*' OR description LIKE '*goose*' OR description LIKE '*Milk*' " &
