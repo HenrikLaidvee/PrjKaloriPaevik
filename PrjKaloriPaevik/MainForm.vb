@@ -65,6 +65,7 @@ Public Class MainForm
         txtMotivate.ReadOnly = True
         txtCaloriesLeft.ReadOnly = True
         txtSugarLimit.ReadOnly = True
+        txtSugarLeft.ReadOnly = True
     End Sub
 
     Private Sub btnKaal_Click(sender As Object, e As EventArgs) Handles btnKaal.Click
@@ -144,11 +145,5 @@ Public Class MainForm
 
     End Sub
 
-    Private Sub txtCaloriesLeft_TextChanged(sender As Object, e As EventArgs) Handles txtCaloriesLeft.TextChanged
 
-    End Sub
-
-    Private Sub txtSugarLimit_TextChanged(sender As Object, e As EventArgs) Handles txtSugarLimit.TextChanged
-
-    End Sub
 End Class

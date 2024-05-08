@@ -43,11 +43,7 @@ Public Class Form1
 
                     ' Check if the food is unhealthy and display warning if necessary
                     foodWarning.DisplayWarning(foodName, calorieContent, fatContent)
-                Else
-                    MessageBox.Show("Invalid value for fat content.")
                 End If
-            Else
-                MessageBox.Show("Invalid value for calorie content.")
             End If
         End If
 
@@ -59,71 +55,104 @@ Public Class Form1
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        ' Get the values from the TextBoxes
-        Dim food_id As Integer
-        If Integer.TryParse(txtFoodID.Text, food_id) Then
-            Dim carbohydrates As Decimal
-            If Decimal.TryParse(txtCResult.Text, carbohydrates) Then
-                Dim protein As Decimal
-                If Decimal.TryParse(txtPResult.Text, protein) Then
-                    Dim fat As Decimal
-                    If Decimal.TryParse(txtFResult.Text, fat) Then
-                        Dim energy As Decimal
-                        If Decimal.TryParse(txtEResult.Text, energy) Then
-                            Dim sugar As Decimal
-                            If Decimal.TryParse(txtSResult.Text, sugar) Then
-                                Dim amount As Decimal
-                                If Decimal.TryParse(txtWResult.Text, amount) Then
-                                    ' Format the date as "dd-MM-yyyy"
-                                    Dim currentDate As String = DateTime.Now.ToString("dd-MM-yyyy")
+        ' Validate input values
+        If Not ValidateInputs() Then
+            Return
+        End If
 
-                                    ' Insert the values into the Access table "sisestatud_toit"
-                                    Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
-                                    'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduAndmebaas.accdb;"
-                                    Dim query As String = "INSERT INTO sisestatud_toit (food_id, kasutaja_id, carbohydrates, protein, fat, Energy, Sugar, Amount, [Date]) VALUES (@food_id, @kasutaja_id, @carbohydrates, @protein, @fat, @Energy, @Sugar, @Amount, @Date)"
+        ' Check for alcohol consumption
+        If CheckAlcoholConsumption() Then
+            MessageBox.Show("Teade! Te olete ületanud alkoholi piiri")
+            Return
+        End If
 
-                                    Using connection As New OleDbConnection(connectionString)
-                                        Using command As New OleDbCommand(query, connection)
-                                            ' Add parameters
-                                            command.Parameters.AddWithValue("@food_id", food_id)
-                                            command.Parameters.AddWithValue("@kasutaja_id", loggedInID)
-                                            command.Parameters.AddWithValue("@carbohydrates", carbohydrates)
-                                            command.Parameters.AddWithValue("@protein", protein)
-                                            command.Parameters.AddWithValue("@fat", fat)
-                                            command.Parameters.AddWithValue("@Energy", energy)
-                                            command.Parameters.AddWithValue("@Sugar", sugar)
-                                            command.Parameters.AddWithValue("@Amount", amount)
-                                            command.Parameters.AddWithValue("@Date", currentDate)
-
-                                            ' Open the connection and execute the command
-                                            connection.Open()
-                                            command.ExecuteNonQuery()
-                                        End Using
-                                    End Using
-
-                                    MessageBox.Show("Toit salvestatud edukalt!")
-                                Else
-                                    MessageBox.Show("Invalid value for Amount.")
-                                End If
-                            Else
-                                MessageBox.Show("Invalid value for Sugar.")
-                            End If
-                        Else
-                            MessageBox.Show("Invalid value for Energy.")
-                        End If
-                    Else
-                        MessageBox.Show("Invalid value for Fat.")
-                    End If
-                Else
-                    MessageBox.Show("Invalid value for Protein.")
-                End If
-            Else
-                MessageBox.Show("Invalid value for Carbohydrates.")
-            End If
+        ' Insert data into the database
+        If InsertData() Then
+            MessageBox.Show("Toit salvestatud edukalt!")
         Else
-            MessageBox.Show("Invalid value for food_id.")
+            MessageBox.Show("Failed to save food data.")
         End If
     End Sub
+
+    Private Function ValidateInputs() As Boolean
+        ' Validate the input values
+        If Not Integer.TryParse(txtFoodID.Text, Nothing) Then
+            MessageBox.Show("Invalid value for food_id.")
+            Return False
+        End If
+
+        Dim fieldsToCheck = {txtCResult, txtPResult, txtFResult, txtEResult, txtSResult, txtWResult}
+        For Each field In fieldsToCheck
+            Dim value As Decimal
+            If Not Decimal.TryParse(field.Text, value) Then
+                MessageBox.Show($"Invalid value for {field.Name.Substring(3)}.")
+                Return False
+            End If
+        Next
+
+        Return True
+    End Function
+
+    Private Function CheckAlcoholConsumption() As Boolean
+        If txtFoodName.Text.ToLower().Contains("beer") Then
+            Dim amount As Decimal
+            If Decimal.TryParse(txtWResult.Text, amount) Then
+                Dim alkohol As Integer
+                Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
+                Dim query As String = "SELECT alkohol FROM kasutaja WHERE id = @loggedInID"
+                Using connection As New OleDbConnection(connectionString)
+                    Using command As New OleDbCommand(query, connection)
+                        command.Parameters.AddWithValue("@loggedInID", loggedInID)
+                        connection.Open()
+                        alkohol = Convert.ToInt32(command.ExecuteScalar())
+                    End Using
+                End Using
+
+                Return amount > alkohol AndAlso alkohol <> 0
+            Else
+                MessageBox.Show("Invalid value for Amount.")
+                Return False
+            End If
+        End If
+        Return False
+    End Function
+
+
+
+    Private Function InsertData() As Boolean
+        Dim food_id As Integer = Convert.ToInt32(txtFoodID.Text)
+        Dim carbohydrates As Decimal = Convert.ToDecimal(txtCResult.Text)
+        Dim protein As Decimal = Convert.ToDecimal(txtPResult.Text)
+        Dim fat As Decimal = Convert.ToDecimal(txtFResult.Text)
+        Dim energy As Decimal = Convert.ToDecimal(txtEResult.Text)
+        Dim sugar As Decimal = Convert.ToDecimal(txtSResult.Text)
+        Dim amount As Decimal = Convert.ToDecimal(txtWResult.Text)
+        Dim currentDate As String = DateTime.Now.ToString("dd-MM-yyyy")
+
+        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
+        Dim query As String = "INSERT INTO sisestatud_toit (food_id, kasutaja_id, carbohydrates, protein, fat, Energy, Sugar, Amount, [Date]) VALUES (@food_id, @kasutaja_id, @carbohydrates, @protein, @fat, @Energy, @Sugar, @Amount, @Date)"
+
+        Using connection As New OleDbConnection(connectionString)
+            Using command As New OleDbCommand(query, connection)
+                command.Parameters.AddWithValue("@food_id", food_id)
+                command.Parameters.AddWithValue("@kasutaja_id", loggedInID)
+                command.Parameters.AddWithValue("@carbohydrates", carbohydrates)
+                command.Parameters.AddWithValue("@protein", protein)
+                command.Parameters.AddWithValue("@fat", fat)
+                command.Parameters.AddWithValue("@Energy", energy)
+                command.Parameters.AddWithValue("@Sugar", sugar)
+                command.Parameters.AddWithValue("@Amount", amount)
+                command.Parameters.AddWithValue("@Date", currentDate)
+
+                connection.Open()
+                command.ExecuteNonQuery()
+                Return True
+            End Using
+        End Using
+
+        Return False
+    End Function
+
 
     Private Sub cbAmount_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbAmount.SelectedIndexChanged
         ' Parse the selected amount from the ComboBox
@@ -177,6 +206,8 @@ Public Class Form1
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
         Me.Close()
+
+        'Komponent 
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click

@@ -22,9 +22,9 @@ Partial Class MainForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.btnProfile = New System.Windows.Forms.Button()
         Me.btnCreateUser = New System.Windows.Forms.Button()
         Me.btnLogFood = New System.Windows.Forms.Button()
@@ -411,20 +411,20 @@ Partial Class MainForm
         '
         Me.chartMakro.BackColor = System.Drawing.Color.Transparent
         Me.chartMakro.BorderlineColor = System.Drawing.Color.Transparent
-        ChartArea2.BackSecondaryColor = System.Drawing.Color.Transparent
-        ChartArea2.Name = "ChartArea1"
-        Me.chartMakro.ChartAreas.Add(ChartArea2)
-        Legend2.Name = "Legend1"
-        Legend2.TitleBackColor = System.Drawing.Color.Transparent
-        Me.chartMakro.Legends.Add(Legend2)
+        ChartArea3.BackSecondaryColor = System.Drawing.Color.Transparent
+        ChartArea3.Name = "ChartArea1"
+        Me.chartMakro.ChartAreas.Add(ChartArea3)
+        Legend3.Name = "Legend1"
+        Legend3.TitleBackColor = System.Drawing.Color.Transparent
+        Me.chartMakro.Legends.Add(Legend3)
         Me.chartMakro.Location = New System.Drawing.Point(584, 30)
         Me.chartMakro.Margin = New System.Windows.Forms.Padding(2)
         Me.chartMakro.Name = "chartMakro"
-        Series2.ChartArea = "ChartArea1"
-        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut
-        Series2.Legend = "Legend1"
-        Series2.Name = "series"
-        Me.chartMakro.Series.Add(Series2)
+        Series3.ChartArea = "ChartArea1"
+        Series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut
+        Series3.Legend = "Legend1"
+        Series3.Name = "series"
+        Me.chartMakro.Series.Add(Series3)
         Me.chartMakro.Size = New System.Drawing.Size(304, 289)
         Me.chartMakro.TabIndex = 19
         Me.chartMakro.Text = "Chart1"
