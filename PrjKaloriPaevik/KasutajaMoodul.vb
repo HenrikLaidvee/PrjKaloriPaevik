@@ -17,10 +17,11 @@
     Public loggedInSugar As Double
     Public loggedInRemainingSugar As Double
     Public loggedInRemainingCalories As Double
-    Public Unhealthy As Boolean = True
+    Public Unhealthy As Double
     'Public RemainingCalories As Double
     'Public latestUserID As Integer = -1
-    Public Kosher As Boolean
+    Public Kosher As Double
+    Public loggedInEmail As String = ""
 
     ' Funktsioon, mis määrab kasutaja sisselogimise oleku
     Public Sub SetLoginStatus(ByVal status As Boolean)

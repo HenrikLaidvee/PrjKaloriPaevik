@@ -4,8 +4,10 @@ Public Class Profiil
 
     Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
     'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduAndmebaas.accdb;"
+    'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\marku\Downloads\ToiduAndmebaas\ToiduAndmebaas.accdb;"
 
     Private Sub Profiil_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        txtEmail.Text = loggedInEmail
         txtUsername.Text = loggedInFirstName
         txtLastName.Text = loggedInLastName
         txtPassword.Text = loggedInPassword
@@ -13,6 +15,8 @@ Public Class Profiil
         txtHeight.Text = loggedInHeight.ToString()
         txtDailyCalories.Text = loggedInCalories.ToString()
         txtGoalWeight.Text = loggedInGoal.ToString()
+        txtDailyCalories.Text = loggedInCalories.ToString()
+        txtSugarLimit.Text = loggedInSugar.ToString()
         'txtCaloriesLeft.Text = (loggedInCalories - KasutajaMoodul.food_amount)
 
         lblLimitReached.Visible = False
@@ -34,6 +38,17 @@ Public Class Profiil
         For i As Integer = 0 To 1000 Step 100
             cbAlcohol.Items.Add(i)
         Next
+
+        If Kosher = 1 Then
+            chbKosher.Checked = True
+        Else
+            chbKosher.Checked = False
+        End If
+        If Unhealthy = 1 Then
+            chbUnhealthy.Checked = True
+        Else
+            chbUnhealthy.Checked = False
+        End If
 
         cmbDay.SelectedItem = Convert.ToInt32(loggedInDay)
         cmbMonth.SelectedItem = loggedInMonth
@@ -93,6 +108,26 @@ Public Class Profiil
         End If
     End Sub
 
+    Private Sub txtEmail_TextChanged(sender As Object, e As EventArgs) Handles txtEmail.TextChanged
+        Dim maxChars As Integer = 50
+
+        Dim remainingChars As Integer = maxChars - txtEmail.Text.Length
+
+
+        lblEmailMaxWords.Text = $"{remainingChars}"
+
+        If remainingChars <= 0 Then
+
+            Dim newText As String = txtEmail.Text.Substring(0, maxChars)
+            txtEmail.Text = newText
+            txtEmail.SelectionStart = maxChars
+
+            lblLimitReached.Visible = True
+        Else
+            lblLimitReached.Visible = False
+        End If
+    End Sub
+
     Private Function Clear()
         cmbDay.SelectedIndex = -1
         cmbMonth.SelectedIndex = -1
@@ -104,6 +139,8 @@ Public Class Profiil
         txtDailyCalories.Text = ""
         txtPassword.Text = ""
         txtUsername.Text = ""
+        txtEmail.Text = ""
+        txtSugarLimit.Text = ""
     End Function
 
     ' Funktsioon, mis muudab kuu nimeks vastava kuunumbri
@@ -113,15 +150,16 @@ Public Class Profiil
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
         Me.Close()
-    End Sub
 
+    End Sub
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnCreateAccount.Click
 
         If cmbDay.SelectedIndex = -1 OrElse cmbMonth.SelectedIndex = -1 OrElse cmbYear.SelectedIndex = -1 _
             OrElse String.IsNullOrEmpty(txtWeight.Text) OrElse String.IsNullOrEmpty(txtPassword.Text) _
+            OrElse String.IsNullOrEmpty(txtEmail.Text) _
             OrElse String.IsNullOrEmpty(txtUsername.Text) OrElse String.IsNullOrEmpty(txtLastName.Text) _
             OrElse String.IsNullOrEmpty(txtHeight.Text) OrElse String.IsNullOrEmpty(txtGoalWeight.Text) _
-            OrElse String.IsNullOrEmpty(txtDailyCalories.Text) Then
+            OrElse String.IsNullOrEmpty(txtDailyCalories.Text) OrElse String.IsNullOrEmpty(txtSugarLimit.Text) Then
 
             MessageBox.Show("Palun täitke kõik väljad!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
@@ -136,13 +174,34 @@ Public Class Profiil
 
             Dim dailyCalories As Double = Double.Parse(txtDailyCalories.Text)
 
+            Dim SugarLimit As Double = Double.Parse(txtSugarLimit.Text)
+
+            Dim kosherChecked As Double
+
+            Dim unhealthyChecked As Double
+
+            If chbKosher.Checked Then
+                kosherChecked = 1
+            Else
+                kosherChecked = 0
+            End If
+
+            If chbUnhealthy.Checked Then
+                unhealthyChecked = 1
+            Else
+                kosherChecked = 0
+            End If
+
             Using connection As New OleDbConnection(connectionString)
                 connection.Open()
 
-                Dim query As String = "UPDATE Kasutaja SET Eesnimi = @Eesnimi, Perenimi = @Perenimi, Pikkus = @Pikkus, 
+
+
+                Dim query As String = "UPDATE Kasutaja SET Email = @Email, Eesnimi = @Eesnimi, Perenimi = @Perenimi, Pikkus = @Pikkus, 
                                Paev = @Paev, Kuu = @Kuu, Aasta = @Aasta, Parool = @Parool, Kaal = @Kaal, 
-                               Eesmark = @Eesmark, Kalorid = @Kalorid, Alkohol = @Alkohol WHERE ID = @ID"
+                               Eesmark = @Eesmark, Kalorid = @Kalorid, Alkohol = @Alkohol, Suhkur = @Suhkur, Kosher = @Kosher, Ebatervislik = @Ebatervislik WHERE ID = @ID"
                 Using command As New OleDbCommand(query, connection)
+                    command.Parameters.AddWithValue("@Email", txtEmail.Text)
                     command.Parameters.AddWithValue("@Eesnimi", txtUsername.Text)
                     command.Parameters.AddWithValue("@Perenimi", txtLastName.Text)
                     command.Parameters.AddWithValue("@Pikkus", height)
@@ -153,10 +212,15 @@ Public Class Profiil
                     command.Parameters.AddWithValue("@Kaal", weight)
                     command.Parameters.AddWithValue("@Eesmark", goalWeight)
                     command.Parameters.AddWithValue("@Kalorid", dailyCalories)
-                    command.Parameters.AddWithValue("@ID", loggedInID)
                     command.Parameters.AddWithValue("@Alkohol", cbAlcohol.SelectedItem)
+                    command.Parameters.AddWithValue("@Suhkur", SugarLimit)
+                    command.Parameters.AddWithValue("@Kosher", kosherChecked)
+                    command.Parameters.AddWithValue("@Ebatervislik", unhealthyChecked)
+                    command.Parameters.AddWithValue("@ID", loggedInID)
+
 
                     command.ExecuteNonQuery()
+                    loggedInEmail = txtEmail.Text
                     loggedInFirstName = txtUsername.Text
                     loggedInLastName = txtLastName.Text
                     loggedInHeight = height
@@ -168,6 +232,9 @@ Public Class Profiil
                     loggedInGoal = goalWeight
                     loggedInCalories = dailyCalories
                     loggedAlcohol = cbAlcohol.SelectedItem
+                    loggedInSugar = SugarLimit
+                    Kosher = kosherChecked
+                    Unhealthy = unhealthyChecked
 
                 End Using
                 MainForm.txtCurrentWeight.Text = loggedInWeight.ToString()
@@ -192,17 +259,5 @@ Public Class Profiil
         Catch ex As Exception
             MessageBox.Show("Andmete salvestamisel tekkis viga: " & ex.Message, "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
-    End Sub
-
-    Private Sub chbUnhealthy_CheckedChanged(sender As Object, e As EventArgs) Handles chbUnhealthy.CheckedChanged
-        If Unhealthy Then
-            Unhealthy = chbUnhealthy.Checked
-        End If
-    End Sub
-
-    Private Sub chbKosher_CheckedChanged(sender As Object, e As EventArgs) Handles chbKosher.CheckedChanged
-        If Kosher Then
-            Kosher = chbKosher.Checked
-        End If
     End Sub
 End Class

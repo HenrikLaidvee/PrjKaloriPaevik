@@ -40,6 +40,7 @@ Partial Class MainForm
         Me.txtCalorieLimit = New System.Windows.Forms.TextBox()
         Me.txtCaloriesLeft = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnLogOut = New System.Windows.Forms.Button()
         Me.btnExport = New System.Windows.Forms.Button()
         Me.btnKaal = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -58,7 +59,6 @@ Partial Class MainForm
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.txtMotivate = New System.Windows.Forms.RichTextBox()
         Me.chartMakro = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.btnLogOut = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -216,10 +216,20 @@ Partial Class MainForm
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Menüü"
         '
+        'btnLogOut
+        '
+        Me.btnLogOut.Location = New System.Drawing.Point(18, 398)
+        Me.btnLogOut.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnLogOut.Name = "btnLogOut"
+        Me.btnLogOut.Size = New System.Drawing.Size(137, 51)
+        Me.btnLogOut.TabIndex = 5
+        Me.btnLogOut.Text = "Logi välja"
+        Me.btnLogOut.UseVisualStyleBackColor = True
+        '
         'btnExport
         '
         Me.btnExport.Location = New System.Drawing.Point(18, 327)
-        Me.btnExport.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnExport.Margin = New System.Windows.Forms.Padding(2)
         Me.btnExport.Name = "btnExport"
         Me.btnExport.Size = New System.Drawing.Size(137, 51)
         Me.btnExport.TabIndex = 4
@@ -229,7 +239,7 @@ Partial Class MainForm
         'btnKaal
         '
         Me.btnKaal.Location = New System.Drawing.Point(650, 361)
-        Me.btnKaal.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnKaal.Margin = New System.Windows.Forms.Padding(2)
         Me.btnKaal.Name = "btnKaal"
         Me.btnKaal.Size = New System.Drawing.Size(137, 67)
         Me.btnKaal.TabIndex = 15
@@ -270,7 +280,7 @@ Partial Class MainForm
         'txtSugarLeft
         '
         Me.txtSugarLeft.Location = New System.Drawing.Point(222, 288)
-        Me.txtSugarLeft.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtSugarLeft.Margin = New System.Windows.Forms.Padding(2)
         Me.txtSugarLeft.Name = "txtSugarLeft"
         Me.txtSugarLeft.Size = New System.Drawing.Size(100, 30)
         Me.txtSugarLeft.TabIndex = 24
@@ -298,7 +308,7 @@ Partial Class MainForm
         'txtSugarLimit
         '
         Me.txtSugarLimit.Location = New System.Drawing.Point(222, 250)
-        Me.txtSugarLimit.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtSugarLimit.Margin = New System.Windows.Forms.Padding(2)
         Me.txtSugarLimit.Name = "txtSugarLimit"
         Me.txtSugarLimit.Size = New System.Drawing.Size(100, 30)
         Me.txtSugarLimit.TabIndex = 21
@@ -408,7 +418,7 @@ Partial Class MainForm
         Legend1.TitleBackColor = System.Drawing.Color.Transparent
         Me.chartMakro.Legends.Add(Legend1)
         Me.chartMakro.Location = New System.Drawing.Point(584, 30)
-        Me.chartMakro.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.chartMakro.Margin = New System.Windows.Forms.Padding(2)
         Me.chartMakro.Name = "chartMakro"
         Series1.ChartArea = "ChartArea1"
         Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut
@@ -418,16 +428,6 @@ Partial Class MainForm
         Me.chartMakro.Size = New System.Drawing.Size(304, 289)
         Me.chartMakro.TabIndex = 19
         Me.chartMakro.Text = "Chart1"
-        '
-        'btnLogOut
-        '
-        Me.btnLogOut.Location = New System.Drawing.Point(18, 398)
-        Me.btnLogOut.Margin = New System.Windows.Forms.Padding(2)
-        Me.btnLogOut.Name = "btnLogOut"
-        Me.btnLogOut.Size = New System.Drawing.Size(137, 51)
-        Me.btnLogOut.TabIndex = 5
-        Me.btnLogOut.Text = "Logi välja"
-        Me.btnLogOut.UseVisualStyleBackColor = True
         '
         'MainForm
         '

@@ -24,9 +24,6 @@ Partial Class LogInAken
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnLogIn = New System.Windows.Forms.Button()
-        Me.lblLastNameMaxWords = New System.Windows.Forms.Label()
-        Me.lblLastName = New System.Windows.Forms.Label()
-        Me.txtLastName = New System.Windows.Forms.TextBox()
         Me.lblLimitReached = New System.Windows.Forms.Label()
         Me.btnSeePassword = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -34,16 +31,13 @@ Partial Class LogInAken
         Me.lblPassword = New System.Windows.Forms.Label()
         Me.lblUsernameMaxWords = New System.Windows.Forms.Label()
         Me.lblFirstName = New System.Windows.Forms.Label()
-        Me.txtUsername = New System.Windows.Forms.TextBox()
+        Me.txtEmail = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.btnLogIn)
-        Me.GroupBox1.Controls.Add(Me.lblLastNameMaxWords)
-        Me.GroupBox1.Controls.Add(Me.lblLastName)
-        Me.GroupBox1.Controls.Add(Me.txtLastName)
         Me.GroupBox1.Controls.Add(Me.lblLimitReached)
         Me.GroupBox1.Controls.Add(Me.btnSeePassword)
         Me.GroupBox1.Controls.Add(Me.Label1)
@@ -51,12 +45,14 @@ Partial Class LogInAken
         Me.GroupBox1.Controls.Add(Me.lblPassword)
         Me.GroupBox1.Controls.Add(Me.lblUsernameMaxWords)
         Me.GroupBox1.Controls.Add(Me.lblFirstName)
-        Me.GroupBox1.Controls.Add(Me.txtUsername)
+        Me.GroupBox1.Controls.Add(Me.txtEmail)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(11, 11)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(634, 268)
-        Me.GroupBox1.TabIndex = 5
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
+        Me.GroupBox1.Size = New System.Drawing.Size(643, 270)
+        Me.GroupBox1.TabIndex = 7
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Kasutaja andmed"
         '
@@ -69,40 +65,15 @@ Partial Class LogInAken
         Me.btnLogIn.Text = "Log in"
         Me.btnLogIn.UseVisualStyleBackColor = True
         '
-        'lblLastNameMaxWords
-        '
-        Me.lblLastNameMaxWords.AutoSize = True
-        Me.lblLastNameMaxWords.Location = New System.Drawing.Point(482, 87)
-        Me.lblLastNameMaxWords.Name = "lblLastNameMaxWords"
-        Me.lblLastNameMaxWords.Size = New System.Drawing.Size(34, 25)
-        Me.lblLastNameMaxWords.TabIndex = 20
-        Me.lblLastNameMaxWords.Text = "30"
-        '
-        'lblLastName
-        '
-        Me.lblLastName.AutoSize = True
-        Me.lblLastName.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.lblLastName.Location = New System.Drawing.Point(52, 82)
-        Me.lblLastName.Name = "lblLastName"
-        Me.lblLastName.Size = New System.Drawing.Size(94, 25)
-        Me.lblLastName.TabIndex = 19
-        Me.lblLastName.Text = "Perenimi:"
-        '
-        'txtLastName
-        '
-        Me.txtLastName.Location = New System.Drawing.Point(156, 82)
-        Me.txtLastName.Name = "txtLastName"
-        Me.txtLastName.Size = New System.Drawing.Size(320, 30)
-        Me.txtLastName.TabIndex = 18
-        '
         'lblLimitReached
         '
         Me.lblLimitReached.AutoSize = True
-        Me.lblLimitReached.Location = New System.Drawing.Point(203, 18)
+        Me.lblLimitReached.Location = New System.Drawing.Point(232, 41)
+        Me.lblLimitReached.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblLimitReached.Name = "lblLimitReached"
-        Me.lblLimitReached.Size = New System.Drawing.Size(241, 25)
+        Me.lblLimitReached.Size = New System.Drawing.Size(174, 25)
         Me.lblLimitReached.TabIndex = 9
-        Me.lblLimitReached.Text = "Kasutajanime limiit on täis!"
+        Me.lblLimitReached.Text = "Emaili limiit on täis!"
         '
         'btnSeePassword
         '
@@ -142,28 +113,31 @@ Partial Class LogInAken
         'lblUsernameMaxWords
         '
         Me.lblUsernameMaxWords.AutoSize = True
-        Me.lblUsernameMaxWords.Location = New System.Drawing.Point(482, 51)
+        Me.lblUsernameMaxWords.Location = New System.Drawing.Point(492, 86)
+        Me.lblUsernameMaxWords.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblUsernameMaxWords.Name = "lblUsernameMaxWords"
         Me.lblUsernameMaxWords.Size = New System.Drawing.Size(34, 25)
         Me.lblUsernameMaxWords.TabIndex = 3
-        Me.lblUsernameMaxWords.Text = "30"
+        Me.lblUsernameMaxWords.Text = "50"
         '
         'lblFirstName
         '
         Me.lblFirstName.AutoSize = True
         Me.lblFirstName.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.lblFirstName.Location = New System.Drawing.Point(59, 51)
+        Me.lblFirstName.Location = New System.Drawing.Point(80, 83)
+        Me.lblFirstName.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblFirstName.Name = "lblFirstName"
-        Me.lblFirstName.Size = New System.Drawing.Size(87, 25)
+        Me.lblFirstName.Size = New System.Drawing.Size(66, 25)
         Me.lblFirstName.TabIndex = 2
-        Me.lblFirstName.Text = "Eesnimi:"
+        Me.lblFirstName.Text = "Email:"
         '
-        'txtUsername
+        'txtEmail
         '
-        Me.txtUsername.Location = New System.Drawing.Point(156, 46)
-        Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(320, 30)
-        Me.txtUsername.TabIndex = 1
+        Me.txtEmail.Location = New System.Drawing.Point(156, 83)
+        Me.txtEmail.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtEmail.Name = "txtEmail"
+        Me.txtEmail.Size = New System.Drawing.Size(320, 30)
+        Me.txtEmail.TabIndex = 1
         '
         'LogInAken
         '
@@ -181,9 +155,6 @@ Partial Class LogInAken
 
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents btnLogIn As Button
-    Friend WithEvents lblLastNameMaxWords As Label
-    Friend WithEvents lblLastName As Label
-    Friend WithEvents txtLastName As TextBox
     Friend WithEvents lblLimitReached As Label
     Friend WithEvents btnSeePassword As Button
     Friend WithEvents Label1 As Label
@@ -191,5 +162,5 @@ Partial Class LogInAken
     Friend WithEvents lblPassword As Label
     Friend WithEvents lblUsernameMaxWords As Label
     Friend WithEvents lblFirstName As Label
-    Friend WithEvents txtUsername As TextBox
+    Friend WithEvents txtEmail As TextBox
 End Class

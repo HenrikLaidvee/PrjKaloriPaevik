@@ -57,11 +57,12 @@ Public Class MainForm
     End Sub
 
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        btnLogFood.Enabled = True
+        btnLogFood.Enabled = False
         btnProfile.Enabled = False
         btnKaal.Enabled = False
+        btnExport.Enabled = False
+        btnLogOut.Enabled = False
         txtMotivate.ReadOnly = True
-
     End Sub
 
     Private Sub btnKaal_Click(sender As Object, e As EventArgs) Handles btnKaal.Click
@@ -131,5 +132,17 @@ Public Class MainForm
 
     Private Sub btnExport_Click(sender As Object, e As EventArgs) Handles btnExport.Click
         FilenameForm.Show()
+    End Sub
+
+    Private Sub btnLogOut_Click(sender As Object, e As EventArgs) Handles btnLogOut.Click
+        Dim appPath As String = Application.ExecutablePath
+
+        Process.Start(appPath)
+        Application.Exit()
+
+    End Sub
+
+    Private Sub txtCaloriesLeft_TextChanged(sender As Object, e As EventArgs) Handles txtCaloriesLeft.TextChanged
+
     End Sub
 End Class
