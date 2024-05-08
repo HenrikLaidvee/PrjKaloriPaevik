@@ -40,7 +40,7 @@ Public Class LogInAken
                                 loggedInWeight = reader("Kaal")
                                 loggedInGoal = reader("Eesmark")
                                 loggedInCalories = reader("Kalorid")
-                                loggedInSugar = reader("suhkur")
+                                loggedInSugar = Double.Parse(reader("suhkur"))
                             End While
                             Dim showMakro As PrjKaloriPaevikKalorid.ICalories
                             showMakro = New PrjKaloriPaevikKalorid.CCalories
