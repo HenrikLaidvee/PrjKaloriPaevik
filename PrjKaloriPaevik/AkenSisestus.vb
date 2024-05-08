@@ -29,51 +29,6 @@ Public Class Form1
     End Sub
 
 
-    Private Sub btnSearch_Click(sender As Object, e As EventArgs)
-        'Dim keyword As String = txtSisestus.Text.Trim()
-        'MessageBox.Show("Searching for: " & keyword)
-
-        If txtSisestus.Text = "" Then
-            Exit Sub
-        Else
-
-            Dim keyword As String = txtSisestus.Text
-
-            ' Construct the filter string to match description containing the keyword
-            Dim filterString As String = $"description LIKE '*{keyword}*'"
-            ' Apply the filter
-
-            If Kosher Then
-                filterString &= " AND NOT (description LIKE '*shellfish*' OR description LIKE '*crab*' OR description LIKE '*lobster*' OR description LIKE '*shrimp*' " &
-                    "OR description LIKE '*beef*' OR description LIKE '*game*' OR description LIKE '*lamb*' OR description LIKE '*chicken*' " &
-                    "OR description LIKE '*turkey*' OR description LIKE '*duck*' OR description LIKE '*goose*' OR description LIKE '*Milk*' " &
-                    "OR description LIKE '*cheese*' OR description LIKE '*yogurt*')"
-            End If
-
-            ToitBindingSource2.Filter = filterString
-
-            If ToitBindingSource2.Count <> 0 Then
-                With DataGridView1
-                    .DataSource = ToitBindingSource2
-                End With
-
-            Else
-                MessageBox.Show("Otsitud toodet ei leitud!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
-
-                ToitBindingSource2.Filter = Nothing
-
-                With DataGridView1
-                    .ClearSelection()
-                    .ReadOnly = True
-                    .MultiSelect = False
-                    .DataSource = ToitBindingSource2
-                End With
-
-            End If
-
-        End If
-    End Sub
-
     Private Sub DataGridView1_SelectionChanged(sender As Object, e As EventArgs)
         ' Check the condition 'Unhealthy'
         If Unhealthy Then
@@ -94,27 +49,8 @@ Public Class Form1
         End If
     End Sub
 
-
-
-
-
-
     Private Sub cbValik_SelectedIndexChanged(sender As Object, e As EventArgs)
         txtSisestus.Select()
-    End Sub
-
-    Private Sub btnClear_Click(sender As Object, e As EventArgs)
-
-        txtSisestus.Text = ""
-        txtSisestus.Select()
-        ToitBindingSource.Filter = Nothing
-
-        With DataGridView1
-            .ClearSelection()
-            .ReadOnly = True
-            .MultiSelect = False
-        End With
-
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
@@ -159,7 +95,7 @@ Public Class Form1
                                         End Using
                                     End Using
 
-                                    MessageBox.Show("Data saved to sisestatud_toit table.")
+                                    MessageBox.Show("Toit salvestatud edukalt!")
                                 Else
                                     MessageBox.Show("Invalid value for Amount.")
                                 End If
@@ -231,7 +167,64 @@ Public Class Form1
 
     End Sub
 
-    Private Sub btnBack_Click(sender As Object, e As EventArgs)
+
+
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
         Me.Close()
+    End Sub
+
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        txtSisestus.Text = ""
+        txtSisestus.Select()
+        ToitBindingSource.Filter = Nothing
+
+        With DataGridView1
+            .ClearSelection()
+            .ReadOnly = True
+            .MultiSelect = False
+        End With
+    End Sub
+
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+
+        If txtSisestus.Text = "" Then
+            Exit Sub
+        Else
+
+            Dim keyword As String = txtSisestus.Text
+
+            ' Construct the filter string to match description containing the keyword
+            Dim filterString As String = $"description LIKE '*{keyword}*'"
+            ' Apply the filter
+
+            If Kosher Then
+                filterString &= " AND NOT (description LIKE '*shellfish*' OR description LIKE '*crab*' OR description LIKE '*lobster*' OR description LIKE '*shrimp*' " &
+                    "OR description LIKE '*beef*' OR description LIKE '*game*' OR description LIKE '*lamb*' OR description LIKE '*chicken*' " &
+                    "OR description LIKE '*turkey*' OR description LIKE '*duck*' OR description LIKE '*goose*' OR description LIKE '*Milk*' " &
+                    "OR description LIKE '*cheese*' OR description LIKE '*yogurt*')"
+            End If
+
+            ToitBindingSource2.Filter = filterString
+
+            If ToitBindingSource2.Count <> 0 Then
+                With DataGridView1
+                    .DataSource = ToitBindingSource2
+                End With
+
+            Else
+                MessageBox.Show("Otsitud toodet ei leitud!", "Viga", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+                ToitBindingSource2.Filter = Nothing
+
+                With DataGridView1
+                    .ClearSelection()
+                    .ReadOnly = True
+                    .MultiSelect = False
+                    .DataSource = ToitBindingSource2
+                End With
+
+            End If
+
+        End If
     End Sub
 End Class
