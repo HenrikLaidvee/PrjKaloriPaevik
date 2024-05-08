@@ -50,8 +50,8 @@ Public Class LogInAken
                             End While
                             Dim showMakro As PrjKaloriPaevikKalorid.ICalories
                             showMakro = New PrjKaloriPaevikKalorid.CCalories
-                            'loggedInRemainingCalories = loggedInCalories - showMakro.getCalories(loggedInID)
-                            'loggedInRemainingSugar = loggedInSugar - showMakro.getSugar(loggedInID)
+                            loggedInRemainingCalories = loggedInCalories - showMakro.getCalories(loggedInID)
+                            loggedInRemainingSugar = loggedInSugar - showMakro.getSugar(loggedInID)
                             SetLoginStatus(True)
                             MainForm.txtSugarLimit.Text = loggedInSugar.ToString()
                             MainForm.txtCaloriesLeft.Text = loggedInRemainingCalories.ToString()
@@ -63,6 +63,7 @@ Public Class LogInAken
                             MainForm.btnKaal.Enabled = True
                             MainForm.btnLogOut.Enabled = True
                             MainForm.btnExport.Enabled = True
+                            MainForm.btnSaveLive.Enabled = True
                             MainForm.txtCurrentWeight.Text = loggedInWeight.ToString()
                             MainForm.txtGoalWeight.Text = loggedInGoal.ToString()
                             MainForm.txtNeedToLose.Text = (loggedInWeight - loggedInGoal).ToString()
@@ -74,10 +75,26 @@ Public Class LogInAken
                             MainForm.txtProtein.Text = showMakro.makroPercent(0, loggedInID).ToString
                             MainForm.txtFat.Text = showMakro.makroPercent(1, loggedInID).ToString
                             MainForm.txtCarbs.Text = showMakro.makroPercent(2, loggedInID).ToString
-                            MainForm.series.ChartType = SeriesChartType.Pie
-                            MainForm.series.Points.AddXY("Protein", showMakro.makroPercent(0, loggedInID))
-                            MainForm.series.Points.AddXY("Fat", showMakro.makroPercent(1, loggedInID))
-                            MainForm.series.Points.AddXY("Carbs", showMakro.makroPercent(2, loggedInID))
+                            With MainForm.chartMakro
+                                .Legends.Clear()
+                                .Series.Clear()
+                                .ChartAreas.Clear()
+                            End With
+
+                            Dim areas1 As ChartArea = MainForm.chartMakro.ChartAreas.Add("Areas1")
+
+                            With areas1
+                            End With
+
+                            Dim series1 As Series = MainForm.chartMakro.Series.Add("Series1")
+
+                            With series1
+                                .ChartArea = areas1.Name
+                                .ChartType = SeriesChartType.Pie
+                                .Points.AddXY("Protein", showMakro.makroPercent(0, loggedInID))
+                                .Points.AddXY("Fat", showMakro.makroPercent(1, loggedInID))
+                                .Points.AddXY("Carbs", showMakro.makroPercent(2, loggedInID))
+                            End With
 
                             'KasutajaMoodul.latestUserID = GetLatestUserID()
 

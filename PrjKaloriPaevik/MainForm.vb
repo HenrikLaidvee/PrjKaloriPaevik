@@ -1,7 +1,7 @@
 ﻿Imports System.Data.OleDb
 Imports System.Windows.Forms.DataVisualization.Charting
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
-
+Imports CFoodCalculate
 
 Public Class MainForm
     Public series As New Series()
@@ -66,6 +66,7 @@ Public Class MainForm
         txtCaloriesLeft.ReadOnly = True
         txtSugarLimit.ReadOnly = True
         txtSugarLeft.ReadOnly = True
+        btnSaveLive.Enabled = False
     End Sub
 
     Private Sub btnKaal_Click(sender As Object, e As EventArgs) Handles btnKaal.Click
@@ -145,5 +146,10 @@ Public Class MainForm
 
     End Sub
 
+    Private Sub btnSaveLive_Click(sender As Object, e As EventArgs) Handles btnSaveLive.Click
+        'Dim foodCalculator As New CFoodCalculate()
 
+        ' Call the CalculateAndInsertTotals method
+        'foodCalculator.CalculateAndInsertTotals()
+    End Sub
 End Class

@@ -33,8 +33,8 @@ Public Class CExportToCSV
 
             ' Construct a SQL query to select a specific number of lines from your table
 
-            'Tuleb YourTable ära vahetada veel
-            Dim query As String = "SELECT TOP " & numberOfLines & " * FROM Sisestatud_toit"
+
+            Dim query As String = "SELECT TOP " & numberOfLines & " * FROM Ajalugu where kasutaja_ID = @loggedinID"
 
             ' Create a command to execute the SQL query
             Using command As New OleDbCommand(query, connection)

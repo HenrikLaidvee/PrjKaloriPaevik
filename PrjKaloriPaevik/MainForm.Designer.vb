@@ -59,6 +59,7 @@ Partial Class MainForm
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.txtMotivate = New System.Windows.Forms.RichTextBox()
         Me.chartMakro = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.btnSaveLive = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -238,10 +239,11 @@ Partial Class MainForm
         '
         'btnKaal
         '
-        Me.btnKaal.Location = New System.Drawing.Point(650, 361)
+        Me.btnKaal.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.btnKaal.Location = New System.Drawing.Point(593, 326)
         Me.btnKaal.Margin = New System.Windows.Forms.Padding(2)
         Me.btnKaal.Name = "btnKaal"
-        Me.btnKaal.Size = New System.Drawing.Size(137, 67)
+        Me.btnKaal.Size = New System.Drawing.Size(225, 67)
         Me.btnKaal.TabIndex = 15
         Me.btnKaal.Text = "Kaalu statistika"
         Me.btnKaal.UseVisualStyleBackColor = True
@@ -272,13 +274,14 @@ Partial Class MainForm
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
         Me.GroupBox2.Location = New System.Drawing.Point(240, 18)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(338, 434)
+        Me.GroupBox2.Size = New System.Drawing.Size(338, 446)
         Me.GroupBox2.TabIndex = 17
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Tänane statistika"
         '
         'txtSugarLeft
         '
+        Me.txtSugarLeft.Enabled = False
         Me.txtSugarLeft.Location = New System.Drawing.Point(222, 288)
         Me.txtSugarLeft.Margin = New System.Windows.Forms.Padding(2)
         Me.txtSugarLeft.Name = "txtSugarLeft"
@@ -307,6 +310,7 @@ Partial Class MainForm
         '
         'txtSugarLimit
         '
+        Me.txtSugarLimit.Enabled = False
         Me.txtSugarLimit.Location = New System.Drawing.Point(222, 250)
         Me.txtSugarLimit.Margin = New System.Windows.Forms.Padding(2)
         Me.txtSugarLimit.Name = "txtSugarLimit"
@@ -429,11 +433,23 @@ Partial Class MainForm
         Me.chartMakro.TabIndex = 19
         Me.chartMakro.Text = "Chart1"
         '
+        'btnSaveLive
+        '
+        Me.btnSaveLive.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.btnSaveLive.Location = New System.Drawing.Point(593, 397)
+        Me.btnSaveLive.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnSaveLive.Name = "btnSaveLive"
+        Me.btnSaveLive.Size = New System.Drawing.Size(225, 67)
+        Me.btnSaveLive.TabIndex = 20
+        Me.btnSaveLive.Text = "Salvestada vahetulemused"
+        Me.btnSaveLive.UseVisualStyleBackColor = True
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(904, 740)
+        Me.Controls.Add(Me.btnSaveLive)
         Me.Controls.Add(Me.chartMakro)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
@@ -484,4 +500,5 @@ Partial Class MainForm
     Friend WithEvents btnDownload2 As Button
     Friend WithEvents btnExport As Button
     Friend WithEvents btnLogOut As Button
+    Friend WithEvents btnSaveLive As Button
 End Class

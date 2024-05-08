@@ -29,13 +29,16 @@ Public Class CCalories
 
     Private Sub getNutrient(ByRef user As Integer)
         Try
+            Dim currentDate As String = DateTime.Now.ToString("dd-MM-yyyy")
+
             'gets calories from food
             Using connection As New OleDbConnection(connectionString)
                 connection.Open()
-                Dim commandText As String = "SELECT Energy, Protein, Fat, Carbohydrates, sugar FROM sisestatud_toit WHERE kasutaja_id = data"
+                Dim commandText As String = "SELECT Energy, Protein, Fat, Carbohydrates, sugar FROM sisestatud_toit WHERE  [date] like ? AND kasutaja_id = data"
                 Dim command As New OleDbCommand(commandText, connection)
+
                 ' Specify the value of the primary key to retrieve
-                'command.Parameters.AddWithValue("?", "%" & DateTime.Now.ToString("dd-MM-yyyy") & "%")
+                command.Parameters.AddWithValue("?", "%" & currentDate & "%")
                 command.Parameters.AddWithValue("data", user)
                 Dim reader As OleDbDataReader = command.ExecuteReader()
                 While reader.Read()
