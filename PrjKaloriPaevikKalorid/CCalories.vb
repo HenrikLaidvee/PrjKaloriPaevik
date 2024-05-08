@@ -31,10 +31,10 @@ Public Class CCalories
             'gets calories from food
             Using connection As New OleDbConnection(connectionString)
                 connection.Open()
-                Dim commandText As String = "SELECT Energy, Protein, Fat, Carbohydrates, sugar FROM sisestatud_toit WHERE kasutaja_id = data AND Datea = ?"
+                Dim commandText As String = "SELECT Energy, Protein, Fat, Carbohydrates, sugar FROM sisestatud_toit WHERE kasutaja_id = data"
                 Dim command As New OleDbCommand(commandText, connection)
                 ' Specify the value of the primary key to retrieve
-                command.Parameters.AddWithValue("?", "%" & DateTime.Now.ToString("dd-MM-yyyy") & "%")
+                'command.Parameters.AddWithValue("?", "%" & DateTime.Now.ToString("dd-MM-yyyy") & "%")
                 command.Parameters.AddWithValue("data", user)
                 Dim reader As OleDbDataReader = command.ExecuteReader()
                 While reader.Read()
