@@ -79,7 +79,7 @@ Public Class MainForm
             ' First, retrieve the Pikkus value from the database
             Using selectCommand As New OleDbCommand(selectQuery, connection)
                 ' Add parameter for ID
-                selectCommand.Parameters.AddWithValue("@ID", ID) ' ID is a variable containing the User ID to search for
+                selectCommand.Parameters.AddWithValue("@Kasutaja_ID", ID) ' ID is a variable containing the User ID to search for
 
                 Try
                     connection.Open()
