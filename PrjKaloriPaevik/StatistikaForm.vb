@@ -9,7 +9,8 @@ Public Class StatistikaForm
         connection.Open()
 
         ' Retrieve data from the database
-        Dim command As New OleDbCommand("SELECT Kuupäev, BMI FROM KaaluAndmed", connection)
+        Dim command As New OleDbCommand("SELECT Kuupäev, BMI FROM KaaluAndmed WHERE Kasutaja_ID = @id", connection)
+        command.Parameters.AddWithValue("@id", KasutajaMoodul.loggedInID)
         Dim reader As OleDbDataReader = command.ExecuteReader()
 
         ' Check if the series exists or create it if necessary
@@ -39,5 +40,9 @@ Public Class StatistikaForm
         Chart1.Series("BMI").BorderWidth = 2
         Chart1.Series("BMI").ChartType = DataVisualization.Charting.SeriesChartType.Line
         Chart1.Dock = DockStyle.Fill
+    End Sub
+
+    Private Sub Chart1_Click(sender As Object, e As EventArgs) Handles Chart1.Click
+
     End Sub
 End Class
