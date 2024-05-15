@@ -13,9 +13,10 @@ Public Class LogInAken
         End If
 
         Try
-            'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
-            Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduAndmebaas.accdb;"
-            Dim query As String = "SELECT * FROM Kasutaja WHERE Eesnimi = @Eesnimi AND Perenimi = @Perenimi AND  Parool = @Parool"
+            Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janlep\Desktop\ToiduAndmebaas.accdb;"
+            'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduAndmebaas.accdb;"
+            'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\marku\Downloads\ToiduAndmebaas\ToiduAndmebaas.accdb;"
+            Dim query As String = "SELECT * FROM Kasutaja WHERE Email = @Email AND  Parool = @Parool"
 
             Using connection As New OleDbConnection(connectionString)
                 connection.Open()

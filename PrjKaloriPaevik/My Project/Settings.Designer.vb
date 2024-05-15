@@ -57,7 +57,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\FoodDatabase.accdb")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janlep\Desktop\ToiduAndmeb"& _ 
+            "aas.accdb")>  _
         Public ReadOnly Property FoodDatabaseConnectionString() As String
             Get
                 Return CType(Me("FoodDatabaseConnectionString"),String)
@@ -77,8 +78,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Throthar\source\repos\PrjK"& _ 
-            "aloriPaevik\ToiduTest.accdb")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janlep\Desktop\ToiduAndmeb"& _ 
+            "aas.accdb")>  _
         Public ReadOnly Property ToiduAndmebaasConnectionString() As String
             Get
                 Return CType(Me("ToiduAndmebaasConnectionString"),String)
@@ -88,8 +89,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnik"& _ 
-            "a\Andmebaas\ToiduAndmebaas.accdb")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janlep\Desktop\ToiduAndmeb"& _ 
+            "aas.accdb")>  _
         Public ReadOnly Property ToiduAndmebaasConnectionString1() As String
             Get
                 Return CType(Me("ToiduAndmebaasConnectionString1"),String)

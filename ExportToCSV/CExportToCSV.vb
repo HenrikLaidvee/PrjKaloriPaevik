@@ -33,7 +33,7 @@ Public Class CExportToCSV
 
             ' Construct a SQL query to select a specific number of lines from your table
 
-            'Tuleb YourTable ära vahetada veel
+
             Dim query As String = "SELECT TOP " & numberOfLines & " * FROM Sisestatud_toit"
 
             ' Create a command to execute the SQL query

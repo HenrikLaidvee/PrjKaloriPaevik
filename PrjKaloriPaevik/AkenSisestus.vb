@@ -72,53 +72,51 @@ Public Class Form1
                                     ' Format the date as "dd-MM-yyyy"
                                     Dim currentDate As String = DateTime.Now.ToString("dd-MM-yyyy")
 
-                                    ' Insert the values into the Access table "sisestatud_toit"
-                                    'Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\B\Documents\Tarkvaratehnika\Andmebaas\ToiduAndmebaas.accdb;"
-                                    Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janml\OneDrive\Desktop\Kool\Tarkvaratehnika\ToiduAndmebaas.accdb;"
-                                    Dim query As String = "INSERT INTO sisestatud_toit (food_id, kasutaja_id, carbohydrates, protein, fat, Energy, Sugar, Amount, [Date]) VALUES (@food_id, @kasutaja_id, @carbohydrates, @protein, @fat, @Energy, @Sugar, @Amount, @Date)"
+                                    Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\janlep\Desktop\ToiduAndmebaas.accdb;"
+        Dim query As String = "INSERT INTO sisestatud_toit (food_id, kasutaja_id, carbohydrates, protein, fat, Energy, Sugar, Amount, [Date]) VALUES (@food_id, @kasutaja_id, @carbohydrates, @protein, @fat, @Energy, @Sugar, @Amount, @Date)"
 
-                                    Using connection As New OleDbConnection(connectionString)
-                                        Using command As New OleDbCommand(query, connection)
-                                            ' Add parameters
-                                            command.Parameters.AddWithValue("@food_id", food_id)
-                                            command.Parameters.AddWithValue("@kasutaja_id", loggedInID)
-                                            command.Parameters.AddWithValue("@carbohydrates", carbohydrates)
-                                            command.Parameters.AddWithValue("@protein", protein)
-                                            command.Parameters.AddWithValue("@fat", fat)
-                                            command.Parameters.AddWithValue("@Energy", energy)
-                                            command.Parameters.AddWithValue("@Sugar", sugar)
-                                            command.Parameters.AddWithValue("@Amount", amount)
-                                            command.Parameters.AddWithValue("@Date", currentDate)
+        Using connection As New OleDbConnection(connectionString)
+            Using command As New OleDbCommand(query, connection)
+                ' Add parameters
+                command.Parameters.AddWithValue("@food_id", food_id)
+                command.Parameters.AddWithValue("@kasutaja_id", loggedInID)
+                command.Parameters.AddWithValue("@carbohydrates", carbohydrates)
+                command.Parameters.AddWithValue("@protein", protein)
+                command.Parameters.AddWithValue("@fat", fat)
+                command.Parameters.AddWithValue("@Energy", energy)
+                command.Parameters.AddWithValue("@Sugar", sugar)
+                command.Parameters.AddWithValue("@Amount", amount)
+                command.Parameters.AddWithValue("@Date", currentDate)
 
-                                            ' Open the connection and execute the command
-                                            connection.Open()
-                                            command.ExecuteNonQuery()
-                                        End Using
-                                    End Using
+                ' Open the connection and execute the command
+                connection.Open()
+                command.ExecuteNonQuery()
+            End Using
+        End Using
 
-                                    MessageBox.Show("Toit salvestatud edukalt!")
-                                Else
-                                    MessageBox.Show("Invalid value for Amount.")
-                                End If
-                            Else
-                                MessageBox.Show("Invalid value for Sugar.")
-                            End If
-                        Else
-                            MessageBox.Show("Invalid value for Energy.")
-                        End If
-                    Else
-                        MessageBox.Show("Invalid value for Fat.")
-                    End If
-                Else
-                    MessageBox.Show("Invalid value for Protein.")
-                End If
-            Else
-                MessageBox.Show("Invalid value for Carbohydrates.")
-            End If
+        MessageBox.Show("Toit salvestatud edukalt!")
         Else
-            MessageBox.Show("Invalid value for food_id.")
+        MessageBox.Show("Invalid value for Amount.")
         End If
-    End Sub
+        Else
+        MessageBox.Show("Invalid value for Sugar.")
+        End If
+        Else
+        MessageBox.Show("Invalid value for Energy.")
+        End If
+        Else
+        MessageBox.Show("Invalid value for Fat.")
+        End If
+        Else
+        MessageBox.Show("Invalid value for Protein.")
+        End If
+        Else
+        MessageBox.Show("Invalid value for Carbohydrates.")
+        End If
+        Else
+        MessageBox.Show("Invalid value for food_id.")
+        End If
+        End Sub
 
     Private Sub cbAmount_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbAmount.SelectedIndexChanged
         ' Parse the selected amount from the ComboBox
